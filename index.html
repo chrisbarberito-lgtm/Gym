@@ -29,10 +29,12 @@ body{padding:env(safe-area-inset-top) 0 150px;font-size:16px;line-height:1.4}
 nav.days{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
 nav.days::-webkit-scrollbar{display:none}
 .dbtn{flex:0 0 auto;text-decoration:none;background:var(--panel);border:1px solid var(--line);color:var(--muted);
- border-radius:12px;padding:8px 13px;font-size:14px;font-weight:800;min-width:54px;text-align:center;display:flex;flex-direction:column;gap:1px}
-.dbtn span{font-size:10px;font-weight:600;color:var(--dim);text-transform:uppercase}
+ border-radius:12px;padding:7px 12px;min-width:58px;text-align:center;display:flex;flex-direction:column;gap:0}
+.dbtn b{font-size:14px;font-weight:800}
+.dbtn .dt{font-size:11px;font-weight:700;color:var(--accent2)}
+.dbtn .sub{font-size:9px;font-weight:600;color:var(--dim);text-transform:uppercase}
 .dbtn.active{background:var(--accent2);color:#04203f;border-color:var(--accent2)}
-.dbtn.active span{color:#04203f}
+.dbtn.active .dt,.dbtn.active .sub{color:#04203f}
 .dbtn.today:not(.active){border-color:var(--accent)}
 main{padding:2px 14px 0}
 .sec-hd{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:12px 2px 2px}
@@ -40,6 +42,7 @@ main{padding:2px 14px 0}
 .dhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:8px 2px 2px}
 .dname{font-size:22px;font-weight:800;letter-spacing:-.02em}
 .dfocus{font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.ddate{color:var(--muted)}
 .dmac{font-size:11px;color:var(--dim);text-align:right;max-width:150px}.dmac b{color:var(--muted)}
 .dprog{display:flex;align-items:center;gap:10px;margin:8px 2px 2px}
 .dbar{flex:1;height:8px;background:var(--panel2);border-radius:99px;overflow:hidden}
@@ -49,19 +52,28 @@ main{padding:2px 14px 0}
  padding:10px 12px;color:var(--warn);font-size:13.5px;margin:10px 0}
 .ex{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
 .ex.complete{border-color:rgba(76,194,163,.55)}
-.exh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 15px}
+.exh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:13px 15px}
 .exn{font-size:17px;font-weight:700}
 .bw{font-size:10px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:4px}
+.exright{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
 .ext{font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap}
+.histbtn{background:var(--panel2);border:1px solid var(--line);color:var(--accent2);border-radius:8px;padding:4px 9px;font-size:11px;font-weight:800;font-family:inherit}
+.histpanel{border-top:1px solid var(--line);padding:9px 15px 12px;background:var(--panel2)}
+.histrow{font-size:13.5px;color:var(--muted);padding:4px 0}
+.histrow b{color:var(--ink)}
+.histrow .hd{color:var(--dim);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-right:6px}
 .sets{padding:0 12px 8px}
-.setrow{display:flex;align-items:center;gap:8px;padding:8px 3px;border-top:1px solid var(--line)}
-.setno{flex:0 0 44px;font-size:12px;color:var(--dim);font-weight:800;text-transform:uppercase}
+.setrow{display:flex;align-items:center;gap:7px;padding:8px 3px;border-top:1px solid var(--line)}
+.setno{flex:0 0 42px;font-size:12px;color:var(--dim);font-weight:800;text-transform:uppercase}
 .bwtgt{flex:1;font-size:15px;color:var(--muted);font-weight:600}
 .fld{flex:1;position:relative}
 .fld .cap{position:absolute;top:-7px;left:10px;font-size:9px;color:var(--dim);background:var(--panel);padding:0 4px;text-transform:uppercase;font-weight:800}
 .fld input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);
- font-size:17px;font-weight:700;text-align:center;padding:11px 6px;font-family:inherit}
+ font-size:17px;font-weight:700;text-align:center;padding:11px 4px;font-family:inherit}
 .fld input:focus{outline:none;border-color:var(--accent2)}
+.cpy{flex:0 0 36px;height:46px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--accent2);font-size:18px;font-weight:800;font-family:inherit}
+.cpy:active{transform:scale(.92)}
+.cpy.ghost{visibility:hidden;border:none;background:none}
 .chk{flex:0 0 46px;height:46px;margin:0;-webkit-appearance:none;appearance:none;border:2px solid var(--line);
  border-radius:12px;background:var(--panel2);position:relative}
 .chk:checked{background:var(--done);border-color:var(--done)}
@@ -130,7 +142,7 @@ main{padding:2px 14px 0}
 <body>
 <div class="masthead">
   <div class="t">Chris — Coaching</div>
-  <div class="s">Workouts, meals &amp; weekly check-ins. Everything logs to your phone. <span class="ver">v3</span></div>
+  <div class="s">Workouts, meals &amp; weekly check-ins. Everything logs to your phone. <span class="ver">v4</span></div>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -141,248 +153,310 @@ main{padding:2px 14px 0}
 <main>
 
 <section class="mode" data-mode="train" id="mode-train">
-  <nav class="days"><a class="dbtn" href="#day-mon" data-day="mon">Mon<span>Push</span></a><a class="dbtn" href="#day-tue" data-day="tue">Tue<span>Legs</span></a><a class="dbtn" href="#day-wed" data-day="wed">Wed<span>Pull</span></a><a class="dbtn" href="#day-thu" data-day="thu">Thu<span>Cardio</span></a><a class="dbtn" href="#day-fri" data-day="fri">Fri<span>Legs</span></a><a class="dbtn" href="#day-sat" data-day="sat">Sat<span>Pump</span></a><a class="dbtn" href="#day-sun" data-day="sun">Sun<span>Rest</span></a></nav>
+  <nav class="days"><a class="dbtn" href="#day-mon" data-day="mon"><b>Mon</b><span class="dt"></span><span class="sub">Push</span></a><a class="dbtn" href="#day-tue" data-day="tue"><b>Tue</b><span class="dt"></span><span class="sub">Legs</span></a><a class="dbtn" href="#day-wed" data-day="wed"><b>Wed</b><span class="dt"></span><span class="sub">Pull</span></a><a class="dbtn" href="#day-thu" data-day="thu"><b>Thu</b><span class="dt"></span><span class="sub">Cardio</span></a><a class="dbtn" href="#day-fri" data-day="fri"><b>Fri</b><span class="dt"></span><span class="sub">Legs</span></a><a class="dbtn" href="#day-sat" data-day="sat"><b>Sat</b><span class="dt"></span><span class="sub">Pump</span></a><a class="dbtn" href="#day-sun" data-day="sun"><b>Sun</b><span class="dt"></span><span class="sub">Rest</span></a></nav>
   <section class="day-block" id="day-mon" data-day="mon">
-<div class="dhead"><div><div class="dname">Chest + Shoulders</div><div class="dfocus">Push</div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
+<div class="dhead"><div><div class="dname">Chest + Shoulders</div><div class="dfocus">Push <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">19 sets</span></div>
-<div class="ex">
-<div class="exh"><div class="exn">DB Bench Press </div><div class="ext">4 × 8–10</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_0" data-f="r" placeholder="8–10"></span><input type="checkbox" class="chk" data-key="mon_0_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_1" data-f="r" placeholder="8–10"></span><input type="checkbox" class="chk" data-key="mon_0_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_2" data-f="r" placeholder="8–10"></span><input type="checkbox" class="chk" data-key="mon_0_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_3" data-f="r" placeholder="8–10"></span><input type="checkbox" class="chk" data-key="mon_0_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Incline DB Press </div><div class="ext">3 × 10–12</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_0" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="mon_1_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_1" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="mon_1_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_2" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="mon_1_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Machine Chest Press </div><div class="ext">3 × 12–15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_0" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="mon_2_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_1" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="mon_2_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_2" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="mon_2_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">DB Lateral Raise </div><div class="ext">4 × 15–20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_0" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_3_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_1" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_3_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_2" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_3_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_3" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_3_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Rear Delt Fly </div><div class="ext">3 × 15–20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_0" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_4_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_1" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_4_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_2" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="mon_4_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Pushups <span class="bw">bodyweight</span></div><div class="ext">2 × to failure</div></div><div class="sets">
+<div class="ex" data-ex="DB Bench Press">
+<div class="exh"><div class="exn">DB Bench Press </div><div class="exright"><div class="ext">4 × 8–10</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_0" data-f="w" data-day="mon" data-si="0" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_0" data-f="r" data-day="mon" data-si="0" data-ex="DB Bench Press" placeholder="8–10"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_0_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_1" data-f="w" data-day="mon" data-si="1" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_1" data-f="r" data-day="mon" data-si="1" data-ex="DB Bench Press" placeholder="8–10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_0_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_2" data-f="w" data-day="mon" data-si="2" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_2" data-f="r" data-day="mon" data-si="2" data-ex="DB Bench Press" placeholder="8–10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_0_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_3" data-f="w" data-day="mon" data-si="3" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_3" data-f="r" data-day="mon" data-si="3" data-ex="DB Bench Press" placeholder="8–10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_0_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Incline DB Press">
+<div class="exh"><div class="exn">Incline DB Press </div><div class="exright"><div class="ext">3 × 10–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_0" data-f="w" data-day="mon" data-si="0" data-ex="Incline DB Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_0" data-f="r" data-day="mon" data-si="0" data-ex="Incline DB Press" placeholder="10–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_1_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_1" data-f="w" data-day="mon" data-si="1" data-ex="Incline DB Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_1" data-f="r" data-day="mon" data-si="1" data-ex="Incline DB Press" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_1_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_2" data-f="w" data-day="mon" data-si="2" data-ex="Incline DB Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_2" data-f="r" data-day="mon" data-si="2" data-ex="Incline DB Press" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_1_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Machine Chest Press">
+<div class="exh"><div class="exn">Machine Chest Press </div><div class="exright"><div class="ext">3 × 12–15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_0" data-f="w" data-day="mon" data-si="0" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_0" data-f="r" data-day="mon" data-si="0" data-ex="Machine Chest Press" placeholder="12–15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_2_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_1" data-f="w" data-day="mon" data-si="1" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_1" data-f="r" data-day="mon" data-si="1" data-ex="Machine Chest Press" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_2_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_2" data-f="w" data-day="mon" data-si="2" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_2" data-f="r" data-day="mon" data-si="2" data-ex="Machine Chest Press" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_2_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="DB Lateral Raise">
+<div class="exh"><div class="exn">DB Lateral Raise </div><div class="exright"><div class="ext">4 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_0" data-f="w" data-day="mon" data-si="0" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_0" data-f="r" data-day="mon" data-si="0" data-ex="DB Lateral Raise" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_3_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_1" data-f="w" data-day="mon" data-si="1" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_1" data-f="r" data-day="mon" data-si="1" data-ex="DB Lateral Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_3_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_2" data-f="w" data-day="mon" data-si="2" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_2" data-f="r" data-day="mon" data-si="2" data-ex="DB Lateral Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_3_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_3" data-f="w" data-day="mon" data-si="3" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_3" data-f="r" data-day="mon" data-si="3" data-ex="DB Lateral Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_3_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Rear Delt Fly">
+<div class="exh"><div class="exn">Rear Delt Fly </div><div class="exright"><div class="ext">3 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_0" data-f="w" data-day="mon" data-si="0" data-ex="Rear Delt Fly" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_0" data-f="r" data-day="mon" data-si="0" data-ex="Rear Delt Fly" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_4_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_1" data-f="w" data-day="mon" data-si="1" data-ex="Rear Delt Fly" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_1" data-f="r" data-day="mon" data-si="1" data-ex="Rear Delt Fly" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_4_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_2" data-f="w" data-day="mon" data-si="2" data-ex="Rear Delt Fly" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_2" data-f="r" data-day="mon" data-si="2" data-ex="Rear Delt Fly" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_4_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Pushups">
+<div class="exh"><div class="exn">Pushups <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × to failure</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">to failure</span><input type="checkbox" class="chk" data-key="mon_5_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">to failure</span><input type="checkbox" class="chk" data-key="mon_5_1" aria-label="done"></div>
-</div></div>
+</div>
+</div>
 <div class="cardio"><h3>Cardio</h3><p>35 min incline treadmill</p><p>5 min warmup @ spd 2.8 / incline 8</p><p>then 30 min @ spd 3.0 / incline 12</p></div>
 <div class="steps">👟 Target ~11,000 steps today (77k / week)</div></section>
 <section class="day-block" id="day-tue" data-day="tue">
-<div class="dhead"><div><div class="dname">Lower Body</div><div class="dfocus">Quad focus</div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
+<div class="dhead"><div><div class="dname">Lower Body</div><div class="dfocus">Quad focus <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">21 sets</span></div>
-<div class="ex">
-<div class="exh"><div class="exn">Smith / Hack Squat </div><div class="ext">4 × 8–12</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_0" data-f="r" placeholder="8–12"></span><input type="checkbox" class="chk" data-key="tue_0_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_1" data-f="r" placeholder="8–12"></span><input type="checkbox" class="chk" data-key="tue_0_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_2" data-f="r" placeholder="8–12"></span><input type="checkbox" class="chk" data-key="tue_0_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_3" data-f="r" placeholder="8–12"></span><input type="checkbox" class="chk" data-key="tue_0_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Leg Press (high &amp; wide) </div><div class="ext">4 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_1_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_1_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_1_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_3" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_1_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Walking Lunges </div><div class="ext">3 × 12 / leg</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_0" data-f="r" placeholder="12"></span><input type="checkbox" class="chk" data-key="tue_2_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_1" data-f="r" placeholder="12"></span><input type="checkbox" class="chk" data-key="tue_2_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_2" data-f="r" placeholder="12"></span><input type="checkbox" class="chk" data-key="tue_2_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Seated Ham Curl </div><div class="ext">3 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_3_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_3_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_3_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Leg Extension (2s squeeze) </div><div class="ext">3 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_4_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_4_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="tue_4_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Standing Calf Raise </div><div class="ext">4 × 15–20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_0" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="tue_5_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_1" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="tue_5_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_2" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="tue_5_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_3" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="tue_5_3" aria-label="done"></div>
-</div></div>
+<div class="ex" data-ex="Smith / Hack Squat">
+<div class="exh"><div class="exn">Smith / Hack Squat </div><div class="exright"><div class="ext">4 × 8–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_0" data-f="w" data-day="tue" data-si="0" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_0" data-f="r" data-day="tue" data-si="0" data-ex="Smith / Hack Squat" placeholder="8–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_0_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_1" data-f="w" data-day="tue" data-si="1" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_1" data-f="r" data-day="tue" data-si="1" data-ex="Smith / Hack Squat" placeholder="8–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_0_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_2" data-f="w" data-day="tue" data-si="2" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_2" data-f="r" data-day="tue" data-si="2" data-ex="Smith / Hack Squat" placeholder="8–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_0_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_3" data-f="w" data-day="tue" data-si="3" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_3" data-f="r" data-day="tue" data-si="3" data-ex="Smith / Hack Squat" placeholder="8–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_0_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Leg Press (high &amp; wide)">
+<div class="exh"><div class="exn">Leg Press (high &amp; wide) </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_0" data-f="w" data-day="tue" data-si="0" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_0" data-f="r" data-day="tue" data-si="0" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_1_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_1" data-f="w" data-day="tue" data-si="1" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_1" data-f="r" data-day="tue" data-si="1" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_1_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_2" data-f="w" data-day="tue" data-si="2" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_2" data-f="r" data-day="tue" data-si="2" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_1_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_3" data-f="w" data-day="tue" data-si="3" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_3" data-f="r" data-day="tue" data-si="3" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_1_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Walking Lunges">
+<div class="exh"><div class="exn">Walking Lunges </div><div class="exright"><div class="ext">3 × 12 / leg</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_0" data-f="w" data-day="tue" data-si="0" data-ex="Walking Lunges" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_0" data-f="r" data-day="tue" data-si="0" data-ex="Walking Lunges" placeholder="12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_2_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_1" data-f="w" data-day="tue" data-si="1" data-ex="Walking Lunges" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_1" data-f="r" data-day="tue" data-si="1" data-ex="Walking Lunges" placeholder="12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_2_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_2" data-f="w" data-day="tue" data-si="2" data-ex="Walking Lunges" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_2" data-f="r" data-day="tue" data-si="2" data-ex="Walking Lunges" placeholder="12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_2_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Seated Ham Curl">
+<div class="exh"><div class="exn">Seated Ham Curl </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_0" data-f="w" data-day="tue" data-si="0" data-ex="Seated Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_0" data-f="r" data-day="tue" data-si="0" data-ex="Seated Ham Curl" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_3_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_1" data-f="w" data-day="tue" data-si="1" data-ex="Seated Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_1" data-f="r" data-day="tue" data-si="1" data-ex="Seated Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_3_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_2" data-f="w" data-day="tue" data-si="2" data-ex="Seated Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_2" data-f="r" data-day="tue" data-si="2" data-ex="Seated Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_3_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Leg Extension (2s squeeze)">
+<div class="exh"><div class="exn">Leg Extension (2s squeeze) </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_0" data-f="w" data-day="tue" data-si="0" data-ex="Leg Extension (2s squeeze)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_0" data-f="r" data-day="tue" data-si="0" data-ex="Leg Extension (2s squeeze)" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_4_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_1" data-f="w" data-day="tue" data-si="1" data-ex="Leg Extension (2s squeeze)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_1" data-f="r" data-day="tue" data-si="1" data-ex="Leg Extension (2s squeeze)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_4_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_2" data-f="w" data-day="tue" data-si="2" data-ex="Leg Extension (2s squeeze)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_2" data-f="r" data-day="tue" data-si="2" data-ex="Leg Extension (2s squeeze)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_4_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Standing Calf Raise">
+<div class="exh"><div class="exn">Standing Calf Raise </div><div class="exright"><div class="ext">4 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_0" data-f="w" data-day="tue" data-si="0" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_0" data-f="r" data-day="tue" data-si="0" data-ex="Standing Calf Raise" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_5_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_1" data-f="w" data-day="tue" data-si="1" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_1" data-f="r" data-day="tue" data-si="1" data-ex="Standing Calf Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_5_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_2" data-f="w" data-day="tue" data-si="2" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_2" data-f="r" data-day="tue" data-si="2" data-ex="Standing Calf Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_5_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_3" data-f="w" data-day="tue" data-si="3" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_3" data-f="r" data-day="tue" data-si="3" data-ex="Standing Calf Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_5_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
 <div class="cardio"><h3>Cardio</h3><p>35 min stepmill @ spd 6–7</p></div>
 <div class="steps">👟 Target ~11,000 steps today (77k / week)</div></section>
 <section class="day-block" id="day-wed" data-day="wed">
-<div class="dhead"><div><div class="dname">Back + Arms</div><div class="dfocus">Pull</div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
+<div class="dhead"><div><div class="dname">Back + Arms</div><div class="dfocus">Pull <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">18 sets</span></div>
-<div class="ex">
-<div class="exh"><div class="exn">Neutral-Grip Pulldown </div><div class="ext">4 × 10–12</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_0" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_0_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_1" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_0_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_2" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_0_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_3" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_0_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Chest-Supported Row </div><div class="ext">3 × 10–12</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_0" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_1_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_1" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_1_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_2" data-f="r" placeholder="10–12"></span><input type="checkbox" class="chk" data-key="wed_1_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Straight-Arm Pulldown </div><div class="ext">3 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="wed_2_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="wed_2_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="wed_2_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">EZ-Bar Curl </div><div class="ext">3 × 12–15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_0" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="wed_3_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_1" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="wed_3_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_2" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="wed_3_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Rope Pressdown </div><div class="ext">3 × 15–20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_0" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="wed_4_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_1" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="wed_4_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_2" data-f="r" placeholder="15–20"></span><input type="checkbox" class="chk" data-key="wed_4_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Cable Curl burnout </div><div class="ext">2 × 20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_5_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_5_0" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="wed_5_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_5_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_5_1" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="wed_5_1" aria-label="done"></div>
-</div></div>
+<div class="ex" data-ex="Neutral-Grip Pulldown">
+<div class="exh"><div class="exn">Neutral-Grip Pulldown </div><div class="exright"><div class="ext">4 × 10–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_0" data-f="w" data-day="wed" data-si="0" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_0" data-f="r" data-day="wed" data-si="0" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_0_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_1" data-f="w" data-day="wed" data-si="1" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_1" data-f="r" data-day="wed" data-si="1" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_0_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_2" data-f="w" data-day="wed" data-si="2" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_2" data-f="r" data-day="wed" data-si="2" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_0_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_3" data-f="w" data-day="wed" data-si="3" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_3" data-f="r" data-day="wed" data-si="3" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_0_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Chest-Supported Row">
+<div class="exh"><div class="exn">Chest-Supported Row </div><div class="exright"><div class="ext">3 × 10–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_0" data-f="w" data-day="wed" data-si="0" data-ex="Chest-Supported Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_0" data-f="r" data-day="wed" data-si="0" data-ex="Chest-Supported Row" placeholder="10–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_1_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_1" data-f="w" data-day="wed" data-si="1" data-ex="Chest-Supported Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_1" data-f="r" data-day="wed" data-si="1" data-ex="Chest-Supported Row" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_1_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_2" data-f="w" data-day="wed" data-si="2" data-ex="Chest-Supported Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_2" data-f="r" data-day="wed" data-si="2" data-ex="Chest-Supported Row" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_1_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Straight-Arm Pulldown">
+<div class="exh"><div class="exn">Straight-Arm Pulldown </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_0" data-f="w" data-day="wed" data-si="0" data-ex="Straight-Arm Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_0" data-f="r" data-day="wed" data-si="0" data-ex="Straight-Arm Pulldown" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_2_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_1" data-f="w" data-day="wed" data-si="1" data-ex="Straight-Arm Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_1" data-f="r" data-day="wed" data-si="1" data-ex="Straight-Arm Pulldown" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_2_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_2" data-f="w" data-day="wed" data-si="2" data-ex="Straight-Arm Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_2" data-f="r" data-day="wed" data-si="2" data-ex="Straight-Arm Pulldown" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_2_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="EZ-Bar Curl">
+<div class="exh"><div class="exn">EZ-Bar Curl </div><div class="exright"><div class="ext">3 × 12–15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_0" data-f="w" data-day="wed" data-si="0" data-ex="EZ-Bar Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_0" data-f="r" data-day="wed" data-si="0" data-ex="EZ-Bar Curl" placeholder="12–15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_3_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_1" data-f="w" data-day="wed" data-si="1" data-ex="EZ-Bar Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_1" data-f="r" data-day="wed" data-si="1" data-ex="EZ-Bar Curl" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_3_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_2" data-f="w" data-day="wed" data-si="2" data-ex="EZ-Bar Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_2" data-f="r" data-day="wed" data-si="2" data-ex="EZ-Bar Curl" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_3_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Rope Pressdown">
+<div class="exh"><div class="exn">Rope Pressdown </div><div class="exright"><div class="ext">3 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_0" data-f="w" data-day="wed" data-si="0" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_0" data-f="r" data-day="wed" data-si="0" data-ex="Rope Pressdown" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_4_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_1" data-f="w" data-day="wed" data-si="1" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_1" data-f="r" data-day="wed" data-si="1" data-ex="Rope Pressdown" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_4_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_2" data-f="w" data-day="wed" data-si="2" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_2" data-f="r" data-day="wed" data-si="2" data-ex="Rope Pressdown" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_4_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Cable Curl burnout">
+<div class="exh"><div class="exn">Cable Curl burnout </div><div class="exright"><div class="ext">2 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_5_0" data-f="w" data-day="wed" data-si="0" data-ex="Cable Curl burnout" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_5_0" data-f="r" data-day="wed" data-si="0" data-ex="Cable Curl burnout" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_5_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_5_1" data-f="w" data-day="wed" data-si="1" data-ex="Cable Curl burnout" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_5_1" data-f="r" data-day="wed" data-si="1" data-ex="Cable Curl burnout" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_5_1" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
 <div class="cardio"><h3>Cardio</h3><p>35 min stair climber @ spd 6</p></div>
 <div class="steps">👟 Target ~11,000 steps today (77k / week)</div></section>
 <section class="day-block" id="day-thu" data-day="thu">
-<div class="dhead"><div><div class="dname">Low-Stress Day</div><div class="dfocus">Cardio + Core</div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
+<div class="dhead"><div><div class="dname">Low-Stress Day</div><div class="dfocus">Cardio + Core <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">7 sets</span></div>
-<div class="ex">
-<div class="exh"><div class="exn">Dead bugs <span class="bw">bodyweight</span></div><div class="ext">2 × 15 / side</div></div><div class="sets">
+<div class="ex" data-ex="Dead bugs">
+<div class="exh"><div class="exn">Dead bugs <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 15 / side</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">15 / side</span><input type="checkbox" class="chk" data-key="thu_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">15 / side</span><input type="checkbox" class="chk" data-key="thu_0_1" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Cable crunches (rope) <span class="bw">bodyweight</span></div><div class="ext">2 × 15</div></div><div class="sets">
+</div>
+</div>
+<div class="ex" data-ex="Cable crunches (rope)">
+<div class="exh"><div class="exn">Cable crunches (rope) <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 15</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">15</span><input type="checkbox" class="chk" data-key="thu_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">15</span><input type="checkbox" class="chk" data-key="thu_1_1" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Plank <span class="bw">bodyweight</span></div><div class="ext">2 × 90 sec</div></div><div class="sets">
+</div>
+</div>
+<div class="ex" data-ex="Plank">
+<div class="exh"><div class="exn">Plank <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 90 sec</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">90 sec</span><input type="checkbox" class="chk" data-key="thu_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">90 sec</span><input type="checkbox" class="chk" data-key="thu_2_1" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Mobility (cat-cow, hips, T-spine, hams) <span class="bw">bodyweight</span></div><div class="ext">10–15 min</div></div><div class="sets">
+</div>
+</div>
+<div class="ex" data-ex="Mobility (cat-cow, hips, T-spine, hams)">
+<div class="exh"><div class="exn">Mobility (cat-cow, hips, T-spine, hams) <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">10–15 min</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">10–15 min</span><input type="checkbox" class="chk" data-key="thu_3_0" aria-label="done"></div>
-</div></div>
+</div>
+</div>
 <div class="cardio"><h3>Cardio</h3><p>45 min incline treadmill</p><p>5 min @ 2.8/8 · 20 min @ 3.0/12</p><p>15 min @ 2.8/14 · 5 min @ 3.1/8</p></div>
 <div class="steps">👟 Target ~11,000 steps today (77k / week)</div></section>
 <section class="day-block" id="day-fri" data-day="fri">
-<div class="dhead"><div><div class="dname">Lower Body</div><div class="dfocus">Glute / Ham focus</div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
+<div class="dhead"><div><div class="dname">Lower Body</div><div class="dfocus">Glute / Ham focus <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">14 sets</span></div>
-<div class="ex">
-<div class="exh"><div class="exn">Bulgarian Split Squat </div><div class="ext">3 × 10 / leg</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_0" data-f="r" placeholder="10"></span><input type="checkbox" class="chk" data-key="fri_0_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_1" data-f="r" placeholder="10"></span><input type="checkbox" class="chk" data-key="fri_0_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_2" data-f="r" placeholder="10"></span><input type="checkbox" class="chk" data-key="fri_0_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Leg Press (low &amp; close) </div><div class="ext">3 × 12–15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_0" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="fri_1_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_1" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="fri_1_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_2" data-f="r" placeholder="12–15"></span><input type="checkbox" class="chk" data-key="fri_1_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Lying Ham Curl </div><div class="ext">3 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="fri_2_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="fri_2_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="fri_2_2" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Step-Ups </div><div class="ext">2 × 12 / leg</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_3_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_3_0" data-f="r" placeholder="12"></span><input type="checkbox" class="chk" data-key="fri_3_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_3_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_3_1" data-f="r" placeholder="12"></span><input type="checkbox" class="chk" data-key="fri_3_1" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Standing Calf Raise </div><div class="ext">3 × 20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_0" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="fri_4_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_1" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="fri_4_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_2" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="fri_4_2" aria-label="done"></div>
-</div></div>
+<div class="ex" data-ex="Bulgarian Split Squat">
+<div class="exh"><div class="exn">Bulgarian Split Squat </div><div class="exright"><div class="ext">3 × 10 / leg</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_0" data-f="w" data-day="fri" data-si="0" data-ex="Bulgarian Split Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_0" data-f="r" data-day="fri" data-si="0" data-ex="Bulgarian Split Squat" placeholder="10"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_0_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_1" data-f="w" data-day="fri" data-si="1" data-ex="Bulgarian Split Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_1" data-f="r" data-day="fri" data-si="1" data-ex="Bulgarian Split Squat" placeholder="10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_0_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_2" data-f="w" data-day="fri" data-si="2" data-ex="Bulgarian Split Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_2" data-f="r" data-day="fri" data-si="2" data-ex="Bulgarian Split Squat" placeholder="10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_0_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Leg Press (low &amp; close)">
+<div class="exh"><div class="exn">Leg Press (low &amp; close) </div><div class="exright"><div class="ext">3 × 12–15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_0" data-f="w" data-day="fri" data-si="0" data-ex="Leg Press (low &amp; close)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_0" data-f="r" data-day="fri" data-si="0" data-ex="Leg Press (low &amp; close)" placeholder="12–15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_1_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_1" data-f="w" data-day="fri" data-si="1" data-ex="Leg Press (low &amp; close)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_1" data-f="r" data-day="fri" data-si="1" data-ex="Leg Press (low &amp; close)" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_1_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_2" data-f="w" data-day="fri" data-si="2" data-ex="Leg Press (low &amp; close)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_2" data-f="r" data-day="fri" data-si="2" data-ex="Leg Press (low &amp; close)" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_1_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Lying Ham Curl">
+<div class="exh"><div class="exn">Lying Ham Curl </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_0" data-f="w" data-day="fri" data-si="0" data-ex="Lying Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_0" data-f="r" data-day="fri" data-si="0" data-ex="Lying Ham Curl" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_2_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_1" data-f="w" data-day="fri" data-si="1" data-ex="Lying Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_1" data-f="r" data-day="fri" data-si="1" data-ex="Lying Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_2_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_2" data-f="w" data-day="fri" data-si="2" data-ex="Lying Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_2" data-f="r" data-day="fri" data-si="2" data-ex="Lying Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_2_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Step-Ups">
+<div class="exh"><div class="exn">Step-Ups </div><div class="exright"><div class="ext">2 × 12 / leg</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_3_0" data-f="w" data-day="fri" data-si="0" data-ex="Step-Ups" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_3_0" data-f="r" data-day="fri" data-si="0" data-ex="Step-Ups" placeholder="12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_3_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_3_1" data-f="w" data-day="fri" data-si="1" data-ex="Step-Ups" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_3_1" data-f="r" data-day="fri" data-si="1" data-ex="Step-Ups" placeholder="12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_3_1" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Standing Calf Raise">
+<div class="exh"><div class="exn">Standing Calf Raise </div><div class="exright"><div class="ext">3 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_0" data-f="w" data-day="fri" data-si="0" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_0" data-f="r" data-day="fri" data-si="0" data-ex="Standing Calf Raise" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_4_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_1" data-f="w" data-day="fri" data-si="1" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_1" data-f="r" data-day="fri" data-si="1" data-ex="Standing Calf Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_4_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_2" data-f="w" data-day="fri" data-si="2" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_2" data-f="r" data-day="fri" data-si="2" data-ex="Standing Calf Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_4_2" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
 <div class="cardio"><h3>Cardio</h3><p>35 min incline treadmill (same as Mon)</p></div>
 <div class="steps">👟 Target ~11,000 steps today (77k / week)</div></section>
 <section class="day-block" id="day-sat" data-day="sat">
-<div class="dhead"><div><div class="dname">Upper Pump</div><div class="dfocus">Circuit · 3–4 rounds</div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
+<div class="dhead"><div><div class="dname">Upper Pump</div><div class="dfocus">Circuit · 3–4 rounds <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">20 sets</span></div>
 <div class="note">Run as a circuit — minimal rest between moves, rest after each round.</div>
-<div class="ex">
-<div class="exh"><div class="exn">Machine Chest Press </div><div class="ext">4 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_0_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_0_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_0_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_3" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_0_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Seated Row </div><div class="ext">4 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_1_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_1_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_1_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_3" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_1_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">DB Lateral Raise </div><div class="ext">4 × 20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_0" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_2_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_1" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_2_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_2" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_2_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_3" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_2_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Cable Curl </div><div class="ext">4 × 15</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_0" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_3_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_1" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_3_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_2" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_3_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_3" data-f="r" placeholder="15"></span><input type="checkbox" class="chk" data-key="sat_3_3" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Rope Pressdown </div><div class="ext">4 × 20</div></div><div class="sets">
-<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_0" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_0" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_4_0" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_1" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_1" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_4_1" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_2" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_2" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_4_2" aria-label="done"></div>
-<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_3" data-f="w" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_3" data-f="r" placeholder="20"></span><input type="checkbox" class="chk" data-key="sat_4_3" aria-label="done"></div>
-</div></div>
+<div class="ex" data-ex="Machine Chest Press">
+<div class="exh"><div class="exn">Machine Chest Press </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_0" data-f="w" data-day="sat" data-si="0" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_0" data-f="r" data-day="sat" data-si="0" data-ex="Machine Chest Press" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_0_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_1" data-f="w" data-day="sat" data-si="1" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_1" data-f="r" data-day="sat" data-si="1" data-ex="Machine Chest Press" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_0_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_2" data-f="w" data-day="sat" data-si="2" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_2" data-f="r" data-day="sat" data-si="2" data-ex="Machine Chest Press" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_0_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_3" data-f="w" data-day="sat" data-si="3" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_3" data-f="r" data-day="sat" data-si="3" data-ex="Machine Chest Press" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_0_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Seated Row">
+<div class="exh"><div class="exn">Seated Row </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_0" data-f="w" data-day="sat" data-si="0" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_0" data-f="r" data-day="sat" data-si="0" data-ex="Seated Row" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_1_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_1" data-f="w" data-day="sat" data-si="1" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_1" data-f="r" data-day="sat" data-si="1" data-ex="Seated Row" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_1_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_2" data-f="w" data-day="sat" data-si="2" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_2" data-f="r" data-day="sat" data-si="2" data-ex="Seated Row" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_1_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_3" data-f="w" data-day="sat" data-si="3" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_3" data-f="r" data-day="sat" data-si="3" data-ex="Seated Row" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_1_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="DB Lateral Raise">
+<div class="exh"><div class="exn">DB Lateral Raise </div><div class="exright"><div class="ext">4 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_0" data-f="w" data-day="sat" data-si="0" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_0" data-f="r" data-day="sat" data-si="0" data-ex="DB Lateral Raise" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_2_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_1" data-f="w" data-day="sat" data-si="1" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_1" data-f="r" data-day="sat" data-si="1" data-ex="DB Lateral Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_2_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_2" data-f="w" data-day="sat" data-si="2" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_2" data-f="r" data-day="sat" data-si="2" data-ex="DB Lateral Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_2_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_3" data-f="w" data-day="sat" data-si="3" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_3" data-f="r" data-day="sat" data-si="3" data-ex="DB Lateral Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_2_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Cable Curl">
+<div class="exh"><div class="exn">Cable Curl </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_0" data-f="w" data-day="sat" data-si="0" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_0" data-f="r" data-day="sat" data-si="0" data-ex="Cable Curl" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_3_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_1" data-f="w" data-day="sat" data-si="1" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_1" data-f="r" data-day="sat" data-si="1" data-ex="Cable Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_3_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_2" data-f="w" data-day="sat" data-si="2" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_2" data-f="r" data-day="sat" data-si="2" data-ex="Cable Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_3_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_3" data-f="w" data-day="sat" data-si="3" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_3" data-f="r" data-day="sat" data-si="3" data-ex="Cable Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_3_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
+<div class="ex" data-ex="Rope Pressdown">
+<div class="exh"><div class="exn">Rope Pressdown </div><div class="exright"><div class="ext">4 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
+<div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_0" data-f="w" data-day="sat" data-si="0" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_0" data-f="r" data-day="sat" data-si="0" data-ex="Rope Pressdown" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_4_0" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_1" data-f="w" data-day="sat" data-si="1" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_1" data-f="r" data-day="sat" data-si="1" data-ex="Rope Pressdown" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_4_1" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_2" data-f="w" data-day="sat" data-si="2" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_2" data-f="r" data-day="sat" data-si="2" data-ex="Rope Pressdown" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_4_2" aria-label="done"></div>
+<div class="setrow"><span class="setno">Set 4</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_3" data-f="w" data-day="sat" data-si="3" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_3" data-f="r" data-day="sat" data-si="3" data-ex="Rope Pressdown" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_4_3" aria-label="done"></div>
+</div>
+<div class="histpanel" style="display:none"></div>
+</div>
 <div class="cardio"><h3>Cardio</h3><p>35 min stair climber @ spd 6</p></div>
 <div class="steps">👟 Target ~11,000 steps today (77k / week)</div></section>
 <section class="day-block" id="day-sun" data-day="sun">
-<div class="dhead"><div><div class="dname">Recovery</div><div class="dfocus">Rest day</div></div><div class="dmac">Rest day · <b>215P / 120C / 55F</b> · ~1,835 cal</div></div>
+<div class="dhead"><div><div class="dname">Recovery</div><div class="dfocus">Rest day <span class="ddate"></span></div></div><div class="dmac">Rest day · <b>215P / 120C / 55F</b> · ~1,835 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">3 sets</span></div>
-<div class="ex">
-<div class="exh"><div class="exn">Light outdoor walk <span class="bw">bodyweight</span></div><div class="ext">30–45 min</div></div><div class="sets">
+<div class="ex" data-ex="Light outdoor walk">
+<div class="exh"><div class="exn">Light outdoor walk <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">30–45 min</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">30–45 min</span><input type="checkbox" class="chk" data-key="sun_0_0" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Mobility &amp; stretching <span class="bw">bodyweight</span></div><div class="ext">10–15 min</div></div><div class="sets">
+</div>
+</div>
+<div class="ex" data-ex="Mobility &amp; stretching">
+<div class="exh"><div class="exn">Mobility &amp; stretching <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">10–15 min</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">10–15 min</span><input type="checkbox" class="chk" data-key="sun_1_0" aria-label="done"></div>
-</div></div>
-<div class="ex">
-<div class="exh"><div class="exn">Recover — hydrate, prep, sleep <span class="bw">bodyweight</span></div><div class="ext">—</div></div><div class="sets">
+</div>
+</div>
+<div class="ex" data-ex="Recover — hydrate, prep, sleep">
+<div class="exh"><div class="exn">Recover — hydrate, prep, sleep <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">—</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">—</span><input type="checkbox" class="chk" data-key="sun_2_0" aria-label="done"></div>
-</div></div>
+</div>
+</div>
 <div class="steps">🌙 Recovery — no formal cardio. Easy steps if you feel good.</div></section>
 </section>
 
@@ -445,15 +519,26 @@ main{padding:2px 14px 0}
 <script>
 (function(){
  var ORDER=["mon","tue","wed","thu","fri","sat","sun"];
+ var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
  function today(){return ORDER[(new Date().getDay()+6)%7];}
- function tstr(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+ function weekDateFor(day){var idx=ORDER.indexOf(day);var t=new Date();var ti=(t.getDay()+6)%7;
+   return new Date(t.getFullYear(),t.getMonth(),t.getDate()+(idx-ti));}
+ function isoOf(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+ function labelOf(d){return MON[d.getMonth()]+" "+d.getDate();}
+ function fmtIso(iso){var p=iso.split("-");return MON[parseInt(p[1],10)-1]+" "+parseInt(p[2],10);}
+ function tstr(){return isoOf(new Date());}
  var store={g:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return (this.m&&this.m[k])||d;}},
    s:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true;}catch(e){(this.m=this.m||{})[k]=v;return false;}},m:{}};
- var weights=store.g("pxb_w",{}), sess=store.g("pxb_s",{date:tstr(),done:{}});
+ var weights=store.g("pxb_w",{}), sess=store.g("pxb_s",{date:tstr(),done:{}}), hist=store.g("pxb_hist",{});
  if(sess.date!==tstr()){sess={date:tstr(),done:{}};store.s("pxb_s",sess);}
  var byId=function(id){return document.getElementById(id);};
 
- /* ---- IndexedDB for photos ---- */
+ /* dates on tabs + headers */
+ document.querySelectorAll(".dbtn").forEach(function(b){var el=b.querySelector(".dt");if(el)el.textContent=labelOf(weekDateFor(b.dataset.day));});
+ document.querySelectorAll(".day-block").forEach(function(bl){var el=bl.querySelector(".ddate");
+   if(el){var d=weekDateFor(bl.dataset.day);el.textContent="· "+({mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"}[bl.dataset.day])+", "+labelOf(d);}});
+
+ /* IndexedDB photos */
  function idb(){return new Promise(function(res,rej){var r=indexedDB.open("pxb_photos",1);
    r.onupgradeneeded=function(e){e.target.result.createObjectStore("p");};
    r.onsuccess=function(e){res(e.target.result);};r.onerror=function(e){rej(e);};});}
@@ -464,11 +549,10 @@ main{padding:2px 14px 0}
  function shrink(file){return new Promise(function(res){var img=new Image();var url=URL.createObjectURL(file);
    img.onload=function(){var max=1000;var s=Math.min(1,max/Math.max(img.width,img.height));
      var w=Math.round(img.width*s),h=Math.round(img.height*s);var c=document.createElement("canvas");c.width=w;c.height=h;
-     c.getContext("2d").drawImage(img,0,0,w,h);URL.revokeObjectURL(url);
-     try{res(c.toDataURL("image/jpeg",0.7));}catch(e){res(null);}};
+     c.getContext("2d").drawImage(img,0,0,w,h);URL.revokeObjectURL(url);try{res(c.toDataURL("image/jpeg",0.7));}catch(e){res(null);}};
    img.onerror=function(){URL.revokeObjectURL(url);res(null);};img.src=url;});}
 
- /* ---- MODE SWITCH ---- */
+ /* MODE SWITCH */
  var modeBtns=[].slice.call(document.querySelectorAll(".modes a"));
  var modeSecs=[].slice.call(document.querySelectorAll(".mode"));
  function setMode(m){modeSecs.forEach(function(s){s.style.display=(s.dataset.mode===m)?"block":"none";});
@@ -476,15 +560,48 @@ main{padding:2px 14px 0}
    document.querySelector(".rest").style.display=(m==="train")?"block":"none";window.scrollTo(0,0);}
  modeBtns.forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();setMode(b.dataset.mode);});});
 
- /* ---- WORKOUT ---- */
+ /* WORKOUT inputs */
  document.querySelectorAll("input[data-f]").forEach(function(inp){var k=inp.dataset.key,f=inp.dataset.f;
    if(weights[k]&&weights[k][f]!=null)inp.value=weights[k][f];
-   inp.addEventListener("change",function(){weights[k]=weights[k]||{};weights[k][f]=inp.value;store.s("pxb_w",weights);});});
+   inp.addEventListener("change",function(){
+     weights[k]=weights[k]||{};weights[k][f]=inp.value;store.s("pxb_w",weights);
+     var name=inp.dataset.ex,si=inp.dataset.si,dt=isoOf(weekDateFor(inp.dataset.day));
+     hist[name]=hist[name]||{};hist[name][dt]=hist[name][dt]||{};hist[name][dt][si]=hist[name][dt][si]||{};
+     hist[name][dt][si][f]=inp.value;store.s("pxb_hist",hist);});});
  document.querySelectorAll(".chk").forEach(function(c){var k=c.dataset.key; if(sess.done[k])c.checked=true;
    c.addEventListener("change",function(){if(c.checked)sess.done[k]=true;else delete sess.done[k];
      store.s("pxb_s",sess); progress(c.closest(".day-block"));
      if(c.checked&&byId("autorest").checked)startRest(selDur);
      var ex=c.closest(".ex");if(ex){var b=ex.querySelectorAll(".chk");ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));}});});
+
+ /* copy-set + history (delegated) */
+ document.addEventListener("click",function(e){
+   var cp=e.target.closest(".cpy");
+   if(cp&&!cp.classList.contains("ghost")){var row=cp.closest(".setrow");var prev=row.previousElementSibling;
+     while(prev&&!prev.classList.contains("setrow"))prev=prev.previousElementSibling;
+     if(prev){var pw=prev.querySelector('input[data-f="w"]'),pr=prev.querySelector('input[data-f="r"]');
+       var cw=row.querySelector('input[data-f="w"]'),cr=row.querySelector('input[data-f="r"]');
+       if(pw&&cw){cw.value=pw.value;cw.dispatchEvent(new Event("change"));}
+       if(pr&&cr){cr.value=pr.value;cr.dispatchEvent(new Event("change"));}}
+     return;}
+   var hb=e.target.closest(".histbtn");
+   if(hb){var ex=hb.closest(".ex");var panel=ex.querySelector(".histpanel");
+     if(panel.style.display==="block"){panel.style.display="none";hb.textContent="Hist ▾";}
+     else{renderHist(ex,panel);panel.style.display="block";hb.textContent="Hist ▴";}
+     return;}
+   var th=e.target.closest(".thumb");
+   if(th&&th.src){byId("lb-img").src=th.src;byId("lb").style.display="flex";return;}
+   if(e.target.closest("#lb")){byId("lb").style.display="none";byId("lb-img").src="";}
+ });
+ function renderHist(ex,panel){var name=ex.dataset.ex;var data=hist[name]||{};
+   var dates=Object.keys(data).sort().reverse();var html="";
+   dates.slice(0,10).forEach(function(dt){var sets=data[dt];
+     var sis=Object.keys(sets).map(Number).sort(function(a,b){return a-b;});var parts=[];
+     sis.forEach(function(si){var v=sets[si];if(v&&(v.w||v.r))parts.push((v.w||"–")+"×"+(v.r||"–"));});
+     if(parts.length)html+='<div class="histrow"><span class="hd">'+fmtIso(dt)+'</span><b>'+parts.join(",  ")+'</b></div>';});
+   panel.innerHTML=html||'<div class="histrow" style="color:var(--dim)">No history yet — the weights &amp; reps you log will show here, newest first.</div>';}
+
+ /* day tabs */
  var dbtns=[].slice.call(document.querySelectorAll(".dbtn"));
  var blocks=[].slice.call(document.querySelectorAll(".day-block"));
  function showDay(day){blocks.forEach(function(b){b.style.display=(b.dataset.day===day)?"block":"none";});
@@ -498,7 +615,7 @@ main{padding:2px 14px 0}
      ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));});}
  showDay(today());
 
- /* ---- CHECK-IN ---- */
+ /* CHECK-IN */
  var log=store.g("pxb_ci",[]);
  function esc(s){return (s+"").replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];});}
  function renderCI(){var host=byId("ci-hist");host.innerHTML="";
@@ -532,13 +649,8 @@ main{padding:2px 14px 0}
    var t="Weekly check-in ("+(e.date||"")+")\nAvg weight: "+(e.weight||"-")+" lb\nWaist: "+(e.waist||"-")+" in\nAdherence: "+(e.adher||"-")+"%\nAvg steps: "+(e.steps||"-")+"\nEnergy: "+(e.energy||"-")+"/10\nSleep: "+(e.sleep||"-")+" hrs\nNote: "+(e.note||"-")+(e.photos&&e.photos.length?"\n(+"+e.photos.length+" progress photos — attaching separately)":"");
    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast("Copied — paste into your Saturday check-in, and attach your photos there.");},function(){alert(t);});}else{alert(t);}});
  renderCI();
- /* lightbox */
- var lb=byId("lb");
- document.addEventListener("click",function(e){var t=e.target.closest(".thumb");
-   if(t&&t.src){byId("lb-img").src=t.src;lb.style.display="flex";}
-   else if(e.target.closest("#lb")){lb.style.display="none";byId("lb-img").src="";}});
 
- /* ---- REST TIMER ---- */
+ /* REST TIMER */
  var selDur=90,endAt=0,tick=null,ac=null;
  var restEl=document.querySelector(".rest"),timeEl=byId("rtime");
  restEl.style.display="block";var hint=document.querySelector(".hint");if(hint)hint.style.display="none";
@@ -563,8 +675,6 @@ main{padding:2px 14px 0}
    byId("notif-toggle").addEventListener("change",function(){if(this.checked){Notification.requestPermission().then(function(p){if(p!=="granted")byId("notif-toggle").checked=false;});}});
    window.__notify=function(){try{if(Notification.permission==="granted")new Notification("Rest complete 💪",{body:"Back to it — next set."});}catch(e){}};}
  setMode("train");
-
- /* ---- service worker (auto-update) ---- */
  if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}
 })();
 </script>
