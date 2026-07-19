@@ -281,13 +281,24 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
 .tools{display:flex;justify-content:flex-end;padding:2px 2px 0}
 .tools button{background:var(--panel);border:1px solid var(--line);color:var(--accent2);border-radius:11px;padding:9px 13px;font-size:12.5px;font-weight:800;font-family:inherit;box-shadow:var(--shadow);transition:transform .08s}
 .tools button:active{transform:scale(.96)}
-#pc{display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.7);align-items:flex-start;justify-content:center;padding:12vh 18px 0}
-.pcbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:17px;width:100%;max-width:360px;box-shadow:var(--shadow)}
+#pc{display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.7);align-items:flex-start;justify-content:center;padding:7vh 12px 0}
+.pcbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:17px;width:100%;max-width:360px;max-height:84vh;overflow:auto;box-shadow:var(--shadow)}
 .pchd{font-size:16px;font-weight:900;margin-bottom:12px;letter-spacing:-.01em}
 .pcrow{display:flex;gap:10px;margin-bottom:2px}
-.pcrow label{flex:1;display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:var(--dim);text-transform:uppercase;font-weight:800}
-.pcrow input,.pcrow select{background:var(--panel2);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:17px;font-weight:800;padding:11px;font-family:inherit}
+.pcrow label{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:var(--dim);text-transform:uppercase;font-weight:800}
+.pcrow input,.pcrow select{min-width:0;width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:17px;font-weight:800;padding:11px;font-family:inherit}
 .pcout{margin:13px 0;font-size:15.5px;font-weight:800;color:var(--accent);min-height:22px;font-variant-numeric:tabular-nums;line-height:1.5}
+.pctabs{display:flex;gap:6px;margin-bottom:12px}
+.pctab{flex:1;background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:9px 4px;font-size:12.5px;font-weight:800;font-family:inherit}
+.pctab.active{background:var(--accent2);color:#04203f;border-color:var(--accent2)}
+.pcbarlabel{display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:var(--dim);text-transform:uppercase;font-weight:800;margin-bottom:10px}
+.pcbarlabel select{min-width:0;width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:16px;font-weight:800;padding:11px;font-family:inherit}
+.pcsub{font-size:11.5px;color:var(--dim);margin:2px 0 9px;font-weight:600}
+.pcplates{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.pcpr{display:flex;align-items:center;gap:10px}
+.pcpr .psz{flex:1;font-size:15px;font-weight:800;color:var(--ink)}
+.pcpr input{width:88px;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;font-weight:800;text-align:center;padding:9px;font-family:inherit}
+.pcpr input:focus{outline:none;border-color:var(--accent2)}
 /* ---- v7: custom exercises + off-plan meals + coach export ---- */
 .addex{width:100%;background:var(--panel);border:1px dashed var(--line2);color:var(--accent);border-radius:14px;padding:13px;font-size:14px;font-weight:800;font-family:inherit;margin:8px 0 4px;box-shadow:var(--shadow)}
 .addex:active{transform:scale(.99)}
@@ -339,7 +350,7 @@ body{padding-bottom:120px}
 </head>
 <body>
 <div class="masthead">
-  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v8</span>
+  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v9</span>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -959,21 +970,38 @@ body{padding-bottom:120px}
  });
  /* plate button now lives inline in the compact rest bar (#platebtn in HTML) */
  var pc=document.createElement('div');pc.id='pc';
- pc.innerHTML='<div class="pcbox"><div class="pchd">Plate Calculator</div><div class="pcrow"><label>Target (lb)<input id="pc-target" type="text" inputmode="decimal" placeholder="185"></label><label>Bar<select id="pc-bar"><option value="45">45 lb bar</option><option value="35">35 lb bar</option><option value="25">25 lb bar</option><option value="0">No bar / machine</option></select></label></div><div id="pc-out" class="pcout">Enter a target weight.</div><button class="btn ghost" id="pc-close" type="button">Close</button></div>';
+ var BARS='<option value="45">45 lb bar</option><option value="35">35 lb bar</option><option value="25">25 lb bar</option><option value="0">No bar / machine</option>';
+ var SIZES=[45,35,25,10,5,2.5];
+ var plateRows=SIZES.map(function(s){return '<div class="pcpr"><span class="psz">'+s+' lb plates</span><input type="text" inputmode="numeric" class="pc-have" data-sz="'+s+'" placeholder="0"></div>';}).join('');
+ pc.innerHTML='<div class="pcbox"><div class="pchd">Plate Calculator</div>'+
+   '<div class="pctabs"><button class="pctab active" type="button" data-m="need">Plates needed</button><button class="pctab" type="button" data-m="have">Weight on bar</button></div>'+
+   '<div class="pcmode" data-m="need"><div class="pcrow"><label>Target (lb)<input id="pc-target" type="text" inputmode="decimal" placeholder="185"></label><label>Bar<select id="pc-bar">'+BARS+'</select></label></div><div id="pc-out" class="pcout">Enter a target weight.</div></div>'+
+   '<div class="pcmode" data-m="have" style="display:none"><label class="pcbarlabel">Bar<select id="pc-bar2">'+BARS+'</select></label><div class="pcsub">How many plates are on the bar (total, both sides)?</div><div class="pcplates">'+plateRows+'</div><div id="pc-out2" class="pcout">Add your plates above.</div></div>'+
+   '<button class="btn ghost" id="pc-close" type="button">Close</button></div>';
  document.body.appendChild(pc);
- function calc(){var t=parseFloat(document.getElementById("pc-target").value),bar=parseFloat(document.getElementById("pc-bar").value),out=document.getElementById("pc-out");
+ function calcNeed(){var t=parseFloat(document.getElementById("pc-target").value),bar=parseFloat(document.getElementById("pc-bar").value),out=document.getElementById("pc-out");
    if(isNaN(t)){out.textContent="Enter a target weight.";return;}
-   if(t<=bar){out.textContent="Target must be above the bar ("+bar+" lb).";return;}
-   var per=(t-bar)/2,sizes=[45,35,25,10,5,2.5],left=per,parts=[];
-   sizes.forEach(function(s){var n=Math.floor(left/s+1e-9);if(n>0){parts.push(n+"×"+s);left=+((left-n*s).toFixed(2));}});
-   var txt="Per side: "+(parts.length?parts.join("  +  "):"just the bar");
+   if(t<bar){out.textContent="Target is below the bar ("+bar+" lb).";return;}
+   var per=(t-bar)/2,left=per,parts=[];
+   SIZES.forEach(function(s){var n=Math.floor(left/s+1e-9);if(n>0){parts.push(n+"×"+s);left=+((left-n*s).toFixed(2));}});
+   var txt=(per<=0?"Just the bar ("+bar+" lb).":"Per side: "+(parts.length?parts.join("  +  "):"just the bar"));
    if(left>0.01)txt+="  ·  closest: "+(t-2*left)+" lb";out.textContent=txt;}
+ function calcHave(){var bar=parseFloat(document.getElementById("pc-bar2").value)||0,out=document.getElementById("pc-out2");
+   var total=bar,plates=0,parts=[];
+   document.querySelectorAll(".pc-have").forEach(function(inp){var n=parseInt(inp.value,10)||0;if(n>0){var s=parseFloat(inp.dataset.sz);total+=n*s;plates+=n;parts.push(n+"×"+s);}});
+   if(!plates){out.textContent="Add your plates above.";return;}
+   out.innerHTML="Total on bar: <b>"+(+total.toFixed(2))+" lb</b><br><span style=\"color:var(--muted);font-weight:600;font-size:13px\">"+parts.join(" + ")+"  =  "+(+(total-bar).toFixed(2))+" lb plates + "+bar+" lb bar</span>";}
  var pb=document.getElementById('platebtn');
- if(pb)pb.addEventListener('click',function(){pc.style.display='flex';calc();});
+ if(pb)pb.addEventListener('click',function(){pc.style.display='flex';calcNeed();calcHave();});
  document.getElementById('pc-close').addEventListener('click',function(){pc.style.display='none';});
  pc.addEventListener('click',function(e){if(e.target===pc)pc.style.display='none';});
- document.getElementById('pc-target').addEventListener('input',calc);
- document.getElementById('pc-bar').addEventListener('change',calc);
+ document.getElementById('pc-target').addEventListener('input',calcNeed);
+ document.getElementById('pc-bar').addEventListener('change',calcNeed);
+ document.getElementById('pc-bar2').addEventListener('change',calcHave);
+ document.querySelectorAll('.pc-have').forEach(function(inp){inp.addEventListener('input',calcHave);});
+ pc.querySelectorAll('.pctab').forEach(function(tab){tab.addEventListener('click',function(){
+   pc.querySelectorAll('.pctab').forEach(function(x){x.classList.toggle('active',x===tab);});
+   pc.querySelectorAll('.pcmode').forEach(function(md){md.style.display=(md.dataset.m===tab.dataset.m)?'block':'none';});});});
 })();
 </script>
 <script>
