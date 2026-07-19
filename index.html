@@ -288,6 +288,34 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
 .pcrow label{flex:1;display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:var(--dim);text-transform:uppercase;font-weight:800}
 .pcrow input,.pcrow select{background:var(--panel2);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:17px;font-weight:800;padding:11px;font-family:inherit}
 .pcout{margin:13px 0;font-size:15.5px;font-weight:800;color:var(--accent);min-height:22px;font-variant-numeric:tabular-nums;line-height:1.5}
+/* ---- v7: custom exercises + off-plan meals + coach export ---- */
+.addex{width:100%;background:var(--panel);border:1px dashed var(--line2);color:var(--accent);border-radius:14px;padding:13px;font-size:14px;font-weight:800;font-family:inherit;margin:8px 0 4px;box-shadow:var(--shadow)}
+.addex:active{transform:scale(.99)}
+.exform{background:var(--panel);border:1px solid var(--accent-line);border-radius:14px;padding:13px;margin:8px 0 14px;display:none;flex-wrap:wrap;gap:9px}
+.exform.open{display:flex}
+.exform .f{display:flex;flex-direction:column;gap:5px}
+.exform .f.name{flex:1 1 100%}
+.exform .f.small{flex:1}
+.exform label{font-size:10px;color:var(--dim);text-transform:uppercase;font-weight:800;letter-spacing:.05em}
+.exform input{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;padding:10px;font-family:inherit}
+.exform input:focus{outline:none;border-color:var(--accent2)}
+.exform .row{display:flex;gap:9px;flex:1 1 100%}
+.custombadge{font-size:9px;color:var(--accent2);background:var(--accent2-soft);border:1px solid rgba(90,166,255,.3);border-radius:6px;padding:1px 6px;text-transform:uppercase;font-weight:800;letter-spacing:.03em}
+.delex{background:transparent;border:1px solid var(--line);color:var(--dim);border-radius:8px;padding:5px 9px;font-size:12px;font-weight:800;font-family:inherit}
+.chistbtn{background:transparent;border:1px solid var(--line);color:var(--accent2);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:800;font-family:inherit}
+.offplan{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:16px 0 24px;padding:15px 16px;box-shadow:var(--shadow)}
+.offform{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0}
+.offform input{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:15px;padding:11px;font-family:inherit}
+.offform input:focus{outline:none;border-color:var(--accent2)}
+.offform .otext{flex:1 1 100%}
+.offform .odate{flex:1 1 100%}
+.offlist{margin-top:6px}
+.offrow{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;border-top:1px solid var(--line);padding:10px 0}
+.offrow .od{font-size:10.5px;color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.offrow .ot{font-size:14px;color:var(--ink);margin-top:3px;text-wrap:pretty}
+.offrow .odel{background:transparent;border:none;color:var(--dim);font-size:20px;font-weight:800;line-height:1;padding:0 4px}
+.offempty{color:var(--dim);font-size:13px;padding:10px 0}
+.btn.blue{background:var(--accent2);color:#04203f}
 </style>
 </head>
 <body>
@@ -296,7 +324,7 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
     <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="3.2" height="8" rx="1.3"/><rect x="5.6" y="5.6" width="3" height="12.8" rx="1.3"/><rect x="8.7" y="10.5" width="6.6" height="3" rx="1.5"/><rect x="15.4" y="5.6" width="3" height="12.8" rx="1.3"/><rect x="18.8" y="8" width="3.2" height="8" rx="1.3"/></svg></div>
     <div class="brandtxt">
       <div class="t">Chris <span class="tthin">Coaching</span></div>
-      <div class="s">Cut phase <span class="dot">·</span> logs to your phone <span class="ver">v6</span></div>
+      <div class="s">Cut phase <span class="dot">·</span> logs to your phone <span class="ver">v7</span></div>
     </div>
   </div>
 </div>
@@ -938,6 +966,146 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
  pc.addEventListener('click',function(e){if(e.target===pc)pc.style.display='none';});
  document.getElementById('pc-target').addEventListener('input',calc);
  document.getElementById('pc-bar').addEventListener('change',calc);
+})();
+</script>
+<script>
+/* v7 layer: custom exercises, off-plan meals, coach export. Uses SEPARATE localStorage keys
+   (pxb_custom_ex, pxb_chist, pxb_cs, pxb_cnotes, pxb_offplan) so it never clobbers the
+   whole-object writes of the design layer (pxb_w/pxb_s/pxb_hist) or the v5 notes layer (pxb_notes). */
+(function(){
+ var ORDER=["mon","tue","wed","thu","fri","sat","sun"];
+ var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ var DNAME={mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
+ function isoOf(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+ function tstr(){return isoOf(new Date());}
+ function weekDateFor(day){var idx=ORDER.indexOf(day);var t=new Date();var ti=(t.getDay()+6)%7;return new Date(t.getFullYear(),t.getMonth(),t.getDate()+(idx-ti));}
+ function isoForDay(day){return isoOf(weekDateFor(day));}
+ function fmtIso(iso){var p=iso.split("-");return MON[parseInt(p[1],10)-1]+" "+parseInt(p[2],10);}
+ function esc(s){return (s+"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+ function attr(s){return (s+"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");}
+ var LS={g:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},
+         s:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+ var cdefs=LS.g("pxb_custom_ex",{}),chist=LS.g("pxb_chist",{}),cnotes=LS.g("pxb_cnotes",{}),offplan=LS.g("pxb_offplan",[]);
+ var cs=LS.g("pxb_cs",{date:tstr(),done:{}});if(cs.date!==tstr()){cs={date:tstr(),done:{}};LS.s("pxb_cs",cs);}
+ var uid=function(){return "c"+Date.now().toString(36)+Math.floor(Math.random()*1e5).toString(36);};
+ function autoRestMaybe(){var ar=document.getElementById("autorest");if(ar&&ar.checked){var sel=document.querySelector("#chips button.sel");if(sel)sel.click();}}
+ function lastForC(name){var d=chist[name]||{},t=tstr(),ds=Object.keys(d).sort();if(!ds.length)return null;
+   var pick=null,i;for(i=ds.length-1;i>=0;i--){if(ds[i]<t){pick=ds[i];break;}}if(!pick)pick=ds[ds.length-1];
+   var st=d[pick],best=null;Object.keys(st).forEach(function(si){var v=st[si];if(v&&v.w){var w=parseFloat(v.w)||0,r=parseFloat(v.r)||0;if(!best||w>best.w||(w===best.w&&r>best.r))best={w:w,r:r};}});
+   return best?{date:pick,w:best.w,r:best.r}:null;}
+
+ function buildCustomCard(day,def){
+   var name=def.name,id=def.id,sets=def.sets||3,rep=def.rep||"";
+   var card=document.createElement("div");card.className="ex custom";card.setAttribute("data-ex",name);card.setAttribute("data-custom",id);
+   var rows="";for(var si=0;si<sets;si++){var key="cust_"+id+"_"+si;
+     rows+='<div class="setrow"><span class="setno">Set '+(si+1)+'</span>'+
+       '<span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="'+key+'" data-f="w" data-day="'+day+'" data-si="'+si+'" data-ex="'+attr(name)+'" placeholder="wt"></span>'+
+       '<span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="'+key+'" data-f="r" data-day="'+day+'" data-si="'+si+'" data-ex="'+attr(name)+'" placeholder="'+(attr(rep)||"reps")+'"></span>'+
+       (si>0?'<button class="cpy" type="button">↑</button>':'<span class="cpy ghost"></span>')+
+       '<input type="checkbox" class="chk" data-key="'+key+'"></div>';}
+   var tgt=rep?(sets+" × "+esc(rep)):(sets+" sets");
+   card.innerHTML='<div class="exh"><div class="exn">'+esc(name)+' <span class="custombadge">custom</span></div>'+
+     '<div class="exright"><div class="ext">'+tgt+'</div><button class="chistbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button><button class="delex" type="button" title="Remove">🗑</button></div></div>'+
+     '<div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div>'+
+     '<div class="sets">'+rows+'</div><div class="histpanel" style="display:none"></div>';
+   var l=lastForC(name);if(l){var lh=document.createElement("div");lh.className="lasthint";lh.textContent="Last: "+l.w+"×"+l.r+" · "+fmtIso(l.date);card.querySelector(".exh").appendChild(lh);}
+   card.querySelectorAll("input[data-f]").forEach(function(inp){var nm=inp.dataset.ex,si=inp.dataset.si,f=inp.dataset.f;
+     var d=chist[nm]||{},ds=Object.keys(d).sort(),latest=ds.length?d[ds[ds.length-1]]:null;
+     if(latest&&latest[si]&&latest[si][f]!=null)inp.value=latest[si][f];
+     inp.addEventListener("change",function(){var dt=isoForDay(inp.dataset.day);
+       chist[nm]=chist[nm]||{};chist[nm][dt]=chist[nm][dt]||{};chist[nm][dt][si]=chist[nm][dt][si]||{};
+       chist[nm][dt][si][f]=inp.value;LS.s("pxb_chist",chist);});});
+   card.querySelectorAll(".chk").forEach(function(c){var k=c.dataset.key;if(cs.done[k])c.checked=true;
+     c.addEventListener("change",function(){if(c.checked)cs.done[k]=true;else delete cs.done[k];LS.s("pxb_cs",cs);
+       var all=[].every.call(card.querySelectorAll(".chk"),function(x){return x.checked;});card.classList.toggle("complete",all);
+       if(c.checked)autoRestMaybe();});});
+   if([].every.call(card.querySelectorAll(".chk"),function(x){return x.checked;}))card.classList.add("complete");
+   var ni=card.querySelector(".noteinp"),nw=card.querySelector(".notewrap");
+   if(cnotes[name]){ni.value=cnotes[name];nw.style.display="block";}
+   ni.addEventListener("change",function(){var v=ni.value.trim();if(v)cnotes[name]=v;else delete cnotes[name];LS.s("pxb_cnotes",cnotes);});
+   card.querySelector(".notebtn").addEventListener("click",function(){var show=nw.style.display!=="block";nw.style.display=show?"block":"none";if(show)ni.focus();});
+   card.querySelector(".chistbtn").addEventListener("click",function(){var hb=this,panel=card.querySelector(".histpanel");
+     if(panel.style.display==="block"){panel.style.display="none";hb.textContent="Hist ▾";return;}
+     var data=chist[name]||{},dates=Object.keys(data).sort().reverse(),html="";
+     dates.slice(0,10).forEach(function(dt){var st=data[dt],sis=Object.keys(st).map(Number).sort(function(a,b){return a-b;}),parts=[];
+       sis.forEach(function(si){var v=st[si];if(v&&(v.w||v.r))parts.push((v.w||"–")+"×"+(v.r||"–"));});
+       if(parts.length)html+='<div class="histrow"><span class="hd">'+fmtIso(dt)+'</span><b>'+parts.join(",  ")+'</b></div>';});
+     panel.innerHTML=html||'<div class="histrow" style="color:var(--dim)">No history yet — logged sets show here.</div>';panel.style.display="block";hb.textContent="Hist ▴";});
+   card.querySelector(".delex").addEventListener("click",function(){
+     if(!confirm('Remove "'+name+'" from '+DNAME[day]+'? (Your logged history is kept.)'))return;
+     cdefs[day]=(cdefs[day]||[]).filter(function(x){return x.id!==id;});LS.s("pxb_custom_ex",cdefs);card.remove();});
+   return card;}
+
+ function mountDay(block){var day=block.dataset.day;
+   var host=document.createElement("div");host.className="customhost";
+   (cdefs[day]||[]).forEach(function(def){host.appendChild(buildCustomCard(day,def));});
+   var addBtn=document.createElement("button");addBtn.type="button";addBtn.className="addex";addBtn.textContent="＋ Add exercise";
+   var form=document.createElement("div");form.className="exform";
+   form.innerHTML='<div class="f name"><label>Exercise name</label><input class="cx-name" placeholder="e.g. Pec Deck"></div>'+
+     '<div class="row"><div class="f small"><label>Sets</label><input class="cx-sets" type="text" inputmode="numeric" value="3"></div>'+
+     '<div class="f small"><label>Target reps (optional)</label><input class="cx-rep" placeholder="12–15"></div></div>'+
+     '<div class="row"><button class="btn primary cx-add" type="button">Add</button><button class="btn ghost cx-cancel" type="button">Cancel</button></div>';
+   addBtn.addEventListener("click",function(){form.classList.toggle("open");if(form.classList.contains("open"))form.querySelector(".cx-name").focus();});
+   form.querySelector(".cx-cancel").addEventListener("click",function(){form.classList.remove("open");});
+   form.querySelector(".cx-add").addEventListener("click",function(){
+     var nm=form.querySelector(".cx-name").value.trim();if(!nm){alert("Name your exercise first.");return;}
+     var sets=Math.max(1,Math.min(10,parseInt(form.querySelector(".cx-sets").value,10)||3));
+     var rep=form.querySelector(".cx-rep").value.trim();var def={id:uid(),name:nm,sets:sets,rep:rep};
+     cdefs[day]=cdefs[day]||[];cdefs[day].push(def);LS.s("pxb_custom_ex",cdefs);host.appendChild(buildCustomCard(day,def));
+     form.querySelector(".cx-name").value="";form.querySelector(".cx-rep").value="";form.querySelector(".cx-sets").value="3";form.classList.remove("open");});
+   var anchor=block.querySelector(".cardio")||block.querySelector(".steps");
+   if(anchor){block.insertBefore(host,anchor);block.insertBefore(addBtn,anchor);block.insertBefore(form,anchor);}
+   else{block.appendChild(host);block.appendChild(addBtn);block.appendChild(form);}}
+ document.querySelectorAll(".day-block").forEach(mountDay);
+
+ /* OFF-PLAN MEALS */
+ var meals=document.getElementById("mode-meals");
+ if(meals){var sec=document.createElement("div");sec.className="offplan";
+   sec.innerHTML='<div class="mh">Off-plan / eating out 🍽️</div>'+
+     '<div class="sec-sub" style="margin:0 0 8px">Log meals out or off-plan bites. These carry to your check-in so Coach sees the real week.</div>'+
+     '<div class="offform"><input class="odate" type="date"><input class="otext" placeholder="What did you have? e.g. Sushi — 8 pc + edamame"><button class="btn blue ofadd" type="button" style="flex:1 1 100%">Log it</button></div>'+
+     '<div class="offlist"></div>';
+   meals.appendChild(sec);var list=sec.querySelector(".offlist");
+   function renderOff(){list.innerHTML="";if(!offplan.length){list.innerHTML='<div class="offempty">Nothing logged — fully on plan. 💪</div>';return;}
+     offplan.slice().sort(function(a,b){return (a.date||"")<(b.date||"")?1:-1;}).forEach(function(m){
+       var row=document.createElement("div");row.className="offrow";
+       row.innerHTML='<div><div class="od">'+esc(fmtIso(m.date||tstr()))+'</div><div class="ot">'+esc(m.text||"")+'</div></div><button class="odel" title="Delete">×</button>';
+       row.querySelector(".odel").addEventListener("click",function(){offplan=offplan.filter(function(x){return x.id!==m.id;});LS.s("pxb_offplan",offplan);renderOff();});
+       list.appendChild(row);});}
+   sec.querySelector(".ofadd").addEventListener("click",function(){var dt=sec.querySelector(".odate").value||tstr();var tx=sec.querySelector(".otext").value.trim();
+     if(!tx){alert("What did you eat?");return;}offplan.push({id:uid(),date:dt,text:tx});LS.s("pxb_offplan",offplan);
+     sec.querySelector(".otext").value="";sec.querySelector(".odate").value="";renderOff();});
+   renderOff();}
+
+ /* EXPORT FOR COACH */
+ function weekDates(){return ORDER.map(function(d){return isoForDay(d);});}
+ function summarize(obj,dates,isC){var lines=[];Object.keys(obj).forEach(function(name){var d=obj[name];
+   Object.keys(d).forEach(function(dt){if(dates.indexOf(dt)<0)return;var st=d[dt],sis=Object.keys(st).map(Number).sort(function(a,b){return a-b;}),parts=[];
+     sis.forEach(function(si){var v=st[si];if(v&&(v.w||v.r))parts.push((v.w||"–")+"×"+(v.r||"–"));});
+     if(parts.length)lines.push({dt:dt,name:name,c:isC,txt:parts.join(", ")});});});return lines;}
+ function buildExport(){var ci=LS.g("pxb_ci",[]);var latest=ci.slice().sort(function(a,b){return (a.date||"")<(b.date||"")?1:-1;})[0];
+   var dates=weekDates();var hist=LS.g("pxb_hist",{});var lifts=summarize(hist,dates,false).concat(summarize(chist,dates,true));
+   lifts.sort(function(a,b){return a.dt<b.dt?-1:(a.dt>b.dt?1:0);});
+   var t="COACH EXPORT · "+fmtIso(tstr())+"\n\n== CHECK-IN ==\n";
+   if(latest)t+="Date: "+(latest.date||"-")+"\nAvg weight: "+(latest.weight||"-")+" lb\nWaist: "+(latest.waist||"-")+" in\nAdherence: "+(latest.adher||"-")+"%\nAvg steps: "+(latest.steps||"-")+"\nEnergy: "+(latest.energy||"-")+"/10\nSleep: "+(latest.sleep||"-")+" hrs\nNote: "+(latest.note||"-")+"\n";
+   else t+="(no check-in logged yet)\n";
+   t+="\n== LIFTS THIS WEEK ==\n";
+   if(lifts.length){var cur="";lifts.forEach(function(L){if(L.dt!==cur){cur=L.dt;t+="\n"+fmtIso(L.dt)+":\n";}t+="  "+(L.c?"[custom] ":"")+L.name+": "+L.txt+"\n";});}
+   else t+="(no lifts logged this week)\n";
+   var cx=[];Object.keys(cdefs).forEach(function(day){(cdefs[day]||[]).forEach(function(d){cx.push(DNAME[day]+": "+d.name+(d.rep?" ("+d.sets+"×"+d.rep+")":""));});});
+   if(cx.length)t+="\n== CUSTOM EXERCISES ADDED ==\n"+cx.map(function(x){return "  "+x;}).join("\n")+"\n";
+   var offW=offplan.filter(function(m){return dates.indexOf(m.date)>=0;});var show=offW.length?offW:offplan.slice().slice(-6);
+   if(show.length)t+="\n== OFF-PLAN / EATING OUT ==\n"+show.slice().sort(function(a,b){return (a.date||"")<(b.date||"")?1:-1;}).map(function(m){return "  "+fmtIso(m.date||tstr())+": "+m.text;}).join("\n")+"\n";
+   var all={},bn=LS.g("pxb_notes",{});Object.keys(bn).forEach(function(n){all[n]=bn[n];});Object.keys(cnotes).forEach(function(n){all[n]=cnotes[n];});
+   var nk=Object.keys(all);if(nk.length)t+="\n== EXERCISE NOTES ==\n"+nk.map(function(n){return "  "+n+": "+all[n];}).join("\n")+"\n";
+   return t;}
+ var cibtns=document.querySelector(".cibtns");
+ if(cibtns){var xb=document.createElement("button");xb.type="button";xb.className="btn blue";xb.id="ci-export";xb.textContent="Export week for Coach";xb.style.flex="1 1 100%";xb.style.marginTop="9px";
+   cibtns.parentNode.insertBefore(xb,cibtns.nextSibling);
+   xb.addEventListener("click",function(){var t=buildExport();
+     var toast=document.getElementById("ci-toast");
+     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){if(toast){toast.textContent="Full week copied — paste into your Saturday check-in with Coach.";toast.style.display="block";setTimeout(function(){toast.style.display="none";},3400);}else alert("Copied!");},function(){alert(t);});}
+     else alert(t);});}
 })();
 </script>
 </body>
