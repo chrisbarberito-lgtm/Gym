@@ -316,17 +316,30 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
 .offrow .odel{background:transparent;border:none;color:var(--dim);font-size:20px;font-weight:800;line-height:1;padding:0 4px}
 .offempty{color:var(--dim);font-size:13px;padding:10px 0}
 .btn.blue{background:var(--accent2);color:#04203f}
+/* ---- v8: slim masthead + compact rest bar + inline plate button ---- */
+.masthead{display:flex;align-items:center;justify-content:space-between;padding:7px 14px 5px}
+.masthead .mini{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.01em}
+.masthead .mini b{color:var(--ink);font-weight:900}
+body{padding-bottom:120px}
+.rest{padding:8px 14px calc(8px + env(safe-area-inset-bottom))}
+.rtimerow{gap:10px;margin-bottom:7px}
+.rdial{flex:0 0 44px;width:44px;height:44px}
+.rdial::before{inset:4px}
+.rtime{font-size:16px}
+.rnext{flex:1;min-width:0;font-size:11.5px;line-height:1.25;max-height:2.6em;overflow:hidden}
+.platebtn2{flex:0 0 auto;width:42px;height:42px;border-radius:12px;background:var(--panel);border:1px solid var(--line2);color:var(--accent2);font-family:inherit;display:grid;place-items:center}
+.platebtn2 svg{width:22px;height:22px;display:block}
+.platebtn2:active{transform:scale(.92)}
+.chips button{padding:9px 3px;font-size:14px}
+.rtoggles{display:flex;gap:16px;margin-top:6px;flex-wrap:wrap}
+.rtoggles .toggle{margin-top:0;font-size:10.5px}
+.rest.done .rtime{font-size:28px}
+.rest.done .rdial{height:44px}
 </style>
 </head>
 <body>
 <div class="masthead">
-  <div class="brand">
-    <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="3.2" height="8" rx="1.3"/><rect x="5.6" y="5.6" width="3" height="12.8" rx="1.3"/><rect x="8.7" y="10.5" width="6.6" height="3" rx="1.5"/><rect x="15.4" y="5.6" width="3" height="12.8" rx="1.3"/><rect x="18.8" y="8" width="3.2" height="8" rx="1.3"/></svg></div>
-    <div class="brandtxt">
-      <div class="t">Chris <span class="tthin">Coaching</span></div>
-      <div class="s">Cut phase <span class="dot">·</span> logs to your phone <span class="ver">v7</span></div>
-    </div>
-  </div>
+  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v8</span>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -691,13 +704,9 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
 
 <div class="rest">
   <div class="rtimerow">
-    <div class="rdial" id="rprog">
-      <div class="rtime" id="rtime">0:00</div>
-    </div>
-    <div class="rmeta">
-      <div class="rlabel">Rest</div>
-      <div class="rnext" id="rnext"></div>
-    </div>
+    <div class="rdial" id="rprog"><div class="rtime" id="rtime">0:00</div></div>
+    <div class="rnext" id="rnext"></div>
+    <button id="platebtn" class="platebtn2" type="button" title="Plate calculator" aria-label="Plate calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="3" rx="1" fill="currentColor" stroke="none"/><line x1="8.6" y1="12" x2="8.6" y2="12"/><line x1="12" y1="12" x2="12" y2="12"/><line x1="15.4" y1="12" x2="15.4" y2="12"/><line x1="8.6" y1="15.3" x2="8.6" y2="15.3"/><line x1="12" y1="15.3" x2="12" y2="15.3"/><line x1="15.4" y1="15.3" x2="15.4" y2="15.3"/><line x1="8.6" y1="18.6" x2="8.6" y2="18.6"/><line x1="12" y1="18.6" x2="12" y2="18.6"/><line x1="15.4" y1="18.6" x2="15.4" y2="18.6"/></svg></button>
   </div>
   <div class="chips" id="chips">
     <button data-s="60">1:00</button>
@@ -706,8 +715,10 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
     <button data-s="180">3:00</button>
     <button id="stopbtn" class="stop">Stop</button>
   </div>
-  <label class="toggle"><input type="checkbox" id="autorest" checked> Auto-start rest timer when I check a set</label>
-  <label class="toggle" id="notif" style="display:none"><input type="checkbox" id="notif-toggle"> Notify me when rest ends (while app is open)</label>
+  <div class="rtoggles">
+    <label class="toggle"><input type="checkbox" id="autorest" checked> Auto-rest</label>
+    <label class="toggle" id="notif" style="display:none"><input type="checkbox" id="notif-toggle"> Notify</label>
+  </div>
 </div>
 <script>
 (function(){
@@ -946,10 +957,7 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
    ni.addEventListener('change',function(){var v=ni.value.trim();if(v)notes[name]=v;else delete notes[name];LS.s('pxb_notes',notes);});
    nb.addEventListener('click',function(){var show=nw.style.display!=='block';nw.style.display=show?'block':'none';if(show)ni.focus();});
  });
- var train=document.getElementById('mode-train'),days=train&&train.querySelector('.days');
- if(days){var tools=document.createElement('div');tools.className='tools';
-   tools.innerHTML='<button id="platebtn" type="button">🧮 Plate calculator</button>';
-   days.parentNode.insertBefore(tools,days.nextSibling);}
+ /* plate button now lives inline in the compact rest bar (#platebtn in HTML) */
  var pc=document.createElement('div');pc.id='pc';
  pc.innerHTML='<div class="pcbox"><div class="pchd">Plate Calculator</div><div class="pcrow"><label>Target (lb)<input id="pc-target" type="text" inputmode="decimal" placeholder="185"></label><label>Bar<select id="pc-bar"><option value="45">45 lb bar</option><option value="35">35 lb bar</option><option value="25">25 lb bar</option><option value="0">No bar / machine</option></select></label></div><div id="pc-out" class="pcout">Enter a target weight.</div><button class="btn ghost" id="pc-close" type="button">Close</button></div>';
  document.body.appendChild(pc);
