@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Chris — Gym</title>
+<title>Chris Coaching</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -11,158 +11,294 @@
 <meta name="theme-color" content="#0e1116">
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <style>
-:root{--bg:#0e1116;--panel:#161b22;--panel2:#1c2230;--line:#2a313c;--ink:#f0f4f9;
---muted:#9aa7b8;--dim:#6b7787;--accent:#4cc2a3;--accent2:#5aa6ff;--warn:#e0a94a;--done:#4cc2a3;
---sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+:root{
+ --bg:#0a0d12; --glow:#16212e;
+ --panel:#141a22; --panel2:#1a212b; --elev:#1e2732;
+ --line:#28313d; --line2:#333f4d;
+ --ink:#f1f5fa; --muted:#95a3b5; --dim:#63707e;
+ --accent:#4fd0a4; --accent-ink:#04231a; --accent-soft:rgba(79,208,164,.14); --accent-line:rgba(79,208,164,.45);
+ --accent2:#5aa6ff; --accent2-soft:rgba(90,166,255,.13);
+ --warn:#e7b455; --warn-ink:#2a1c00;
+ --glass:rgba(10,13,18,.82); --well:#0f141b;
+ --shadow:0 1px 2px rgba(0,0,0,.28);
+ --radius:16px;
+ --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+ --num:ui-rounded,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:light){
+ :root{
+  --bg:#eceff4; --glow:#dde5ef;
+  --panel:#ffffff; --panel2:#f2f5f9; --elev:#ffffff;
+  --line:#dde3ea; --line2:#ccd5df;
+  --ink:#131a23; --muted:#54637a; --dim:#8593a5;
+  --accent:#12a97f; --accent-ink:#ffffff; --accent-soft:rgba(18,169,127,.12); --accent-line:rgba(18,169,127,.4);
+  --accent2:#2b7fff; --accent2-soft:rgba(43,127,255,.1);
+  --warn:#a9761f; --warn-ink:#ffffff;
+  --glass:rgba(255,255,255,.85); --well:#e9edf3;
+  --shadow:0 1px 2px rgba(20,30,50,.08);
+ }
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+a,button,.chk,.toggle,.dbtn{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+html{scroll-behavior:smooth}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
-body{padding:env(safe-area-inset-top) 0 150px;font-size:16px;line-height:1.4}
-.masthead{padding:14px 16px 4px}
-.masthead .t{font-size:15px;font-weight:800}
-.masthead .s{font-size:12.5px;color:var(--muted);margin-top:2px}
-.ver{color:var(--dim);font-weight:700}
-.modes{position:sticky;top:0;z-index:25;background:rgba(14,17,22,.96);backdrop-filter:blur(10px);
+body{padding:env(safe-area-inset-top) 0 208px;font-size:16px;line-height:1.4;
+ background-image:radial-gradient(135% 72% at 50% -18%,var(--glow),transparent 62%);background-attachment:fixed;
+ -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---- identity / masthead ---- */
+.masthead{padding:16px 16px 8px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{flex:0 0 auto;width:44px;height:44px;border-radius:13px;background:linear-gradient(160deg,var(--panel2),var(--panel));
+ border:1px solid var(--line);display:grid;place-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 0 0 3px var(--accent-soft)}
+.logo svg{width:27px;height:27px;fill:var(--accent);display:block}
+.brandtxt{min-width:0}
+.masthead .t{font-size:19px;font-weight:900;letter-spacing:-.02em;line-height:1.05}
+.masthead .t .tthin{font-weight:600;color:var(--muted);letter-spacing:0}
+.masthead .s{font-size:12px;color:var(--dim);margin-top:3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.masthead .s .dot{color:var(--line2)}
+.ver{font-weight:800;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);
+ border-radius:999px;padding:1px 8px;font-size:10.5px;letter-spacing:.02em}
+
+/* ---- mode switch ---- */
+.modes{position:sticky;top:0;z-index:25;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
  display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
 .modes a{flex:1;text-align:center;text-decoration:none;background:var(--panel);border:1px solid var(--line);
- color:var(--muted);border-radius:12px;padding:10px 0;font-size:14px;font-weight:800}
-.modes a.active{background:var(--accent);color:#06231c;border-color:var(--accent)}
-nav.days{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+ color:var(--muted);border-radius:12px;padding:11px 0;font-size:13.5px;font-weight:800;letter-spacing:.01em;
+ transition:background .18s,color .18s,border-color .18s,transform .08s}
+.modes a:active{transform:scale(.97)}
+.modes a.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);box-shadow:0 4px 14px var(--accent-soft)}
+
+/* ---- day tabs ---- */
+nav.days{display:flex;gap:7px;overflow-x:auto;padding:12px 14px 6px;scrollbar-width:none}
 nav.days::-webkit-scrollbar{display:none}
 .dbtn{flex:0 0 auto;text-decoration:none;background:var(--panel);border:1px solid var(--line);color:var(--muted);
- border-radius:12px;padding:7px 12px;min-width:58px;text-align:center;display:flex;flex-direction:column;gap:0}
+ border-radius:12px;padding:7px 11px;min-width:56px;text-align:center;display:flex;flex-direction:column;gap:1px;position:relative;
+ transition:background .16s,color .16s,border-color .16s,transform .08s}
+.dbtn:active{transform:scale(.96)}
 .dbtn b{font-size:14px;font-weight:800}
-.dbtn .dt{font-size:11px;font-weight:700;color:var(--accent2)}
-.dbtn .sub{font-size:9px;font-weight:600;color:var(--dim);text-transform:uppercase}
-.dbtn.active{background:var(--accent2);color:#04203f;border-color:var(--accent2)}
+.dbtn .dt{font-size:11px;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums}
+.dbtn .sub{font-size:9px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.dbtn.active{background:var(--accent2);color:#04203f;border-color:var(--accent2);box-shadow:0 4px 14px var(--accent2-soft)}
 .dbtn.active .dt,.dbtn.active .sub{color:#04203f}
-.dbtn.today:not(.active){border-color:var(--accent)}
+.dbtn.today:not(.active){border-color:var(--accent-line);box-shadow:inset 0 0 0 1px var(--accent-soft)}
+
 main{padding:2px 14px 0}
-.sec-hd{font-size:22px;font-weight:800;letter-spacing:-.02em;margin:12px 2px 2px}
-.sec-sub{font-size:13px;color:var(--muted);margin:0 2px 8px}
-.dhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:8px 2px 2px}
-.dname{font-size:22px;font-weight:800;letter-spacing:-.02em}
-.dfocus{font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.ddate{color:var(--muted)}
-.dmac{font-size:11px;color:var(--dim);text-align:right;max-width:150px}.dmac b{color:var(--muted)}
-.dprog{display:flex;align-items:center;gap:10px;margin:8px 2px 2px}
-.dbar{flex:1;height:8px;background:var(--panel2);border-radius:99px;overflow:hidden}
-.dbar>i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .3s}
-.dptxt{font-size:12px;color:var(--muted);white-space:nowrap}.dptxt b{color:var(--ink)}
+.mode{animation:fadeUp .3s ease both}
+.day-block{animation:fadeUp .26s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.sec-hd{font-size:26px;font-weight:900;letter-spacing:-.03em;margin:14px 2px 2px}
+.sec-sub{font-size:13px;color:var(--muted);margin:0 2px 10px;max-width:34em;text-wrap:pretty}
+
+/* ---- day header ---- */
+.dhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:12px 0 0;background:var(--panel);border:1px solid var(--line);border-bottom:none;border-radius:16px 16px 0 0;padding:16px 16px 4px;box-shadow:var(--shadow)}
+.dname{font-size:26px;font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.dfocus{font-size:11px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-top:5px}
+.ddate{color:var(--dim);font-weight:700;letter-spacing:.02em}
+.dmac{font-size:10.5px;color:var(--dim);text-align:right;max-width:150px;line-height:1.5;font-variant-numeric:tabular-nums}
+.dmac b{color:var(--muted);font-weight:800}
+.dprog{display:flex;align-items:center;gap:11px;margin:0 0 14px;background:var(--panel);border:1px solid var(--line);border-top:none;border-radius:0 0 16px 16px;padding:12px 16px 16px}
+.dbar{flex:1;height:9px;background:var(--panel2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.dbar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#7ee0be);border-radius:99px;transition:width .45s cubic-bezier(.2,.9,.3,1)}
+.dptxt{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dptxt b{color:var(--ink);font-weight:900;font-size:14px}
+
 .note{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;
- padding:10px 12px;color:var(--warn);font-size:13.5px;margin:10px 0}
-.ex{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
-.ex.complete{border-color:rgba(76,194,163,.55)}
-.exh{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:13px 15px}
-.exn{font-size:17px;font-weight:700}
-.bw{font-size:10px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:4px}
-.exright{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
-.ext{font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap}
-.histbtn{background:var(--panel2);border:1px solid var(--line);color:var(--accent2);border-radius:8px;padding:4px 9px;font-size:11px;font-weight:800;font-family:inherit}
-.histpanel{border-top:1px solid var(--line);padding:9px 15px 12px;background:var(--panel2)}
-.histrow{font-size:13.5px;color:var(--muted);padding:4px 0}
-.histrow b{color:var(--ink)}
-.histrow .hd{color:var(--dim);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-right:6px}
-.sets{padding:0 12px 8px}
-.setrow{display:flex;align-items:center;gap:7px;padding:8px 3px;border-top:1px solid var(--line)}
-.setno{flex:0 0 42px;font-size:12px;color:var(--dim);font-weight:800;text-transform:uppercase}
+ padding:10px 13px;color:var(--warn);font-size:13.5px;margin:12px 0;font-weight:600}
+
+/* ---- exercise card ---- */
+.ex{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:14px 0;overflow:hidden;
+ box-shadow:var(--shadow);transition:border-color .2s}
+.ex.complete{border-color:var(--accent-line)}
+.ex.complete .exh{background:var(--accent-soft)}
+.exh{display:flex;flex-direction:column;gap:9px;padding:14px 15px 11px;transition:background .2s}
+.exn{font-size:17.5px;font-weight:800;letter-spacing:-.01em;line-height:1.2;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ex.complete .exn::after{content:'✓';color:var(--accent);font-weight:900;font-size:15px}
+.bw{font-size:10px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-weight:700;text-transform:lowercase;letter-spacing:.02em}
+.exright{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ext{font-size:12.5px;color:var(--ink);font-weight:800;white-space:nowrap;background:var(--panel2);border:1px solid var(--line);
+ border-radius:8px;padding:4px 10px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.histbtn{background:transparent;border:1px solid var(--line);color:var(--accent2);border-radius:8px;padding:5px 11px;
+ font-size:11px;font-weight:800;font-family:inherit;letter-spacing:.02em;transition:background .15s,transform .08s}
+.histbtn:active{transform:scale(.94)}
+.histpanel{border-top:1px solid var(--line);padding:10px 15px 13px;background:var(--panel2)}
+.histrow{font-size:13.5px;color:var(--muted);padding:5px 0;font-variant-numeric:tabular-nums}
+.histrow b{color:var(--ink);font-weight:800}
+.histrow .hd{color:var(--accent2);font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-right:8px}
+
+/* ---- set rows ---- */
+.sets{margin:2px 12px 13px;padding:2px 10px;background:var(--well);border:1px solid var(--line);border-radius:13px}
+.setrow{display:flex;align-items:center;gap:8px;padding:10px 2px;border-top:1px solid var(--line);transition:background .2s;border-radius:8px}
+.setrow:first-child{border-top:none}
+.setrow:has(.chk:checked){background:var(--accent-soft)}
+.setno{flex:0 0 40px;font-size:11px;color:var(--dim);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
 .bwtgt{flex:1;font-size:15px;color:var(--muted);font-weight:600}
 .fld{flex:1;position:relative}
-.fld .cap{position:absolute;top:-7px;left:10px;font-size:9px;color:var(--dim);background:var(--panel);padding:0 4px;text-transform:uppercase;font-weight:800}
-.fld input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);
- font-size:17px;font-weight:700;text-align:center;padding:11px 4px;font-family:inherit}
-.fld input:focus{outline:none;border-color:var(--accent2)}
-.cpy{flex:0 0 36px;height:46px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--accent2);font-size:18px;font-weight:800;font-family:inherit}
-.cpy:active{transform:scale(.92)}
+.fld .cap{position:absolute;top:-7px;left:10px;font-size:9.5px;color:var(--dim);background:var(--well);padding:0 5px;
+ text-transform:uppercase;font-weight:800;letter-spacing:.06em}
+.fld input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:11px;color:var(--ink);
+ font-size:17px;font-weight:800;text-align:center;padding:12px 4px;font-family:var(--num);font-variant-numeric:tabular-nums;transition:border-color .15s}
+.fld input:focus{outline:none;border-color:var(--accent2);box-shadow:0 0 0 3px var(--accent2-soft)}
+.cpy{flex:0 0 42px;height:50px;border:1px solid var(--line);border-radius:11px;background:var(--panel);color:var(--accent2);
+ font-size:19px;font-weight:800;font-family:inherit;transition:transform .08s,background .15s}
+.cpy:active{transform:scale(.9);background:var(--accent2-soft)}
 .cpy.ghost{visibility:hidden;border:none;background:none}
-.chk{flex:0 0 46px;height:46px;margin:0;-webkit-appearance:none;appearance:none;border:2px solid var(--line);
- border-radius:12px;background:var(--panel2);position:relative}
-.chk:checked{background:var(--done);border-color:var(--done)}
-.chk:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#06231c;font-size:22px;font-weight:900}
-.cardio{background:var(--panel2);border:1px solid var(--line);border-radius:16px;margin:14px 0 6px;padding:13px 15px}
-.cardio h3{margin:0 0 4px;font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em}
+.chk{flex:0 0 50px;height:50px;margin:0;-webkit-appearance:none;appearance:none;border:2px solid var(--line);
+ border-radius:13px;background:var(--panel);position:relative;transition:background .18s,border-color .18s}
+.chk:checked{background:var(--accent);border-color:var(--accent)}
+.chk:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+ color:var(--accent-ink);font-size:23px;font-weight:900;animation:pop .22s ease}
+@keyframes pop{0%{transform:scale(.3);opacity:0}55%{transform:scale(1.18)}100%{transform:scale(1);opacity:1}}
+
+.cardio{background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);margin:14px 0 6px;padding:14px 15px}
+.cardio h3{margin:0 0 5px;font-size:11px;color:var(--accent2);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
 .cardio p{margin:2px 0;color:var(--muted);font-size:14px}
-.steps{text-align:center;font-size:13px;color:var(--dim);margin:10px 0 26px}
-.mbanner{display:flex;gap:10px;margin:10px 0}
-.mpill{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
-.mpill .l{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
-.mpill .v{font-size:13px;font-weight:800;margin-top:2px}
-.meal{background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:12px 0;padding:14px 16px}
-.mh{font-size:16px;font-weight:800;margin-bottom:6px}
-.mtag{font-size:10px;color:var(--accent);border:1px solid rgba(76,194,163,.4);border-radius:6px;padding:1px 6px;margin-left:4px;text-transform:uppercase;letter-spacing:.04em;font-weight:700;white-space:nowrap}
-.meal ul{margin:4px 0 0;padding-left:18px}
+.steps{text-align:center;font-size:13px;color:var(--dim);margin:12px 0 26px;font-weight:600}
+
+/* ---- meals ---- */
+.mbanner{display:flex;gap:10px;margin:12px 0}
+.mpill{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:12px 10px;text-align:center}
+.mpill .l{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;font-weight:800}
+.mpill .v{font-size:13px;font-weight:800;margin-top:3px;line-height:1.35;font-variant-numeric:tabular-nums}
+.meal{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:14px 0;padding:15px 16px;box-shadow:var(--shadow)}
+.mh{font-size:16px;font-weight:800;margin-bottom:7px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.mtag{font-size:9.5px;color:var(--accent);border:1px solid var(--accent-line);background:var(--accent-soft);border-radius:6px;
+ padding:2px 7px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;white-space:nowrap}
+.meal ul{margin:5px 0 0;padding-left:18px}
 .meal li{color:var(--muted);font-size:14px;padding:3px 0}
-.meal li b{color:var(--ink)}
-.rd{color:var(--accent2);font-size:12px}
+.meal li b{color:var(--ink);font-weight:800}
+.rd{display:inline-block;color:var(--accent2);background:var(--accent2-soft);border:1px solid rgba(90,166,255,.3);border-radius:6px;padding:1px 7px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-left:3px;vertical-align:1px}
 .swap{color:var(--dim);font-size:12px;font-style:italic}
-.ci-form{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 14px 10px;margin:10px 0;display:flex;flex-wrap:wrap;gap:10px}
-.cifld{flex:1 1 44%;display:flex;flex-direction:column;gap:4px}
+
+/* ---- check-in ---- */
+.ci-form{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 15px 12px;margin:10px 0;
+ display:flex;flex-wrap:wrap;gap:11px;box-shadow:var(--shadow)}
+.cifld{flex:1 1 44%;display:flex;flex-direction:column;gap:5px}
 .cifld.wide{flex:1 1 100%}
-.cifld span{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
-.cifld input[type=text],.cifld input[type=date]{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;padding:10px;font-family:inherit}
-.cifld input:focus{outline:none;border-color:var(--accent2)}
-.cifld input[type=file]{background:var(--panel2);border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px;padding:12px;font-family:inherit}
-.cibtns{display:flex;gap:8px;flex:1 1 100%;margin-top:2px}
-.btn{flex:1;border:none;border-radius:12px;padding:13px;font-size:15px;font-weight:800;font-family:inherit}
-.btn.primary{background:var(--accent);color:#06231c}
+.cifld span{font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+.cifld input[type=text],.cifld input[type=date]{background:var(--panel2);border:1px solid var(--line);border-radius:11px;
+ color:var(--ink);font-size:16px;padding:11px;font-family:inherit;transition:border-color .15s}
+.cifld input:focus{outline:none;border-color:var(--accent2);box-shadow:0 0 0 3px var(--accent2-soft)}
+.cifld input[type=file]{background:var(--panel2);border:1px dashed var(--line2);border-radius:11px;color:var(--muted);font-size:13px;padding:13px;font-family:inherit}
+.cibtns{display:flex;gap:9px;flex:1 1 100%;margin-top:3px}
+.btn{flex:1;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:800;font-family:inherit;transition:transform .08s,filter .15s}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 4px 14px var(--accent-soft)}
 .btn.ghost{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+
+#ci-chartwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px 8px;margin:10px 0;box-shadow:var(--shadow)}
+#ci-chlbl{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:10.5px;color:var(--dim);
+ text-transform:uppercase;letter-spacing:.05em;font-weight:800;margin-bottom:8px}
+#ci-chlbl b{color:var(--ink);font-size:14px;font-variant-numeric:tabular-nums}
+#ci-chart{width:100%;height:150px;display:block}
+
 .cihist{margin:10px 0}
-.cirow{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:8px 0}
-.cirow .top{display:flex;justify-content:space-between;gap:10px}
-.cirow .d{font-size:12px;color:var(--dim)}
-.cirow .m{font-size:15px;font-weight:800;margin-top:1px}
-.cirow .n{font-size:12px;color:var(--muted);margin-top:2px}
-.cirow .chg{text-align:right;font-size:13px;font-weight:800;white-space:nowrap}
-.chg.dn{color:var(--accent)}.chg.up{color:var(--warn)}
-.thumbs{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.thumb{width:70px;height:90px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel2)}
-.ciempty{color:var(--dim);font-size:13px;text-align:center;padding:16px}
-.tip{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent2);border-radius:10px;padding:11px 13px;color:var(--muted);font-size:13px;margin:10px 0 24px}
-.tip b{color:var(--ink)}
-.hint{margin:2px 16px 0;font-size:12px;color:var(--dim)}
-#lb{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:16px}
-#lb img{max-width:100%;max-height:100%;border-radius:10px}
-#lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top));right:18px;color:#fff;font-size:30px;font-weight:800}
-.rest{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(22,27,34,.98);backdrop-filter:blur(10px);
- border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));transition:background .2s}
-.rest.running{border-top-color:var(--accent)}
-.rest.done{background:rgba(76,194,163,.22);border-top-color:var(--accent)}
-.rest .row{display:flex;align-items:center;gap:10px}
-.rtime{font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;min-width:110px;letter-spacing:-.02em}
+.cirow{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:12px 14px;margin:9px 0;box-shadow:var(--shadow)}
+.cirow .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.cirow .d{font-size:10.5px;color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.cirow .m{font-size:15px;font-weight:800;margin-top:3px;font-variant-numeric:tabular-nums}
+.cirow .n{font-size:12.5px;color:var(--muted);margin-top:3px}
+.cirow .chg{text-align:right;font-size:14px;font-weight:900;white-space:nowrap;font-variant-numeric:tabular-nums;
+ border-radius:8px;padding:3px 9px;border:1px solid var(--line)}
+.chg.dn{color:var(--accent);background:var(--accent-soft);border-color:var(--accent-line)}
+.chg.up{color:var(--warn);background:rgba(231,180,85,.12);border-color:rgba(231,180,85,.4)}
+.thumbs{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+.thumb{width:74px;height:94px;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--panel2);transition:transform .08s}
+.thumb:active{transform:scale(.95)}
+.ciempty{color:var(--dim);font-size:13px;text-align:center;padding:20px}
+.tip{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent2);border-radius:11px;
+ padding:12px 14px;color:var(--muted);font-size:13px;margin:10px 0 24px;text-wrap:pretty}
+.tip b{color:var(--ink);font-weight:800}
+.hint{margin:4px 16px 0;font-size:12px;color:var(--dim)}
+
+#lb{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:16px}
+#lb img{max-width:100%;max-height:100%;border-radius:12px}
+#lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top));right:18px;color:#fff;font-size:32px;font-weight:800}
+
+a{color:var(--accent2)}a:hover{color:var(--accent)}
+
+/* ---- rest timer bar ---- */
+.rest{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--glass);
+ backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);
+ padding:11px 16px calc(11px + env(safe-area-inset-bottom));transition:background .25s,border-color .25s}
+.rest.running{border-top-color:var(--accent-line)}
+.rest.done{background:var(--accent);border-top-color:var(--accent)}
+.rtimerow{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.rdial{--p:0;flex:0 0 80px;width:80px;height:80px;border-radius:50%;display:grid;place-items:center;position:relative;
+ background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--panel2) 0)}
+.rdial::before{content:'';position:absolute;inset:5px;border-radius:50%;background:var(--panel)}
+.rmeta{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rnext{font-size:12.5px;color:var(--muted);line-height:1.4;text-wrap:pretty}
+.rnext b{color:var(--ink);font-weight:800}
+.rest.done .rnext,.rest.done .rnext b{color:var(--accent-ink)}
+.rlabel{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.rtime{position:relative;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;font-family:var(--num)}
 .rtime.run{color:var(--accent)}
-.rlabel{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
-.chips{display:flex;gap:6px;margin-left:auto}
-.chips button{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:11px 13px;font-size:15px;font-weight:800;font-family:inherit}
-.chips button:active{transform:scale(.94)}
-.chips button.sel{border-color:var(--accent);color:var(--accent)}
-.chips button.stop{background:var(--warn);border-color:var(--warn);color:#2a1c00}
-.toggle{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--dim);margin-top:6px}
-.toggle input{width:15px;height:15px;accent-color:var(--accent)}
-.btnrow{display:flex;gap:5px}
-.notebtn{background:var(--panel2);border:1px solid var(--line);color:var(--warn);border-radius:8px;padding:4px 9px;font-size:12px;font-weight:800;font-family:inherit}
-.notewrap{padding:0 15px 11px}
-.noteinp{width:100%;background:var(--panel2);border:1px dashed var(--line);border-radius:8px;color:var(--ink);font-size:13.5px;padding:9px 10px;font-family:inherit}
+.rest.done .rlabel{color:var(--accent-ink);opacity:.8}
+.rest.done .rtime{font-size:42px;color:var(--accent-ink);letter-spacing:.08em}
+.rest.done .rdial{flex:1;width:auto;height:58px;border-radius:12px;background:transparent}
+.rest.done .rdial::before{display:none}
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.chips button{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:11px;padding:13px 4px;
+ font-size:15px;font-weight:800;font-family:var(--num);font-variant-numeric:tabular-nums;transition:transform .08s,border-color .15s,color .15s}
+.chips button:active{transform:scale(.93)}
+.chips button.sel{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.chips button.stop{background:var(--warn);border-color:var(--warn);color:var(--warn-ink)}
+.rest.done .chips button{opacity:.8;background:rgba(0,0,0,.14);border-color:rgba(0,0,0,.18);color:var(--accent-ink)}
+.rest.done .chips button.sel{opacity:1;border-color:var(--accent-ink);color:var(--accent-ink);background:rgba(0,0,0,.22)}
+.rest.done .chips button.stop{opacity:1}
+.toggle{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--dim);margin-top:8px}
+.toggle input{width:16px;height:16px;accent-color:var(--accent)}
+.rest.done .toggle{color:var(--accent-ink);opacity:.75}
+
+/* lifting-flow polish */
+.day-block{counter-reset:exn}
+.ex .exn::before{counter-increment:exn;content:counter(exn,decimal-leading-zero);font-size:10.5px;font-weight:800;
+ color:var(--dim);letter-spacing:.05em;border:1px solid var(--line);border-radius:7px;padding:2px 6px;font-variant-numeric:tabular-nums}
+.ex.complete .exn::before{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+.ex.complete{animation:donePulse .55s ease}
+.ex.complete .sets{opacity:.55;transition:opacity .25s}
+.ex .sets{transition:opacity .25s}
+@keyframes donePulse{0%{box-shadow:0 0 0 0 var(--accent-line)}70%{box-shadow:0 0 0 12px rgba(79,208,164,0)}100%{box-shadow:var(--shadow)}}
+.dbtn.logged::after{content:'';position:absolute;top:5px;right:5px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.dbtn.active.logged::after{background:#04203f}
+.cistats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:10px 0}
+.cistat{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:13px 8px;text-align:center;box-shadow:var(--shadow)}
+.cistat .v{font-size:23px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.cistat .v span{font-size:11px;font-weight:700;color:var(--dim);margin-left:2px}
+.cistat .l{font-size:9.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-top:4px}
+/* ---- v5 features merged onto v6 (plate calc, notes, last-hint) ---- */
+.exright{justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.exright .ext{margin-right:auto}
+.notebtn{background:transparent;border:1px solid var(--line);color:var(--warn);border-radius:8px;padding:5px 10px;font-size:12px;font-weight:800;font-family:inherit;transition:background .15s,transform .08s}
+.notebtn:active{transform:scale(.94)}
+.lasthint{font-size:11px;color:var(--dim);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.notewrap{padding:2px 13px 13px}
+.noteinp{width:100%;background:var(--panel2);border:1px dashed var(--line2);border-radius:10px;color:var(--ink);font-size:13.5px;padding:10px 11px;font-family:inherit;transition:border-color .15s}
 .noteinp:focus{outline:none;border-color:var(--warn);border-style:solid}
-.lasthint{font-size:11px;color:var(--dim);font-weight:700;white-space:nowrap}
-.tools{display:flex;justify-content:flex-end;padding:0 14px 2px}
-.tools button{background:var(--panel);border:1px solid var(--line);color:var(--accent2);border-radius:10px;padding:7px 12px;font-size:12.5px;font-weight:800;font-family:inherit}
-#pc{display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.75);align-items:flex-start;justify-content:center;padding:14vh 18px 0}
-.pcbox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;width:100%;max-width:360px}
-.pchd{font-size:15px;font-weight:800;margin-bottom:10px}
-.pcrow{display:flex;gap:10px}
-.pcrow label{flex:1;display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--dim);text-transform:uppercase;font-weight:700}
-.pcrow input,.pcrow select{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:17px;font-weight:700;padding:10px;font-family:inherit}
-.pcout{margin:12px 0;font-size:16px;font-weight:800;color:var(--accent);min-height:22px}
-.chartcard{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:10px 0}
-.chh{font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:6px}
-.chartcard canvas{width:100%;height:auto;display:block}
-.chlbl{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
-.chips{flex-wrap:wrap;justify-content:flex-end}
+.tools{display:flex;justify-content:flex-end;padding:2px 2px 0}
+.tools button{background:var(--panel);border:1px solid var(--line);color:var(--accent2);border-radius:11px;padding:9px 13px;font-size:12.5px;font-weight:800;font-family:inherit;box-shadow:var(--shadow);transition:transform .08s}
+.tools button:active{transform:scale(.96)}
+#pc{display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.7);align-items:flex-start;justify-content:center;padding:12vh 18px 0}
+.pcbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:17px;width:100%;max-width:360px;box-shadow:var(--shadow)}
+.pchd{font-size:16px;font-weight:900;margin-bottom:12px;letter-spacing:-.01em}
+.pcrow{display:flex;gap:10px;margin-bottom:2px}
+.pcrow label{flex:1;display:flex;flex-direction:column;gap:5px;font-size:10.5px;color:var(--dim);text-transform:uppercase;font-weight:800}
+.pcrow input,.pcrow select{background:var(--panel2);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:17px;font-weight:800;padding:11px;font-family:inherit}
+.pcout{margin:13px 0;font-size:15.5px;font-weight:800;color:var(--accent);min-height:22px;font-variant-numeric:tabular-nums;line-height:1.5}
 </style>
 </head>
 <body>
 <div class="masthead">
-  <div class="t">Chris — Coaching</div>
-  <div class="s">Workouts, meals &amp; weekly check-ins. Everything logs to your phone. <span class="ver">v5</span></div>
+  <div class="brand">
+    <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="3.2" height="8" rx="1.3"/><rect x="5.6" y="5.6" width="3" height="12.8" rx="1.3"/><rect x="8.7" y="10.5" width="6.6" height="3" rx="1.5"/><rect x="15.4" y="5.6" width="3" height="12.8" rx="1.3"/><rect x="18.8" y="8" width="3.2" height="8" rx="1.3"/></svg></div>
+    <div class="brandtxt">
+      <div class="t">Chris <span class="tthin">Coaching</span></div>
+      <div class="s">Cut phase <span class="dot">·</span> logs to your phone <span class="ver">v6</span></div>
+    </div>
+  </div>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -174,12 +310,11 @@ main{padding:2px 14px 0}
 
 <section class="mode" data-mode="train" id="mode-train">
   <nav class="days"><a class="dbtn" href="#day-mon" data-day="mon"><b>Mon</b><span class="dt"></span><span class="sub">Push</span></a><a class="dbtn" href="#day-tue" data-day="tue"><b>Tue</b><span class="dt"></span><span class="sub">Legs</span></a><a class="dbtn" href="#day-wed" data-day="wed"><b>Wed</b><span class="dt"></span><span class="sub">Pull</span></a><a class="dbtn" href="#day-thu" data-day="thu"><b>Thu</b><span class="dt"></span><span class="sub">Cardio</span></a><a class="dbtn" href="#day-fri" data-day="fri"><b>Fri</b><span class="dt"></span><span class="sub">Legs</span></a><a class="dbtn" href="#day-sat" data-day="sat"><b>Sat</b><span class="dt"></span><span class="sub">Pump</span></a><a class="dbtn" href="#day-sun" data-day="sun"><b>Sun</b><span class="dt"></span><span class="sub">Rest</span></a></nav>
-  <div class="tools"><button id="platebtn" type="button">🧮 Plate calculator</button></div>
   <section class="day-block" id="day-mon" data-day="mon">
 <div class="dhead"><div><div class="dname">Chest + Shoulders</div><div class="dfocus">Push <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">19 sets</span></div>
 <div class="ex" data-ex="DB Bench Press">
-<div class="exh"><div class="exn">DB Bench Press </div><div class="exright"><div class="ext">4 × 8–10</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">DB Bench Press </div><div class="exright"><div class="ext">4 × 8–10</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_0" data-f="w" data-day="mon" data-si="0" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_0" data-f="r" data-day="mon" data-si="0" data-ex="DB Bench Press" placeholder="8–10"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_1" data-f="w" data-day="mon" data-si="1" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_1" data-f="r" data-day="mon" data-si="1" data-ex="DB Bench Press" placeholder="8–10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_0_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_0_2" data-f="w" data-day="mon" data-si="2" data-ex="DB Bench Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_0_2" data-f="r" data-day="mon" data-si="2" data-ex="DB Bench Press" placeholder="8–10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_0_2" aria-label="done"></div>
@@ -188,7 +323,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Incline DB Press">
-<div class="exh"><div class="exn">Incline DB Press </div><div class="exright"><div class="ext">3 × 10–12</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Incline DB Press </div><div class="exright"><div class="ext">3 × 10–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_0" data-f="w" data-day="mon" data-si="0" data-ex="Incline DB Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_0" data-f="r" data-day="mon" data-si="0" data-ex="Incline DB Press" placeholder="10–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_1" data-f="w" data-day="mon" data-si="1" data-ex="Incline DB Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_1" data-f="r" data-day="mon" data-si="1" data-ex="Incline DB Press" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_1_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_1_2" data-f="w" data-day="mon" data-si="2" data-ex="Incline DB Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_1_2" data-f="r" data-day="mon" data-si="2" data-ex="Incline DB Press" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_1_2" aria-label="done"></div>
@@ -196,7 +331,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Machine Chest Press">
-<div class="exh"><div class="exn">Machine Chest Press </div><div class="exright"><div class="ext">3 × 12–15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Machine Chest Press </div><div class="exright"><div class="ext">3 × 12–15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_0" data-f="w" data-day="mon" data-si="0" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_0" data-f="r" data-day="mon" data-si="0" data-ex="Machine Chest Press" placeholder="12–15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_1" data-f="w" data-day="mon" data-si="1" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_1" data-f="r" data-day="mon" data-si="1" data-ex="Machine Chest Press" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_2_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_2_2" data-f="w" data-day="mon" data-si="2" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_2_2" data-f="r" data-day="mon" data-si="2" data-ex="Machine Chest Press" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_2_2" aria-label="done"></div>
@@ -204,7 +339,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="DB Lateral Raise">
-<div class="exh"><div class="exn">DB Lateral Raise </div><div class="exright"><div class="ext">4 × 15–20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">DB Lateral Raise </div><div class="exright"><div class="ext">4 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_0" data-f="w" data-day="mon" data-si="0" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_0" data-f="r" data-day="mon" data-si="0" data-ex="DB Lateral Raise" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_3_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_1" data-f="w" data-day="mon" data-si="1" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_1" data-f="r" data-day="mon" data-si="1" data-ex="DB Lateral Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_3_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_3_2" data-f="w" data-day="mon" data-si="2" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_3_2" data-f="r" data-day="mon" data-si="2" data-ex="DB Lateral Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_3_2" aria-label="done"></div>
@@ -213,7 +348,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Rear Delt Fly">
-<div class="exh"><div class="exn">Rear Delt Fly </div><div class="exright"><div class="ext">3 × 15–20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Rear Delt Fly </div><div class="exright"><div class="ext">3 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_0" data-f="w" data-day="mon" data-si="0" data-ex="Rear Delt Fly" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_0" data-f="r" data-day="mon" data-si="0" data-ex="Rear Delt Fly" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="mon_4_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_1" data-f="w" data-day="mon" data-si="1" data-ex="Rear Delt Fly" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_1" data-f="r" data-day="mon" data-si="1" data-ex="Rear Delt Fly" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_4_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="mon_4_2" data-f="w" data-day="mon" data-si="2" data-ex="Rear Delt Fly" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="mon_4_2" data-f="r" data-day="mon" data-si="2" data-ex="Rear Delt Fly" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="mon_4_2" aria-label="done"></div>
@@ -221,7 +356,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Pushups">
-<div class="exh"><div class="exn">Pushups <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × to failure</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Pushups <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × to failure</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">to failure</span><input type="checkbox" class="chk" data-key="mon_5_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">to failure</span><input type="checkbox" class="chk" data-key="mon_5_1" aria-label="done"></div>
 </div>
@@ -232,7 +367,7 @@ main{padding:2px 14px 0}
 <div class="dhead"><div><div class="dname">Lower Body</div><div class="dfocus">Quad focus <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">21 sets</span></div>
 <div class="ex" data-ex="Smith / Hack Squat">
-<div class="exh"><div class="exn">Smith / Hack Squat </div><div class="exright"><div class="ext">4 × 8–12</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Smith / Hack Squat </div><div class="exright"><div class="ext">4 × 8–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_0" data-f="w" data-day="tue" data-si="0" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_0" data-f="r" data-day="tue" data-si="0" data-ex="Smith / Hack Squat" placeholder="8–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_1" data-f="w" data-day="tue" data-si="1" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_1" data-f="r" data-day="tue" data-si="1" data-ex="Smith / Hack Squat" placeholder="8–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_0_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_0_2" data-f="w" data-day="tue" data-si="2" data-ex="Smith / Hack Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_0_2" data-f="r" data-day="tue" data-si="2" data-ex="Smith / Hack Squat" placeholder="8–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_0_2" aria-label="done"></div>
@@ -241,7 +376,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Leg Press (high &amp; wide)">
-<div class="exh"><div class="exn">Leg Press (high &amp; wide) </div><div class="exright"><div class="ext">4 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Leg Press (high &amp; wide) </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_0" data-f="w" data-day="tue" data-si="0" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_0" data-f="r" data-day="tue" data-si="0" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_1" data-f="w" data-day="tue" data-si="1" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_1" data-f="r" data-day="tue" data-si="1" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_1_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_1_2" data-f="w" data-day="tue" data-si="2" data-ex="Leg Press (high &amp; wide)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_1_2" data-f="r" data-day="tue" data-si="2" data-ex="Leg Press (high &amp; wide)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_1_2" aria-label="done"></div>
@@ -250,7 +385,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Walking Lunges">
-<div class="exh"><div class="exn">Walking Lunges </div><div class="exright"><div class="ext">3 × 12 / leg</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Walking Lunges </div><div class="exright"><div class="ext">3 × 12 / leg</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_0" data-f="w" data-day="tue" data-si="0" data-ex="Walking Lunges" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_0" data-f="r" data-day="tue" data-si="0" data-ex="Walking Lunges" placeholder="12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_1" data-f="w" data-day="tue" data-si="1" data-ex="Walking Lunges" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_1" data-f="r" data-day="tue" data-si="1" data-ex="Walking Lunges" placeholder="12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_2_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_2_2" data-f="w" data-day="tue" data-si="2" data-ex="Walking Lunges" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_2_2" data-f="r" data-day="tue" data-si="2" data-ex="Walking Lunges" placeholder="12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_2_2" aria-label="done"></div>
@@ -258,7 +393,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Seated Ham Curl">
-<div class="exh"><div class="exn">Seated Ham Curl </div><div class="exright"><div class="ext">3 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Seated Ham Curl </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_0" data-f="w" data-day="tue" data-si="0" data-ex="Seated Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_0" data-f="r" data-day="tue" data-si="0" data-ex="Seated Ham Curl" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_3_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_1" data-f="w" data-day="tue" data-si="1" data-ex="Seated Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_1" data-f="r" data-day="tue" data-si="1" data-ex="Seated Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_3_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_3_2" data-f="w" data-day="tue" data-si="2" data-ex="Seated Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_3_2" data-f="r" data-day="tue" data-si="2" data-ex="Seated Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_3_2" aria-label="done"></div>
@@ -266,7 +401,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Leg Extension (2s squeeze)">
-<div class="exh"><div class="exn">Leg Extension (2s squeeze) </div><div class="exright"><div class="ext">3 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Leg Extension (2s squeeze) </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_0" data-f="w" data-day="tue" data-si="0" data-ex="Leg Extension (2s squeeze)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_0" data-f="r" data-day="tue" data-si="0" data-ex="Leg Extension (2s squeeze)" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_4_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_1" data-f="w" data-day="tue" data-si="1" data-ex="Leg Extension (2s squeeze)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_1" data-f="r" data-day="tue" data-si="1" data-ex="Leg Extension (2s squeeze)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_4_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_4_2" data-f="w" data-day="tue" data-si="2" data-ex="Leg Extension (2s squeeze)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_4_2" data-f="r" data-day="tue" data-si="2" data-ex="Leg Extension (2s squeeze)" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_4_2" aria-label="done"></div>
@@ -274,7 +409,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Standing Calf Raise">
-<div class="exh"><div class="exn">Standing Calf Raise </div><div class="exright"><div class="ext">4 × 15–20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Standing Calf Raise </div><div class="exright"><div class="ext">4 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_0" data-f="w" data-day="tue" data-si="0" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_0" data-f="r" data-day="tue" data-si="0" data-ex="Standing Calf Raise" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="tue_5_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_1" data-f="w" data-day="tue" data-si="1" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_1" data-f="r" data-day="tue" data-si="1" data-ex="Standing Calf Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_5_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="tue_5_2" data-f="w" data-day="tue" data-si="2" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="tue_5_2" data-f="r" data-day="tue" data-si="2" data-ex="Standing Calf Raise" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="tue_5_2" aria-label="done"></div>
@@ -288,7 +423,7 @@ main{padding:2px 14px 0}
 <div class="dhead"><div><div class="dname">Back + Arms</div><div class="dfocus">Pull <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">18 sets</span></div>
 <div class="ex" data-ex="Neutral-Grip Pulldown">
-<div class="exh"><div class="exn">Neutral-Grip Pulldown </div><div class="exright"><div class="ext">4 × 10–12</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Neutral-Grip Pulldown </div><div class="exright"><div class="ext">4 × 10–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_0" data-f="w" data-day="wed" data-si="0" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_0" data-f="r" data-day="wed" data-si="0" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_1" data-f="w" data-day="wed" data-si="1" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_1" data-f="r" data-day="wed" data-si="1" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_0_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_0_2" data-f="w" data-day="wed" data-si="2" data-ex="Neutral-Grip Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_0_2" data-f="r" data-day="wed" data-si="2" data-ex="Neutral-Grip Pulldown" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_0_2" aria-label="done"></div>
@@ -297,7 +432,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Chest-Supported Row">
-<div class="exh"><div class="exn">Chest-Supported Row </div><div class="exright"><div class="ext">3 × 10–12</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Chest-Supported Row </div><div class="exright"><div class="ext">3 × 10–12</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_0" data-f="w" data-day="wed" data-si="0" data-ex="Chest-Supported Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_0" data-f="r" data-day="wed" data-si="0" data-ex="Chest-Supported Row" placeholder="10–12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_1" data-f="w" data-day="wed" data-si="1" data-ex="Chest-Supported Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_1" data-f="r" data-day="wed" data-si="1" data-ex="Chest-Supported Row" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_1_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_1_2" data-f="w" data-day="wed" data-si="2" data-ex="Chest-Supported Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_1_2" data-f="r" data-day="wed" data-si="2" data-ex="Chest-Supported Row" placeholder="10–12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_1_2" aria-label="done"></div>
@@ -305,7 +440,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Straight-Arm Pulldown">
-<div class="exh"><div class="exn">Straight-Arm Pulldown </div><div class="exright"><div class="ext">3 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Straight-Arm Pulldown </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_0" data-f="w" data-day="wed" data-si="0" data-ex="Straight-Arm Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_0" data-f="r" data-day="wed" data-si="0" data-ex="Straight-Arm Pulldown" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_1" data-f="w" data-day="wed" data-si="1" data-ex="Straight-Arm Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_1" data-f="r" data-day="wed" data-si="1" data-ex="Straight-Arm Pulldown" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_2_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_2_2" data-f="w" data-day="wed" data-si="2" data-ex="Straight-Arm Pulldown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_2_2" data-f="r" data-day="wed" data-si="2" data-ex="Straight-Arm Pulldown" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_2_2" aria-label="done"></div>
@@ -313,7 +448,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="EZ-Bar Curl">
-<div class="exh"><div class="exn">EZ-Bar Curl </div><div class="exright"><div class="ext">3 × 12–15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">EZ-Bar Curl </div><div class="exright"><div class="ext">3 × 12–15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_0" data-f="w" data-day="wed" data-si="0" data-ex="EZ-Bar Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_0" data-f="r" data-day="wed" data-si="0" data-ex="EZ-Bar Curl" placeholder="12–15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_3_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_1" data-f="w" data-day="wed" data-si="1" data-ex="EZ-Bar Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_1" data-f="r" data-day="wed" data-si="1" data-ex="EZ-Bar Curl" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_3_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_3_2" data-f="w" data-day="wed" data-si="2" data-ex="EZ-Bar Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_3_2" data-f="r" data-day="wed" data-si="2" data-ex="EZ-Bar Curl" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_3_2" aria-label="done"></div>
@@ -321,7 +456,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Rope Pressdown">
-<div class="exh"><div class="exn">Rope Pressdown </div><div class="exright"><div class="ext">3 × 15–20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Rope Pressdown </div><div class="exright"><div class="ext">3 × 15–20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_0" data-f="w" data-day="wed" data-si="0" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_0" data-f="r" data-day="wed" data-si="0" data-ex="Rope Pressdown" placeholder="15–20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_4_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_1" data-f="w" data-day="wed" data-si="1" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_1" data-f="r" data-day="wed" data-si="1" data-ex="Rope Pressdown" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_4_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_4_2" data-f="w" data-day="wed" data-si="2" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_4_2" data-f="r" data-day="wed" data-si="2" data-ex="Rope Pressdown" placeholder="15–20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_4_2" aria-label="done"></div>
@@ -329,7 +464,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Cable Curl burnout">
-<div class="exh"><div class="exn">Cable Curl burnout </div><div class="exright"><div class="ext">2 × 20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Cable Curl burnout </div><div class="exright"><div class="ext">2 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_5_0" data-f="w" data-day="wed" data-si="0" data-ex="Cable Curl burnout" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_5_0" data-f="r" data-day="wed" data-si="0" data-ex="Cable Curl burnout" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="wed_5_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="wed_5_1" data-f="w" data-day="wed" data-si="1" data-ex="Cable Curl burnout" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="wed_5_1" data-f="r" data-day="wed" data-si="1" data-ex="Cable Curl burnout" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="wed_5_1" aria-label="done"></div>
 </div>
@@ -341,25 +476,25 @@ main{padding:2px 14px 0}
 <div class="dhead"><div><div class="dname">Low-Stress Day</div><div class="dfocus">Cardio + Core <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">7 sets</span></div>
 <div class="ex" data-ex="Dead bugs">
-<div class="exh"><div class="exn">Dead bugs <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 15 / side</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Dead bugs <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 15 / side</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">15 / side</span><input type="checkbox" class="chk" data-key="thu_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">15 / side</span><input type="checkbox" class="chk" data-key="thu_0_1" aria-label="done"></div>
 </div>
 </div>
 <div class="ex" data-ex="Cable crunches (rope)">
-<div class="exh"><div class="exn">Cable crunches (rope) <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 15</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Cable crunches (rope) <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 15</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">15</span><input type="checkbox" class="chk" data-key="thu_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">15</span><input type="checkbox" class="chk" data-key="thu_1_1" aria-label="done"></div>
 </div>
 </div>
 <div class="ex" data-ex="Plank">
-<div class="exh"><div class="exn">Plank <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 90 sec</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Plank <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">2 × 90 sec</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="bwtgt">90 sec</span><input type="checkbox" class="chk" data-key="thu_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="bwtgt">90 sec</span><input type="checkbox" class="chk" data-key="thu_2_1" aria-label="done"></div>
 </div>
 </div>
 <div class="ex" data-ex="Mobility (cat-cow, hips, T-spine, hams)">
-<div class="exh"><div class="exn">Mobility (cat-cow, hips, T-spine, hams) <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">10–15 min</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Mobility (cat-cow, hips, T-spine, hams) <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">10–15 min</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">10–15 min</span><input type="checkbox" class="chk" data-key="thu_3_0" aria-label="done"></div>
 </div>
 </div>
@@ -369,7 +504,7 @@ main{padding:2px 14px 0}
 <div class="dhead"><div><div class="dname">Lower Body</div><div class="dfocus">Glute / Ham focus <span class="ddate"></span></div></div><div class="dmac">Train day · <b>215P / 160C / 55F</b> · ~1,975 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">14 sets</span></div>
 <div class="ex" data-ex="Bulgarian Split Squat">
-<div class="exh"><div class="exn">Bulgarian Split Squat </div><div class="exright"><div class="ext">3 × 10 / leg</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Bulgarian Split Squat </div><div class="exright"><div class="ext">3 × 10 / leg</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_0" data-f="w" data-day="fri" data-si="0" data-ex="Bulgarian Split Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_0" data-f="r" data-day="fri" data-si="0" data-ex="Bulgarian Split Squat" placeholder="10"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_1" data-f="w" data-day="fri" data-si="1" data-ex="Bulgarian Split Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_1" data-f="r" data-day="fri" data-si="1" data-ex="Bulgarian Split Squat" placeholder="10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_0_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_0_2" data-f="w" data-day="fri" data-si="2" data-ex="Bulgarian Split Squat" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_0_2" data-f="r" data-day="fri" data-si="2" data-ex="Bulgarian Split Squat" placeholder="10"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_0_2" aria-label="done"></div>
@@ -377,7 +512,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Leg Press (low &amp; close)">
-<div class="exh"><div class="exn">Leg Press (low &amp; close) </div><div class="exright"><div class="ext">3 × 12–15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Leg Press (low &amp; close) </div><div class="exright"><div class="ext">3 × 12–15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_0" data-f="w" data-day="fri" data-si="0" data-ex="Leg Press (low &amp; close)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_0" data-f="r" data-day="fri" data-si="0" data-ex="Leg Press (low &amp; close)" placeholder="12–15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_1" data-f="w" data-day="fri" data-si="1" data-ex="Leg Press (low &amp; close)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_1" data-f="r" data-day="fri" data-si="1" data-ex="Leg Press (low &amp; close)" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_1_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_1_2" data-f="w" data-day="fri" data-si="2" data-ex="Leg Press (low &amp; close)" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_1_2" data-f="r" data-day="fri" data-si="2" data-ex="Leg Press (low &amp; close)" placeholder="12–15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_1_2" aria-label="done"></div>
@@ -385,7 +520,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Lying Ham Curl">
-<div class="exh"><div class="exn">Lying Ham Curl </div><div class="exright"><div class="ext">3 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Lying Ham Curl </div><div class="exright"><div class="ext">3 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_0" data-f="w" data-day="fri" data-si="0" data-ex="Lying Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_0" data-f="r" data-day="fri" data-si="0" data-ex="Lying Ham Curl" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_1" data-f="w" data-day="fri" data-si="1" data-ex="Lying Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_1" data-f="r" data-day="fri" data-si="1" data-ex="Lying Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_2_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_2_2" data-f="w" data-day="fri" data-si="2" data-ex="Lying Ham Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_2_2" data-f="r" data-day="fri" data-si="2" data-ex="Lying Ham Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_2_2" aria-label="done"></div>
@@ -393,14 +528,14 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Step-Ups">
-<div class="exh"><div class="exn">Step-Ups </div><div class="exright"><div class="ext">2 × 12 / leg</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Step-Ups </div><div class="exright"><div class="ext">2 × 12 / leg</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_3_0" data-f="w" data-day="fri" data-si="0" data-ex="Step-Ups" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_3_0" data-f="r" data-day="fri" data-si="0" data-ex="Step-Ups" placeholder="12"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_3_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_3_1" data-f="w" data-day="fri" data-si="1" data-ex="Step-Ups" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_3_1" data-f="r" data-day="fri" data-si="1" data-ex="Step-Ups" placeholder="12"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_3_1" aria-label="done"></div>
 </div>
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Standing Calf Raise">
-<div class="exh"><div class="exn">Standing Calf Raise </div><div class="exright"><div class="ext">3 × 20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Standing Calf Raise </div><div class="exright"><div class="ext">3 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_0" data-f="w" data-day="fri" data-si="0" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_0" data-f="r" data-day="fri" data-si="0" data-ex="Standing Calf Raise" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="fri_4_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_1" data-f="w" data-day="fri" data-si="1" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_1" data-f="r" data-day="fri" data-si="1" data-ex="Standing Calf Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_4_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="fri_4_2" data-f="w" data-day="fri" data-si="2" data-ex="Standing Calf Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="fri_4_2" data-f="r" data-day="fri" data-si="2" data-ex="Standing Calf Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="fri_4_2" aria-label="done"></div>
@@ -414,7 +549,7 @@ main{padding:2px 14px 0}
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">20 sets</span></div>
 <div class="note">Run as a circuit — minimal rest between moves, rest after each round.</div>
 <div class="ex" data-ex="Machine Chest Press">
-<div class="exh"><div class="exn">Machine Chest Press </div><div class="exright"><div class="ext">4 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Machine Chest Press </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_0" data-f="w" data-day="sat" data-si="0" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_0" data-f="r" data-day="sat" data-si="0" data-ex="Machine Chest Press" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_0_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_1" data-f="w" data-day="sat" data-si="1" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_1" data-f="r" data-day="sat" data-si="1" data-ex="Machine Chest Press" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_0_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_0_2" data-f="w" data-day="sat" data-si="2" data-ex="Machine Chest Press" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_0_2" data-f="r" data-day="sat" data-si="2" data-ex="Machine Chest Press" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_0_2" aria-label="done"></div>
@@ -423,7 +558,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Seated Row">
-<div class="exh"><div class="exn">Seated Row </div><div class="exright"><div class="ext">4 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Seated Row </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_0" data-f="w" data-day="sat" data-si="0" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_0" data-f="r" data-day="sat" data-si="0" data-ex="Seated Row" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_1_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_1" data-f="w" data-day="sat" data-si="1" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_1" data-f="r" data-day="sat" data-si="1" data-ex="Seated Row" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_1_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_1_2" data-f="w" data-day="sat" data-si="2" data-ex="Seated Row" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_1_2" data-f="r" data-day="sat" data-si="2" data-ex="Seated Row" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_1_2" aria-label="done"></div>
@@ -432,7 +567,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="DB Lateral Raise">
-<div class="exh"><div class="exn">DB Lateral Raise </div><div class="exright"><div class="ext">4 × 20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">DB Lateral Raise </div><div class="exright"><div class="ext">4 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_0" data-f="w" data-day="sat" data-si="0" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_0" data-f="r" data-day="sat" data-si="0" data-ex="DB Lateral Raise" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_2_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_1" data-f="w" data-day="sat" data-si="1" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_1" data-f="r" data-day="sat" data-si="1" data-ex="DB Lateral Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_2_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_2_2" data-f="w" data-day="sat" data-si="2" data-ex="DB Lateral Raise" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_2_2" data-f="r" data-day="sat" data-si="2" data-ex="DB Lateral Raise" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_2_2" aria-label="done"></div>
@@ -441,7 +576,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Cable Curl">
-<div class="exh"><div class="exn">Cable Curl </div><div class="exright"><div class="ext">4 × 15</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Cable Curl </div><div class="exright"><div class="ext">4 × 15</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_0" data-f="w" data-day="sat" data-si="0" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_0" data-f="r" data-day="sat" data-si="0" data-ex="Cable Curl" placeholder="15"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_3_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_1" data-f="w" data-day="sat" data-si="1" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_1" data-f="r" data-day="sat" data-si="1" data-ex="Cable Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_3_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_3_2" data-f="w" data-day="sat" data-si="2" data-ex="Cable Curl" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_3_2" data-f="r" data-day="sat" data-si="2" data-ex="Cable Curl" placeholder="15"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_3_2" aria-label="done"></div>
@@ -450,7 +585,7 @@ main{padding:2px 14px 0}
 <div class="histpanel" style="display:none"></div>
 </div>
 <div class="ex" data-ex="Rope Pressdown">
-<div class="exh"><div class="exn">Rope Pressdown </div><div class="exright"><div class="ext">4 × 20</div><div class="btnrow"><button class="histbtn" type="button">Hist ▾</button><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Rope Pressdown </div><div class="exright"><div class="ext">4 × 20</div><button class="histbtn" type="button">Hist ▾</button></div></div><div class="sets">
 <div class="setrow"><span class="setno">Set 1</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_0" data-f="w" data-day="sat" data-si="0" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_0" data-f="r" data-day="sat" data-si="0" data-ex="Rope Pressdown" placeholder="20"></span><span class="cpy ghost"></span><input type="checkbox" class="chk" data-key="sat_4_0" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 2</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_1" data-f="w" data-day="sat" data-si="1" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_1" data-f="r" data-day="sat" data-si="1" data-ex="Rope Pressdown" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_4_1" aria-label="done"></div>
 <div class="setrow"><span class="setno">Set 3</span><span class="fld"><span class="cap">lb</span><input type="text" inputmode="decimal" class="w" data-key="sat_4_2" data-f="w" data-day="sat" data-si="2" data-ex="Rope Pressdown" placeholder="wt"></span><span class="fld"><span class="cap">reps</span><input type="text" inputmode="numeric" class="r" data-key="sat_4_2" data-f="r" data-day="sat" data-si="2" data-ex="Rope Pressdown" placeholder="20"></span><button class="cpy" type="button" title="Copy set above">↑</button><input type="checkbox" class="chk" data-key="sat_4_2" aria-label="done"></div>
@@ -464,17 +599,17 @@ main{padding:2px 14px 0}
 <div class="dhead"><div><div class="dname">Recovery</div><div class="dfocus">Rest day <span class="ddate"></span></div></div><div class="dmac">Rest day · <b>215P / 120C / 55F</b> · ~1,835 cal</div></div>
 <div class="dprog"><div class="dbar"><i></i></div><span class="dptxt">3 sets</span></div>
 <div class="ex" data-ex="Light outdoor walk">
-<div class="exh"><div class="exn">Light outdoor walk <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">30–45 min</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Light outdoor walk <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">30–45 min</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">30–45 min</span><input type="checkbox" class="chk" data-key="sun_0_0" aria-label="done"></div>
 </div>
 </div>
 <div class="ex" data-ex="Mobility &amp; stretching">
-<div class="exh"><div class="exn">Mobility &amp; stretching <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">10–15 min</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Mobility &amp; stretching <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">10–15 min</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">10–15 min</span><input type="checkbox" class="chk" data-key="sun_1_0" aria-label="done"></div>
 </div>
 </div>
 <div class="ex" data-ex="Recover — hydrate, prep, sleep">
-<div class="exh"><div class="exn">Recover — hydrate, prep, sleep <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">—</div><div class="btnrow"><button class="notebtn" type="button" title="Notes">✎</button></div><div class="lasthint"></div></div></div><div class="notewrap" style="display:none"><input class="noteinp" placeholder="Notes — seat height, grip, cues…"></div><div class="sets">
+<div class="exh"><div class="exn">Recover — hydrate, prep, sleep <span class="bw">bodyweight</span></div><div class="exright"><div class="ext">—</div></div></div><div class="sets">
 <div class="setrow"><span class="setno">Log</span><span class="bwtgt">—</span><input type="checkbox" class="chk" data-key="sun_2_0" aria-label="done"></div>
 </div>
 </div>
@@ -489,10 +624,10 @@ main{padding:2px 14px 0}
     <div class="mpill"><div class="l">Rest day</div><div class="v">215P · 120C · 55F<br>~1,835 cal</div></div>
   </div>
   <div class="meal"><div class="mh">Meal 1 — Pre-workout <span class="mtag">every day</span></div><ul><li>Banana — <b>90 g</b></li><li>Coffee + Chobani creamer — <b>~50 g</b> (measured)</li><li>Creatine — <b>5 g</b></li></ul></div>
-<div class="meal"><div class="mh">Meal 2 — Post-workout </div><ul><li>Ground chicken 93–96% — <b>200 g</b></li><li>Egg whites — <b>250 g</b></li><li>Whole eggs — <b>2</b></li><li>Jasmine rice, cooked — <b>120 g</b> <span class='rd'>(rest day 80 g)</span></li><li>Hot sauce / Tapatio — free</li><li><span class='swap'>Swap: 96% beef 170 g or shrimp 200 g</span></li></ul></div>
-<div class="meal"><div class="mh">Meal 3 — Lunch </div><ul><li>Ground chicken — <b>200 g</b></li><li>Sweet potato, cooked — <b>180 g</b> <span class='rd'>(rest day 120 g)</span></li><li>Green beans — <b>150 g</b></li><li>Olive oil — <b>8 g</b></li><li>Sugar-free sauce — up to 20 g</li></ul></div>
-<div class="meal"><div class="mh">Meal 4 — Snack <span class="mtag">pick one</span></div><ul><li><b>A:</b> Greek yogurt 250 g + blueberries 70 g + whey 20 g</li><li><b>B:</b> Whey 40 g + rice cakes 1–2 + almond butter 16 g <span class='rd'>(train days)</span></li></ul></div>
-<div class="meal"><div class="mh">Meal 5 — Dinner <span class="mtag">lower-carb to tighten the waist</span></div><ul><li>Ground chicken — <b>200 g</b></li><li>Jasmine rice, cooked — <b>100 g</b> <span class='rd'>(rest day 60 g)</span></li><li>Green beans — <b>150 g</b></li><li>Olive oil — <b>8 g</b></li></ul></div>
+<div class="meal"><div class="mh">Meal 2 — Post-workout </div><ul><li>Ground chicken 93–96% — <b>200 g</b></li><li>Egg whites — <b>250 g</b></li><li>Whole eggs — <b>2</b></li><li>Jasmine rice, cooked — <b>120 g</b> <span class='rd'>rest 80 g</span></li><li>Hot sauce / Tapatio — free</li><li><span class='swap'>Swap: 96% beef 170 g or shrimp 200 g</span></li></ul></div>
+<div class="meal"><div class="mh">Meal 3 — Lunch </div><ul><li>Ground chicken — <b>200 g</b></li><li>Sweet potato, cooked — <b>180 g</b> <span class='rd'>rest 120 g</span></li><li>Green beans — <b>150 g</b></li><li>Olive oil — <b>8 g</b></li><li>Sugar-free sauce — up to 20 g</li></ul></div>
+<div class="meal"><div class="mh">Meal 4 — Snack <span class="mtag">pick one</span></div><ul><li><b>A:</b> Greek yogurt 250 g + blueberries 70 g + whey 20 g</li><li><b>B:</b> Whey 40 g + rice cakes 1–2 + almond butter 16 g <span class='rd'>train days</span></li></ul></div>
+<div class="meal"><div class="mh">Meal 5 — Dinner <span class="mtag">lower-carb to tighten the waist</span></div><ul><li>Ground chicken — <b>200 g</b></li><li>Jasmine rice, cooked — <b>100 g</b> <span class='rd'>rest 60 g</span></li><li>Green beans — <b>150 g</b></li><li>Olive oil — <b>8 g</b></li></ul></div>
 <div class="meal"><div class="mh">Meal 6 — Night sweet <span class="mtag">stays in on purpose — kills cravings</span></div><ul><li><b>A:</b> Greek yogurt 200 g + cocoa 8 g + blueberries 50 g + sweetener</li><li><b>B:</b> Chocolate whey 30 g + almond milk 150–200 ml + ice, blended</li></ul></div>
   <div class="meal"><div class="mh">Weekly flex meal</div><ul>
     <li>One flex meal / week — enjoy it, then straight back to your next scheduled meal.</li>
@@ -506,6 +641,8 @@ main{padding:2px 14px 0}
 <section class="mode" data-mode="checkin" id="mode-checkin">
   <div class="sec-hd">Weekly Check-in</div>
   <div class="sec-sub">Log your numbers and progress photos each Saturday. Saved on your phone.</div>
+  <div class="cistats" id="ci-stats" style="display:none"></div>
+  <div id="ci-chartwrap" style="display:none"><div id="ci-chlbl"></div><canvas id="ci-chart"></canvas></div>
   <div class="ci-form">
     <label class="cifld"><span>Date</span><input type="date" id="ci-date"></label><label class="cifld"><span>Avg weight (lb)</span><input type="text" inputmode="decimal" id="ci-weight" placeholder="—"></label><label class="cifld"><span>Waist (in)</span><input type="text" inputmode="decimal" id="ci-waist" placeholder="—"></label><label class="cifld"><span>Adherence %</span><input type="text" inputmode="numeric" id="ci-adher" placeholder="—"></label><label class="cifld"><span>Avg daily steps</span><input type="text" inputmode="numeric" id="ci-steps" placeholder="—"></label><label class="cifld"><span>Energy (1–10)</span><input type="text" inputmode="numeric" id="ci-energy" placeholder="—"></label><label class="cifld"><span>Sleep (hrs)</span><input type="text" inputmode="decimal" id="ci-sleep" placeholder="—"></label><label class="cifld wide"><span>Note / win / challenge</span><input type="text" id="ci-note" placeholder="one line"></label>
     <label class="cifld wide"><span>Progress photos (front / side / back)</span>
@@ -516,7 +653,6 @@ main{padding:2px 14px 0}
     </div>
   </div>
   <div id="ci-toast" class="tip" style="display:none"></div>
-  <div class="chartcard" id="ci-chartwrap" style="display:none"><div class="chh">Weight trend</div><canvas id="ci-chart" width="640" height="150"></canvas><div class="chlbl" id="ci-chlbl"></div></div>
   <div class="cihist" id="ci-hist"></div>
   <div class="tip"><b>Your photos stay private on your phone</b> — tap one to view it full-size, and swipe back through weeks to see your progress. To have Coach review them, attach them in your Saturday check-in chat. Use <b>Copy for Coach</b> to grab your numbers.</div>
 </section>
@@ -525,25 +661,22 @@ main{padding:2px 14px 0}
 
 <div id="lb"><span class="x">×</span><img id="lb-img" alt=""></div>
 
-<div id="pc"><div class="pcbox"><div class="pchd">Plate Calculator</div>
-  <div class="pcrow">
-    <label>Target (lb)<input id="pc-target" type="text" inputmode="decimal" placeholder="185"></label>
-    <label>Bar<select id="pc-bar"><option value="45">45 lb bar</option><option value="35">35 lb bar</option><option value="25">25 lb bar</option><option value="0">No bar / machine</option></select></label>
-  </div>
-  <div id="pc-out" class="pcout">Enter a target weight.</div>
-  <button class="btn ghost" id="pc-close" type="button">Close</button>
-</div></div>
-
 <div class="rest">
-  <div class="row">
-    <div><div class="rlabel">Rest</div><div class="rtime" id="rtime">0:00</div></div>
-    <div class="chips" id="chips">
-      <button data-s="60">1:00</button>
-      <button data-s="90" class="sel">1:30</button>
-      <button data-s="120">2:00</button>
-      <button data-s="180">3:00</button>
-      <button id="stopbtn" class="stop">Stop</button>
+  <div class="rtimerow">
+    <div class="rdial" id="rprog">
+      <div class="rtime" id="rtime">0:00</div>
     </div>
+    <div class="rmeta">
+      <div class="rlabel">Rest</div>
+      <div class="rnext" id="rnext"></div>
+    </div>
+  </div>
+  <div class="chips" id="chips">
+    <button data-s="60">1:00</button>
+    <button data-s="90" class="sel">1:30</button>
+    <button data-s="120">2:00</button>
+    <button data-s="180">3:00</button>
+    <button id="stopbtn" class="stop">Stop</button>
   </div>
   <label class="toggle"><input type="checkbox" id="autorest" checked> Auto-start rest timer when I check a set</label>
   <label class="toggle" id="notif" style="display:none"><input type="checkbox" id="notif-toggle"> Notify me when rest ends (while app is open)</label>
@@ -570,23 +703,6 @@ main{padding:2px 14px 0}
  document.querySelectorAll(".day-block").forEach(function(bl){var el=bl.querySelector(".ddate");
    if(el){var d=weekDateFor(bl.dataset.day);el.textContent="· "+({mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"}[bl.dataset.day])+", "+labelOf(d);}});
 
- /* per-exercise notes */
- var notes=store.g("pxb_notes",{});
- document.querySelectorAll(".ex[data-ex]").forEach(function(ex){
-   var inp=ex.querySelector(".noteinp");if(!inp)return;var name=ex.dataset.ex;
-   if(notes[name]){inp.value=notes[name];ex.querySelector(".notewrap").style.display="block";}
-   inp.addEventListener("change",function(){var v=inp.value.trim();if(v)notes[name]=v;else delete notes[name];store.s("pxb_notes",notes);});});
-
- /* last-session hint */
- function lastFor(name){var d=hist[name]||{};var t=tstr();var ds=Object.keys(d).sort();if(!ds.length)return null;
-   var pick=null;for(var i=ds.length-1;i>=0;i--){if(ds[i]<t){pick=ds[i];break;}}
-   if(!pick)pick=ds[ds.length-1];var sets=d[pick];var best=null;
-   Object.keys(sets).forEach(function(si){var v=sets[si];if(v&&v.w){var w=parseFloat(v.w)||0,r=parseFloat(v.r)||0;
-     if(!best||w>best.w||(w===best.w&&r>best.r))best={w:w,r:r};}});
-   return best?{date:pick,w:best.w,r:best.r}:null;}
- document.querySelectorAll(".ex[data-ex]").forEach(function(ex){var lh=ex.querySelector(".lasthint");if(!lh)return;
-   var l=lastFor(ex.dataset.ex);if(l)lh.textContent="Last: "+l.w+"×"+l.r+" · "+fmtIso(l.date);});
-
  /* IndexedDB photos */
  function idb(){return new Promise(function(res,rej){var r=indexedDB.open("pxb_photos",1);
    r.onupgradeneeded=function(e){e.target.result.createObjectStore("p");};
@@ -606,7 +722,8 @@ main{padding:2px 14px 0}
  var modeSecs=[].slice.call(document.querySelectorAll(".mode"));
  function setMode(m){modeSecs.forEach(function(s){s.style.display=(s.dataset.mode===m)?"block":"none";});
    modeBtns.forEach(function(b){b.classList.toggle("active",b.dataset.mode===m);});
-   document.querySelector(".rest").style.display=(m==="train")?"block":"none";window.scrollTo(0,0);}
+   document.querySelector(".rest").style.display=(m==="train")?"block":"none";
+   if(m==="checkin")drawChart();window.scrollTo(0,0);}
  modeBtns.forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();setMode(b.dataset.mode);});});
 
  /* WORKOUT inputs */
@@ -619,7 +736,7 @@ main{padding:2px 14px 0}
      hist[name][dt][si][f]=inp.value;store.s("pxb_hist",hist);});});
  document.querySelectorAll(".chk").forEach(function(c){var k=c.dataset.key; if(sess.done[k])c.checked=true;
    c.addEventListener("change",function(){if(c.checked)sess.done[k]=true;else delete sess.done[k];
-     store.s("pxb_s",sess); progress(c.closest(".day-block"));
+     store.s("pxb_s",sess); progress(c.closest(".day-block")); nextUp();
      if(c.checked&&byId("autorest").checked)startRest(selDur);
      var ex=c.closest(".ex");if(ex){var b=ex.querySelectorAll(".chk");ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));}});});
 
@@ -633,10 +750,6 @@ main{padding:2px 14px 0}
        if(pw&&cw){cw.value=pw.value;cw.dispatchEvent(new Event("change"));}
        if(pr&&cr){cr.value=pr.value;cr.dispatchEvent(new Event("change"));}}
      return;}
-   var nb=e.target.closest(".notebtn");
-   if(nb){var wrap=nb.closest(".ex").querySelector(".notewrap");
-     var show=wrap.style.display!=="block";wrap.style.display=show?"block":"none";
-     if(show)wrap.querySelector(".noteinp").focus();return;}
    var hb=e.target.closest(".histbtn");
    if(hb){var ex=hb.closest(".ex");var panel=ex.querySelector(".histpanel");
      if(panel.style.display==="block"){panel.style.display="none";hb.textContent="Hist ▾";}
@@ -658,8 +771,20 @@ main{padding:2px 14px 0}
  var dbtns=[].slice.call(document.querySelectorAll(".dbtn"));
  var blocks=[].slice.call(document.querySelectorAll(".day-block"));
  function showDay(day){blocks.forEach(function(b){b.style.display=(b.dataset.day===day)?"block":"none";});
-   dbtns.forEach(function(b){b.classList.toggle("active",b.dataset.day===day);});progress(byId("day-"+day));}
+   dbtns.forEach(function(b){b.classList.toggle("active",b.dataset.day===day);});progress(byId("day-"+day));nextUp();}
+ function nextUp(){var el=byId("rnext");if(!el)return;var blk=null;
+   blocks.forEach(function(b){if(b.style.display!=="none")blk=b;});
+   if(!blk){el.textContent="";return;}
+   var chks=blk.querySelectorAll(".chk"),nxt=null;
+   for(var i=0;i<chks.length;i++){if(!chks[i].checked){nxt=chks[i];break;}}
+   if(!nxt){el.innerHTML="<b>Day complete</b> 💪";return;}
+   var ex=nxt.closest(".ex"),row=nxt.closest(".setrow");
+   var name=(ex&&ex.dataset.ex||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+   var sn=row?row.querySelector(".setno"):null;
+   el.innerHTML="Next · <b>"+(sn?sn.textContent:"")+"</b><br>"+name;}
+ var dayLogs={};Object.keys(hist).forEach(function(n){Object.keys(hist[n]||{}).forEach(function(dt){dayLogs[dt]=true;});});
  dbtns.forEach(function(b){b.classList.toggle("today",b.dataset.day===today());
+   if(dayLogs[isoOf(weekDateFor(b.dataset.day))])b.classList.add("logged");
    b.addEventListener("click",function(e){e.preventDefault();showDay(b.dataset.day);window.scrollTo(0,0);});});
  function progress(block){if(!block)return;var chks=block.querySelectorAll(".chk"),done=0;
    chks.forEach(function(c){if(c.checked)done++;});var t=chks.length,bar=block.querySelector(".dbar>i"),txt=block.querySelector(".dptxt");
@@ -671,9 +796,11 @@ main{padding:2px 14px 0}
  /* CHECK-IN */
  var log=store.g("pxb_ci",[]);
  function esc(s){return (s+"").replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];});}
- function renderCI(){var host=byId("ci-hist");host.innerHTML="";
-   if(!log.length){host.innerHTML='<div class="ciempty">No check-ins yet. Add your numbers (and photos) above and tap Save.</div>';return;}
+ function renderCI(){var host=byId("ci-hist");host.innerHTML="";var st=byId("ci-stats");
+   if(!log.length){host.innerHTML='<div class="ciempty">No check-ins yet. Add your numbers (and photos) above and tap Save.</div>';if(st)st.style.display="none";return;}
    var sorted=log.slice().sort(function(a,b){return (a.date||"")<(b.date||"")?1:-1;});
+   if(st){var L0=sorted[0];var tile=function(v,u,l){return '<div class="cistat"><div class="v">'+(v?esc(v)+'<span>'+u+'</span>':'–')+'</div><div class="l">'+l+'</div></div>';};
+     st.innerHTML=tile(L0.weight," lb","Weight")+tile(L0.waist," in","Waist")+tile(L0.adher,"%","Adherence");st.style.display="grid";}
    sorted.forEach(function(e,i){var prev=sorted[i+1];var chg="";
      if(prev&&e.weight&&prev.weight){var d=(parseFloat(e.weight)-parseFloat(prev.weight));
        if(!isNaN(d)){var cls=d<0?"dn":(d>0?"up":"");chg='<div class="chg '+cls+'">'+(d>0?"+":"")+d.toFixed(1)+' lb</div>';}}
@@ -683,22 +810,32 @@ main{padding:2px 14px 0}
        '<div class="m">'+(meta.join(" · ")||"—")+'</div>'+(e.note?'<div class="n">'+esc(e.note)+'</div>':'')+'</div>'+chg+'</div>'+thumbs+'</div>';});
    host.querySelectorAll(".thumb").forEach(function(t){idbGet(t.dataset.pid).then(function(d){if(d)t.src=d;}).catch(function(){});});
    drawChart();}
- function drawChart(){var wrap=byId("ci-chartwrap");if(!wrap)return;
+ function drawChart(){var wrap=byId("ci-chartwrap"),cv=byId("ci-chart"),lbl=byId("ci-chlbl");if(!wrap||!cv)return;
    var pts=log.filter(function(e){return e.weight&&!isNaN(parseFloat(e.weight));})
-     .map(function(e){return {d:e.date||"",w:parseFloat(e.weight)};}).sort(function(a,b){return a.d<b.d?-1:1;});
-   if(pts.length<2){wrap.style.display="none";return;}
-   wrap.style.display="block";var c=byId("ci-chart"),ctx=c.getContext("2d"),W=c.width,Hh=c.height;
-   ctx.clearRect(0,0,W,Hh);
-   var ws=pts.map(function(p){return p.w;}),mn=Math.min.apply(null,ws),mx=Math.max.apply(null,ws),pad=(mx-mn)||1;
-   mn-=pad*.2;mx+=pad*.2;
-   function X(i){return 18+(W-36)*i/(pts.length-1);}
-   function Y(w){return 14+(Hh-28)*(1-(w-mn)/(mx-mn));}
-   ctx.strokeStyle="#2a313c";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(10,Hh-14);ctx.lineTo(W-10,Hh-14);ctx.stroke();
-   ctx.strokeStyle="#4cc2a3";ctx.lineWidth=3;ctx.beginPath();
-   pts.forEach(function(p,i){i?ctx.lineTo(X(i),Y(p.w)):ctx.moveTo(X(0),Y(p.w));});ctx.stroke();
-   ctx.fillStyle="#4cc2a3";pts.forEach(function(p,i){ctx.beginPath();ctx.arc(X(i),Y(p.w),4.5,0,7);ctx.fill();});
-   var d=pts[pts.length-1].w-pts[0].w;
-   byId("ci-chlbl").textContent=pts[0].w+" → "+pts[pts.length-1].w+" lb  ("+(d>0?"+":"")+d.toFixed(1)+" lb since "+(pts[0].d?fmtIso(pts[0].d):"start")+")";}
+     .map(function(e){return {d:e.date||"",w:parseFloat(e.weight)};}).sort(function(a,b){return (a.d<b.d)?-1:1;});
+   if(pts.length<2){wrap.style.display="none";return;} wrap.style.display="block";
+   var dpr=window.devicePixelRatio||1,W=wrap.clientWidth-28;if(W<40)W=300;var H=150;
+   cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+"px";cv.style.height=H+"px";
+   var ctx=cv.getContext("2d");ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+   var ws=pts.map(function(p){return p.w;}),mn=Math.min.apply(null,ws),mx=Math.max.apply(null,ws);
+   if(mn===mx){mn-=1;mx+=1;}var pd=(mx-mn)*0.18||1;mn-=pd;mx+=pd;
+   var L=8,R=8,T=12,B=14;
+   var gx=function(i){return L+(W-L-R)*(pts.length===1?0.5:i/(pts.length-1));};
+   var gy=function(w){return T+(H-T-B)*(1-(w-mn)/(mx-mn));};
+   var cs=getComputedStyle(document.documentElement);
+   var line=(cs.getPropertyValue('--line')||'#28313d').trim();
+   var accent=(cs.getPropertyValue('--accent')||'#4fd0a4').trim();
+   ctx.strokeStyle=line;ctx.lineWidth=1;
+   for(var g=0;g<=2;g++){var yy=T+(H-T-B)*g/2;ctx.beginPath();ctx.moveTo(L,yy);ctx.lineTo(W-R,yy);ctx.stroke();}
+   ctx.beginPath();ctx.moveTo(gx(0),gy(pts[0].w));pts.forEach(function(p,i){ctx.lineTo(gx(i),gy(p.w));});
+   ctx.lineTo(gx(pts.length-1),H-B);ctx.lineTo(gx(0),H-B);ctx.closePath();
+   var grad=ctx.createLinearGradient(0,T,0,H-B);grad.addColorStop(0,accent+"4d");grad.addColorStop(1,accent+"00");
+   ctx.fillStyle=grad;ctx.fill();
+   ctx.beginPath();pts.forEach(function(p,i){var x=gx(i),y=gy(p.w);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+   ctx.strokeStyle=accent;ctx.lineWidth=2.5;ctx.lineJoin="round";ctx.lineCap="round";ctx.stroke();
+   pts.forEach(function(p,i){ctx.beginPath();ctx.arc(gx(i),gy(p.w),i===pts.length-1?4.5:2.5,0,7);ctx.fillStyle=accent;ctx.fill();});
+   var f=pts[0].w,l=pts[pts.length-1].w,dl=l-f;
+   lbl.innerHTML='<span>Weight trend · '+pts.length+' wk</span><span><b>'+l+' lb</b> · '+(dl>0?'+':'')+dl.toFixed(1)+' since start</span>';}
  function toast(m){var d=byId("ci-toast");d.textContent=m;d.style.display="block";setTimeout(function(){d.style.display="none";},2800);}
  byId("ci-save").addEventListener("click",function(){
    var save=byId("ci-save");save.disabled=true;var old=save.textContent;save.textContent="Saving…";
@@ -719,35 +856,24 @@ main{padding:2px 14px 0}
    var t="Weekly check-in ("+(e.date||"")+")\nAvg weight: "+(e.weight||"-")+" lb\nWaist: "+(e.waist||"-")+" in\nAdherence: "+(e.adher||"-")+"%\nAvg steps: "+(e.steps||"-")+"\nEnergy: "+(e.energy||"-")+"/10\nSleep: "+(e.sleep||"-")+" hrs\nNote: "+(e.note||"-")+(e.photos&&e.photos.length?"\n(+"+e.photos.length+" progress photos — attaching separately)":"");
    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast("Copied — paste into your Saturday check-in, and attach your photos there.");},function(){alert(t);});}else{alert(t);}});
  renderCI();
-
- /* plate calculator */
- function calcPlates(){var t=parseFloat(byId("pc-target").value),bar=parseFloat(byId("pc-bar").value);
-   var out=byId("pc-out");if(isNaN(t)){out.textContent="Enter a target weight.";return;}
-   if(t<=bar){out.textContent="Target must be above the bar ("+bar+" lb).";return;}
-   var per=(t-bar)/2,sizes=[45,35,25,10,5,2.5],left=per,parts=[];
-   sizes.forEach(function(s){var n=Math.floor(left/s+1e-9);if(n>0){parts.push(n+"×"+s);left=+((left-n*s).toFixed(2));}});
-   var txt="Per side: "+(parts.length?parts.join("  +  "):"just the bar");
-   if(left>0.01)txt+="  ·  closest: "+(t-2*left)+" lb";
-   out.textContent=txt;}
- byId("platebtn").addEventListener("click",function(){byId("pc").style.display="flex";calcPlates();});
- byId("pc-close").addEventListener("click",function(){byId("pc").style.display="none";});
- byId("pc").addEventListener("click",function(e){if(e.target===byId("pc"))byId("pc").style.display="none";});
- byId("pc-target").addEventListener("input",calcPlates);
- byId("pc-bar").addEventListener("change",calcPlates);
+ window.addEventListener("resize",function(){var cm=byId("mode-checkin");if(cm&&cm.style.display!=="none")drawChart();});
 
  /* REST TIMER */
- var selDur=90,endAt=0,tick=null,ac=null;
+ var selDur=90,curDur=90,endAt=0,tick=null,ac=null;
  var restEl=document.querySelector(".rest"),timeEl=byId("rtime");
  restEl.style.display="block";var hint=document.querySelector(".hint");if(hint)hint.style.display="none";
  function fmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2);}
  function ensureAudio(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();}catch(e){}}
- function paint(){var left=(endAt-Date.now())/1000;timeEl.textContent=fmt(left>0?left:0);if(left<=0)finish();}
- function startRest(sec){ensureAudio();endAt=Date.now()+sec*1000;restEl.classList.add("running");restEl.classList.remove("done");
+ function paint(){var left=(endAt-Date.now())/1000;timeEl.textContent=fmt(left>0?left:0);
+   var rp=byId("rprog");if(rp)rp.style.setProperty("--p",Math.max(0,Math.min(100,100*left/curDur)));
+   if(left<=0)finish();}
+ function startRest(sec){ensureAudio();curDur=sec;endAt=Date.now()+sec*1000;restEl.classList.add("running");restEl.classList.remove("done");
    timeEl.classList.add("run");clearInterval(tick);tick=setInterval(paint,150);paint();}
  function finish(){clearInterval(tick);tick=null;timeEl.textContent="DONE";timeEl.classList.remove("run");
    restEl.classList.remove("running");restEl.classList.add("done");beep();beep(180);beep(360);
    if(window.__notify)window.__notify();setTimeout(function(){restEl.classList.remove("done");timeEl.textContent="0:00";},4000);}
- function stopRest(){clearInterval(tick);tick=null;restEl.classList.remove("running","done");timeEl.classList.remove("run");timeEl.textContent="0:00";}
+ function stopRest(){clearInterval(tick);tick=null;restEl.classList.remove("running","done");timeEl.classList.remove("run");timeEl.textContent="0:00";
+   var rp=byId("rprog");if(rp)rp.style.setProperty("--p",0);}
  byId("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;ensureAudio();
    if(b.id==="stopbtn"){stopRest();return;}selDur=parseInt(b.dataset.s,10);
    document.querySelectorAll("#chips button[data-s]").forEach(function(x){x.classList.toggle("sel",x===b);});startRest(selDur);});
@@ -761,6 +887,57 @@ main{padding:2px 14px 0}
    window.__notify=function(){try{if(Notification.permission==="granted")new Notification("Rest complete 💪",{body:"Back to it — next set."});}catch(e){}};}
  setMode("train");
  if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}
+})();
+</script>
+<script>
+/* v5 feature layer — additive, runs after design's script; independent storage reads */
+(function(){
+ var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ function tstr(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+ function fmtIso(iso){var p=iso.split("-");return MON[parseInt(p[1],10)-1]+" "+parseInt(p[2],10);}
+ var LS={g:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},
+         s:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+ var hist=LS.g("pxb_hist",{}),notes=LS.g("pxb_notes",{});
+ function lastFor(name){var d=hist[name]||{},t=tstr(),ds=Object.keys(d).sort();if(!ds.length)return null;
+   var pick=null,i;for(i=ds.length-1;i>=0;i--){if(ds[i]<t){pick=ds[i];break;}}
+   if(!pick)pick=ds[ds.length-1];var sets=d[pick],best=null;
+   Object.keys(sets).forEach(function(si){var v=sets[si];if(v&&v.w){var w=parseFloat(v.w)||0,r=parseFloat(v.r)||0;
+     if(!best||w>best.w||(w===best.w&&r>best.r))best={w:w,r:r};}});
+   return best?{date:pick,w:best.w,r:best.r}:null;}
+ document.querySelectorAll('.ex[data-ex]').forEach(function(ex){
+   if(!ex.querySelector('input[data-f="w"]'))return; /* skip bodyweight/cardio cards */
+   var name=ex.dataset.ex,exright=ex.querySelector('.exright'),exh=ex.querySelector('.exh'),sets=ex.querySelector('.sets');
+   var nb=document.createElement('button');nb.type='button';nb.className='notebtn';nb.textContent='✎';nb.title='Notes';
+   if(exright)exright.appendChild(nb);
+   var l=lastFor(name);
+   if(l&&exh){var lh=document.createElement('div');lh.className='lasthint';lh.textContent='Last: '+l.w+'×'+l.r+' · '+fmtIso(l.date);exh.appendChild(lh);}
+   var nw=document.createElement('div');nw.className='notewrap';nw.style.display='none';
+   var ni=document.createElement('input');ni.className='noteinp';ni.placeholder='Notes — seat height, grip, cues…';
+   nw.appendChild(ni);if(sets)ex.insertBefore(nw,sets);
+   if(notes[name]){ni.value=notes[name];nw.style.display='block';}
+   ni.addEventListener('change',function(){var v=ni.value.trim();if(v)notes[name]=v;else delete notes[name];LS.s('pxb_notes',notes);});
+   nb.addEventListener('click',function(){var show=nw.style.display!=='block';nw.style.display=show?'block':'none';if(show)ni.focus();});
+ });
+ var train=document.getElementById('mode-train'),days=train&&train.querySelector('.days');
+ if(days){var tools=document.createElement('div');tools.className='tools';
+   tools.innerHTML='<button id="platebtn" type="button">🧮 Plate calculator</button>';
+   days.parentNode.insertBefore(tools,days.nextSibling);}
+ var pc=document.createElement('div');pc.id='pc';
+ pc.innerHTML='<div class="pcbox"><div class="pchd">Plate Calculator</div><div class="pcrow"><label>Target (lb)<input id="pc-target" type="text" inputmode="decimal" placeholder="185"></label><label>Bar<select id="pc-bar"><option value="45">45 lb bar</option><option value="35">35 lb bar</option><option value="25">25 lb bar</option><option value="0">No bar / machine</option></select></label></div><div id="pc-out" class="pcout">Enter a target weight.</div><button class="btn ghost" id="pc-close" type="button">Close</button></div>';
+ document.body.appendChild(pc);
+ function calc(){var t=parseFloat(document.getElementById("pc-target").value),bar=parseFloat(document.getElementById("pc-bar").value),out=document.getElementById("pc-out");
+   if(isNaN(t)){out.textContent="Enter a target weight.";return;}
+   if(t<=bar){out.textContent="Target must be above the bar ("+bar+" lb).";return;}
+   var per=(t-bar)/2,sizes=[45,35,25,10,5,2.5],left=per,parts=[];
+   sizes.forEach(function(s){var n=Math.floor(left/s+1e-9);if(n>0){parts.push(n+"×"+s);left=+((left-n*s).toFixed(2));}});
+   var txt="Per side: "+(parts.length?parts.join("  +  "):"just the bar");
+   if(left>0.01)txt+="  ·  closest: "+(t-2*left)+" lb";out.textContent=txt;}
+ var pb=document.getElementById('platebtn');
+ if(pb)pb.addEventListener('click',function(){pc.style.display='flex';calc();});
+ document.getElementById('pc-close').addEventListener('click',function(){pc.style.display='none';});
+ pc.addEventListener('click',function(e){if(e.target===pc)pc.style.display='none';});
+ document.getElementById('pc-target').addEventListener('input',calc);
+ document.getElementById('pc-bar').addEventListener('change',calc);
 })();
 </script>
 </body>
