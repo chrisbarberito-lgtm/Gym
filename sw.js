@@ -1,4 +1,4 @@
-var V="pxb-v9";
+var V="pxb-v10";
 self.addEventListener("install",function(e){self.skipWaiting();});
 self.addEventListener("activate",function(e){e.waitUntil(self.clients.claim());});
 self.addEventListener("fetch",function(e){var req=e.request;if(req.method!=="GET")return;

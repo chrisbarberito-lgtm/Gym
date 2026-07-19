@@ -299,6 +299,10 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
 .pcpr .psz{flex:1;font-size:15px;font-weight:800;color:var(--ink)}
 .pcpr input{width:88px;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;font-weight:800;text-align:center;padding:9px;font-family:inherit}
 .pcpr input:focus{outline:none;border-color:var(--accent2)}
+.planbadge{background:var(--panel);border:1px solid var(--accent-line);border-radius:13px;padding:11px 14px;margin:4px 0 10px;box-shadow:var(--shadow);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.planbadge .pbtag{font-size:9.5px;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:6px;padding:2px 7px;text-transform:uppercase;letter-spacing:.05em;font-weight:800}
+.planbadge b{font-size:16px;font-weight:900;color:var(--ink);letter-spacing:-.01em}
+.planbadge .pbnote{flex:1 1 100%;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px;text-wrap:pretty}
 /* ---- v7: custom exercises + off-plan meals + coach export ---- */
 .addex{width:100%;background:var(--panel);border:1px dashed var(--line2);color:var(--accent);border-radius:14px;padding:13px;font-size:14px;font-weight:800;font-family:inherit;margin:8px 0 4px;box-shadow:var(--shadow)}
 .addex:active{transform:scale(.99)}
@@ -350,7 +354,7 @@ body{padding-bottom:120px}
 </head>
 <body>
 <div class="masthead">
-  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v9</span>
+  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v10</span>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -670,7 +674,8 @@ body{padding-bottom:120px}
 
 <section class="mode" data-mode="meals" id="mode-meals">
   <div class="sec-hd">Meal Plan</div>
-  <div class="sec-sub">Moderate cut. Protein anchors ~215g; carbs cycle by day. Weigh your food.</div>
+  <div class="planbadge"><span class="pbtag">Current plan</span><b>Moderate Cut</b><span class="pbnote">Set at your Saturday check-in — this is what you prep on Sunday for the week ahead. It only changes when we adjust it.</span></div>
+  <div class="sec-sub">Protein anchors ~215g; carbs cycle by day. Weigh your food.</div>
   <div class="mbanner">
     <div class="mpill"><div class="l">Training day</div><div class="v">215P · 160C · 55F<br>~1,975 cal</div></div>
     <div class="mpill"><div class="l">Rest day</div><div class="v">215P · 120C · 55F<br>~1,835 cal</div></div>
