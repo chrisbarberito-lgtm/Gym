@@ -20,6 +20,7 @@ body{padding:env(safe-area-inset-top) 0 150px;font-size:16px;line-height:1.4}
 .masthead{padding:14px 16px 4px}
 .masthead .t{font-size:15px;font-weight:800}
 .masthead .s{font-size:12.5px;color:var(--muted);margin-top:2px}
+.ver{color:var(--dim);font-weight:700}
 .modes{position:sticky;top:0;z-index:25;background:rgba(14,17,22,.96);backdrop-filter:blur(10px);
  display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
 .modes a{flex:1;text-align:center;text-decoration:none;background:var(--panel);border:1px solid var(--line);
@@ -69,7 +70,6 @@ main{padding:2px 14px 0}
 .cardio h3{margin:0 0 4px;font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em}
 .cardio p{margin:2px 0;color:var(--muted);font-size:14px}
 .steps{text-align:center;font-size:13px;color:var(--dim);margin:10px 0 26px}
-/* meals */
 .mbanner{display:flex;gap:10px;margin:10px 0}
 .mpill{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
 .mpill .l{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
@@ -82,29 +82,34 @@ main{padding:2px 14px 0}
 .meal li b{color:var(--ink)}
 .rd{color:var(--accent2);font-size:12px}
 .swap{color:var(--dim);font-size:12px;font-style:italic}
-/* checkin */
 .ci-form{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 14px 10px;margin:10px 0;display:flex;flex-wrap:wrap;gap:10px}
 .cifld{flex:1 1 44%;display:flex;flex-direction:column;gap:4px}
 .cifld.wide{flex:1 1 100%}
 .cifld span{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
-.cifld input{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;padding:10px;font-family:inherit}
+.cifld input[type=text],.cifld input[type=date]{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--ink);font-size:16px;padding:10px;font-family:inherit}
 .cifld input:focus{outline:none;border-color:var(--accent2)}
+.cifld input[type=file]{background:var(--panel2);border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px;padding:12px;font-family:inherit}
 .cibtns{display:flex;gap:8px;flex:1 1 100%;margin-top:2px}
 .btn{flex:1;border:none;border-radius:12px;padding:13px;font-size:15px;font-weight:800;font-family:inherit}
 .btn.primary{background:var(--accent);color:#06231c}
 .btn.ghost{background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
 .cihist{margin:10px 0}
-.cirow{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:8px 0;display:flex;justify-content:space-between;gap:10px}
-.cirow .a .d{font-size:12px;color:var(--dim)}
-.cirow .a .m{font-size:15px;font-weight:800;margin-top:1px}
-.cirow .a .n{font-size:12px;color:var(--muted);margin-top:2px}
+.cirow{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin:8px 0}
+.cirow .top{display:flex;justify-content:space-between;gap:10px}
+.cirow .d{font-size:12px;color:var(--dim)}
+.cirow .m{font-size:15px;font-weight:800;margin-top:1px}
+.cirow .n{font-size:12px;color:var(--muted);margin-top:2px}
 .cirow .chg{text-align:right;font-size:13px;font-weight:800;white-space:nowrap}
 .chg.dn{color:var(--accent)}.chg.up{color:var(--warn)}
+.thumbs{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.thumb{width:70px;height:90px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel2)}
 .ciempty{color:var(--dim);font-size:13px;text-align:center;padding:16px}
 .tip{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent2);border-radius:10px;padding:11px 13px;color:var(--muted);font-size:13px;margin:10px 0 24px}
 .tip b{color:var(--ink)}
 .hint{margin:2px 16px 0;font-size:12px;color:var(--dim)}
-/* rest bar */
+#lb{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.92);align-items:center;justify-content:center;padding:16px}
+#lb img{max-width:100%;max-height:100%;border-radius:10px}
+#lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top));right:18px;color:#fff;font-size:30px;font-weight:800}
 .rest{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(22,27,34,.98);backdrop-filter:blur(10px);
  border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));transition:background .2s}
 .rest.running{border-top-color:var(--accent)}
@@ -125,14 +130,14 @@ main{padding:2px 14px 0}
 <body>
 <div class="masthead">
   <div class="t">Chris — Coaching</div>
-  <div class="s">Workouts, meals &amp; weekly check-ins. Everything logs to your phone.</div>
+  <div class="s">Workouts, meals &amp; weekly check-ins. Everything logs to your phone. <span class="ver">v3</span></div>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
   <a href="#mode-meals" data-mode="meals">Meals</a>
   <a href="#mode-checkin" data-mode="checkin">Check-in</a>
 </nav>
-<div class="hint">Showing everything. Open in a browser / from your Home Screen for the interactive version.</div>
+<div class="hint">Showing everything. Open from your Home Screen for the interactive version.</div>
 <main>
 
 <section class="mode" data-mode="train" id="mode-train">
@@ -405,9 +410,11 @@ main{padding:2px 14px 0}
 
 <section class="mode" data-mode="checkin" id="mode-checkin">
   <div class="sec-hd">Weekly Check-in</div>
-  <div class="sec-sub">Log your numbers each Saturday. Saved on your phone; tracks your trend.</div>
+  <div class="sec-sub">Log your numbers and progress photos each Saturday. Saved on your phone.</div>
   <div class="ci-form">
     <label class="cifld"><span>Date</span><input type="date" id="ci-date"></label><label class="cifld"><span>Avg weight (lb)</span><input type="text" inputmode="decimal" id="ci-weight" placeholder="—"></label><label class="cifld"><span>Waist (in)</span><input type="text" inputmode="decimal" id="ci-waist" placeholder="—"></label><label class="cifld"><span>Adherence %</span><input type="text" inputmode="numeric" id="ci-adher" placeholder="—"></label><label class="cifld"><span>Avg daily steps</span><input type="text" inputmode="numeric" id="ci-steps" placeholder="—"></label><label class="cifld"><span>Energy (1–10)</span><input type="text" inputmode="numeric" id="ci-energy" placeholder="—"></label><label class="cifld"><span>Sleep (hrs)</span><input type="text" inputmode="decimal" id="ci-sleep" placeholder="—"></label><label class="cifld wide"><span>Note / win / challenge</span><input type="text" id="ci-note" placeholder="one line"></label>
+    <label class="cifld wide"><span>Progress photos (front / side / back)</span>
+      <input type="file" id="ci-photos" accept="image/*" multiple></label>
     <div class="cibtns">
       <button class="btn primary" id="ci-save">Save check-in</button>
       <button class="btn ghost" id="ci-copy">Copy for Coach</button>
@@ -415,10 +422,12 @@ main{padding:2px 14px 0}
   </div>
   <div id="ci-toast" class="tip" style="display:none"></div>
   <div class="cihist" id="ci-hist"></div>
-  <div class="tip"><b>How adjustments happen:</b> log here for your own trend, then send your numbers to Coach in your Saturday check-in (tap “Copy for Coach” to grab them). Coach reads your weight + waist trend and sets next week’s macros — hold, cut, or refeed.</div>
+  <div class="tip"><b>Your photos stay private on your phone</b> — tap one to view it full-size, and swipe back through weeks to see your progress. To have Coach review them, attach them in your Saturday check-in chat. Use <b>Copy for Coach</b> to grab your numbers.</div>
 </section>
 
 </main>
+
+<div id="lb"><span class="x">×</span><img id="lb-img" alt=""></div>
 
 <div class="rest">
   <div class="row">
@@ -439,135 +448,124 @@ main{padding:2px 14px 0}
  function today(){return ORDER[(new Date().getDay()+6)%7];}
  function tstr(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
  var store={g:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return (this.m&&this.m[k])||d;}},
-   s:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){(this.m=this.m||{})[k]=v;}},m:{}};
+   s:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true;}catch(e){(this.m=this.m||{})[k]=v;return false;}},m:{}};
  var weights=store.g("pxb_w",{}), sess=store.g("pxb_s",{date:tstr(),done:{}});
  if(sess.date!==tstr()){sess={date:tstr(),done:{}};store.s("pxb_s",sess);}
+ var byId=function(id){return document.getElementById(id);};
+
+ /* ---- IndexedDB for photos ---- */
+ function idb(){return new Promise(function(res,rej){var r=indexedDB.open("pxb_photos",1);
+   r.onupgradeneeded=function(e){e.target.result.createObjectStore("p");};
+   r.onsuccess=function(e){res(e.target.result);};r.onerror=function(e){rej(e);};});}
+ function idbPut(k,v){return idb().then(function(db){return new Promise(function(res,rej){
+   var t=db.transaction("p","readwrite");t.objectStore("p").put(v,k);t.oncomplete=function(){res();};t.onerror=function(e){rej(e);};});});}
+ function idbGet(k){return idb().then(function(db){return new Promise(function(res,rej){
+   var t=db.transaction("p","readonly");var q=t.objectStore("p").get(k);q.onsuccess=function(){res(q.result);};q.onerror=function(e){rej(e);};});});}
+ function shrink(file){return new Promise(function(res){var img=new Image();var url=URL.createObjectURL(file);
+   img.onload=function(){var max=1000;var s=Math.min(1,max/Math.max(img.width,img.height));
+     var w=Math.round(img.width*s),h=Math.round(img.height*s);var c=document.createElement("canvas");c.width=w;c.height=h;
+     c.getContext("2d").drawImage(img,0,0,w,h);URL.revokeObjectURL(url);
+     try{res(c.toDataURL("image/jpeg",0.7));}catch(e){res(null);}};
+   img.onerror=function(){URL.revokeObjectURL(url);res(null);};img.src=url;});}
 
  /* ---- MODE SWITCH ---- */
  var modeBtns=[].slice.call(document.querySelectorAll(".modes a"));
  var modeSecs=[].slice.call(document.querySelectorAll(".mode"));
- function setMode(m){
-   modeSecs.forEach(function(s){s.style.display=(s.dataset.mode===m)?"block":"none";});
+ function setMode(m){modeSecs.forEach(function(s){s.style.display=(s.dataset.mode===m)?"block":"none";});
    modeBtns.forEach(function(b){b.classList.toggle("active",b.dataset.mode===m);});
-   document.querySelector(".rest").style.display=(m==="train")?"block":"none";
-   window.scrollTo(0,0);
- }
+   document.querySelector(".rest").style.display=(m==="train")?"block":"none";window.scrollTo(0,0);}
  modeBtns.forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();setMode(b.dataset.mode);});});
 
  /* ---- WORKOUT ---- */
- document.querySelectorAll("input[data-f]").forEach(function(inp){
-   var k=inp.dataset.key,f=inp.dataset.f;
+ document.querySelectorAll("input[data-f]").forEach(function(inp){var k=inp.dataset.key,f=inp.dataset.f;
    if(weights[k]&&weights[k][f]!=null)inp.value=weights[k][f];
-   inp.addEventListener("change",function(){weights[k]=weights[k]||{};weights[k][f]=inp.value;store.s("pxb_w",weights);});
- });
- document.querySelectorAll(".chk").forEach(function(c){
-   var k=c.dataset.key; if(sess.done[k])c.checked=true;
-   c.addEventListener("change",function(){
-     if(c.checked)sess.done[k]=true;else delete sess.done[k];
+   inp.addEventListener("change",function(){weights[k]=weights[k]||{};weights[k][f]=inp.value;store.s("pxb_w",weights);});});
+ document.querySelectorAll(".chk").forEach(function(c){var k=c.dataset.key; if(sess.done[k])c.checked=true;
+   c.addEventListener("change",function(){if(c.checked)sess.done[k]=true;else delete sess.done[k];
      store.s("pxb_s",sess); progress(c.closest(".day-block"));
-     if(c.checked&&document.getElementById("autorest").checked)startRest(selDur);
-     var ex=c.closest(".ex");if(ex){var b=ex.querySelectorAll(".chk");ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));}
-   });
- });
- var btns=[].slice.call(document.querySelectorAll(".dbtn"));
+     if(c.checked&&byId("autorest").checked)startRest(selDur);
+     var ex=c.closest(".ex");if(ex){var b=ex.querySelectorAll(".chk");ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));}});});
+ var dbtns=[].slice.call(document.querySelectorAll(".dbtn"));
  var blocks=[].slice.call(document.querySelectorAll(".day-block"));
- function showDay(day){
-   blocks.forEach(function(b){b.style.display=(b.dataset.day===day)?"block":"none";});
-   btns.forEach(function(b){b.classList.toggle("active",b.dataset.day===day);});
-   progress(document.getElementById("day-"+day));
- }
- btns.forEach(function(b){b.classList.toggle("today",b.dataset.day===today());
+ function showDay(day){blocks.forEach(function(b){b.style.display=(b.dataset.day===day)?"block":"none";});
+   dbtns.forEach(function(b){b.classList.toggle("active",b.dataset.day===day);});progress(byId("day-"+day));}
+ dbtns.forEach(function(b){b.classList.toggle("today",b.dataset.day===today());
    b.addEventListener("click",function(e){e.preventDefault();showDay(b.dataset.day);window.scrollTo(0,0);});});
- function progress(block){ if(!block)return; var chks=block.querySelectorAll(".chk"),done=0;
-   chks.forEach(function(c){if(c.checked)done++;});
-   var t=chks.length,bar=block.querySelector(".dbar>i"),txt=block.querySelector(".dptxt");
+ function progress(block){if(!block)return;var chks=block.querySelectorAll(".chk"),done=0;
+   chks.forEach(function(c){if(c.checked)done++;});var t=chks.length,bar=block.querySelector(".dbar>i"),txt=block.querySelector(".dptxt");
    if(bar)bar.style.width=t?(100*done/t)+"%":"0%"; if(txt)txt.innerHTML="<b>"+done+"</b> / "+t+" done";
    block.querySelectorAll(".ex").forEach(function(ex){var b=ex.querySelectorAll(".chk");if(!b.length)return;
-     ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));});
- }
+     ex.classList.toggle("complete",[].every.call(b,function(x){return x.checked;}));});}
  showDay(today());
 
  /* ---- CHECK-IN ---- */
  var log=store.g("pxb_ci",[]);
- var byId=function(id){return document.getElementById(id);};
- function renderCI(){
-   var host=byId("ci-hist"); host.innerHTML="";
-   if(!log.length){host.innerHTML='<div class="ciempty">No check-ins logged yet. Fill in your numbers above and tap Save.</div>';return;}
+ function esc(s){return (s+"").replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];});}
+ function renderCI(){var host=byId("ci-hist");host.innerHTML="";
+   if(!log.length){host.innerHTML='<div class="ciempty">No check-ins yet. Add your numbers (and photos) above and tap Save.</div>';return;}
    var sorted=log.slice().sort(function(a,b){return (a.date||"")<(b.date||"")?1:-1;});
-   sorted.forEach(function(e,i){
-     var prev=sorted[i+1];
-     var chg="";
+   sorted.forEach(function(e,i){var prev=sorted[i+1];var chg="";
      if(prev&&e.weight&&prev.weight){var d=(parseFloat(e.weight)-parseFloat(prev.weight));
        if(!isNaN(d)){var cls=d<0?"dn":(d>0?"up":"");chg='<div class="chg '+cls+'">'+(d>0?"+":"")+d.toFixed(1)+' lb</div>';}}
-     var meta=[]; if(e.weight)meta.push(e.weight+" lb"); if(e.waist)meta.push('waist '+e.waist+'"'); if(e.adher)meta.push(e.adher+"% adh");
-     host.innerHTML+='<div class="cirow"><div class="a"><div class="d">'+(e.date||"—")+'</div>'+
-       '<div class="m">'+(meta.join(" · ")||"—")+'</div>'+(e.note?'<div class="n">'+esc(e.note)+'</div>':'')+'</div>'+chg+'</div>';
-   });
- }
- function esc(s){return (s+"").replace(/[<>&]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];});}
+     var meta=[];if(e.weight)meta.push(e.weight+" lb");if(e.waist)meta.push('waist '+e.waist+'"');if(e.adher)meta.push(e.adher+"% adh");
+     var thumbs="";if(e.photos&&e.photos.length){thumbs='<div class="thumbs">'+e.photos.map(function(id){return '<img class="thumb" data-pid="'+id+'" alt="photo">';}).join("")+'</div>';}
+     host.innerHTML+='<div class="cirow"><div class="top"><div><div class="d">'+(e.date||"—")+'</div>'+
+       '<div class="m">'+(meta.join(" · ")||"—")+'</div>'+(e.note?'<div class="n">'+esc(e.note)+'</div>':'')+'</div>'+chg+'</div>'+thumbs+'</div>';});
+   host.querySelectorAll(".thumb").forEach(function(t){idbGet(t.dataset.pid).then(function(d){if(d)t.src=d;}).catch(function(){});});}
+ function toast(m){var d=byId("ci-toast");d.textContent=m;d.style.display="block";setTimeout(function(){d.style.display="none";},2800);}
  byId("ci-save").addEventListener("click",function(){
-   var e={}; ["date","weight","waist","adher","steps","energy","sleep","note"].forEach(function(k){e[k]=byId("ci-"+k).value.trim();});
+   var save=byId("ci-save");save.disabled=true;var old=save.textContent;save.textContent="Saving…";
+   var e={};["date","weight","waist","adher","steps","energy","sleep","note"].forEach(function(k){e[k]=byId("ci-"+k).value.trim();});
    if(!e.date)e.date=tstr();
-   if(!e.weight&&!e.waist&&!e.note){alert("Add at least your weight or waist first.");return;}
-   log.push(e); store.s("pxb_ci",log); renderCI();
-   ["weight","waist","adher","steps","energy","sleep","note"].forEach(function(k){byId("ci-"+k).value="";});
-   byId("ci-date").value="";
- });
+   var files=byId("ci-photos").files;var jobs=[];e.photos=[];
+   for(var i=0;i<files.length;i++){(function(f){jobs.push(shrink(f).then(function(data){
+     if(data){var id="p_"+Date.now()+"_"+Math.floor(Math.random()*1e6);return idbPut(id,data).then(function(){e.photos.push(id);}).catch(function(){});}}));})(files[i]);}
+   Promise.all(jobs).then(function(){
+     if(!e.weight&&!e.waist&&!e.note&&!e.photos.length){alert("Add at least your weight, waist, or a photo first.");save.disabled=false;save.textContent=old;return;}
+     log.push(e);store.s("pxb_ci",log);renderCI();
+     ["weight","waist","adher","steps","energy","sleep","note"].forEach(function(k){byId("ci-"+k).value="";});
+     byId("ci-date").value="";byId("ci-photos").value="";
+     save.disabled=false;save.textContent=old;toast("Saved "+(e.photos.length?("with "+e.photos.length+" photo"+(e.photos.length>1?"s":"")):"")+".");});});
  byId("ci-copy").addEventListener("click",function(){
    if(!log.length){alert("Log a check-in first, then copy it to send to Coach.");return;}
    var e=log.slice().sort(function(a,b){return (a.date||"")<(b.date||"")?1:-1;})[0];
-   var t="Weekly check-in ("+(e.date||"")+")\n"+
-     "Avg weight: "+(e.weight||"-")+" lb\nWaist: "+(e.waist||"-")+" in\nAdherence: "+(e.adher||"-")+"%\n"+
-     "Avg steps: "+(e.steps||"-")+"\nEnergy: "+(e.energy||"-")+"/10\nSleep: "+(e.sleep||"-")+" hrs\nNote: "+(e.note||"-");
-   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast("Copied — paste into your Saturday check-in with Coach.");},function(){alert(t);});}
-   else{alert(t);}
- });
- function toast(m){var d=byId("ci-toast");d.textContent=m;d.style.display="block";setTimeout(function(){d.style.display="none";},2600);}
+   var t="Weekly check-in ("+(e.date||"")+")\nAvg weight: "+(e.weight||"-")+" lb\nWaist: "+(e.waist||"-")+" in\nAdherence: "+(e.adher||"-")+"%\nAvg steps: "+(e.steps||"-")+"\nEnergy: "+(e.energy||"-")+"/10\nSleep: "+(e.sleep||"-")+" hrs\nNote: "+(e.note||"-")+(e.photos&&e.photos.length?"\n(+"+e.photos.length+" progress photos — attaching separately)":"");
+   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast("Copied — paste into your Saturday check-in, and attach your photos there.");},function(){alert(t);});}else{alert(t);}});
  renderCI();
+ /* lightbox */
+ var lb=byId("lb");
+ document.addEventListener("click",function(e){var t=e.target.closest(".thumb");
+   if(t&&t.src){byId("lb-img").src=t.src;lb.style.display="flex";}
+   else if(e.target.closest("#lb")){lb.style.display="none";byId("lb-img").src="";}});
 
- /* ---- REST TIMER (hardened) ---- */
+ /* ---- REST TIMER ---- */
  var selDur=90,endAt=0,tick=null,ac=null;
- var restEl=document.querySelector(".rest"), timeEl=byId("rtime");
- restEl.style.display="block";
- var hint=document.querySelector(".hint"); if(hint)hint.style.display="none";
+ var restEl=document.querySelector(".rest"),timeEl=byId("rtime");
+ restEl.style.display="block";var hint=document.querySelector(".hint");if(hint)hint.style.display="none";
  function fmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2);}
  function ensureAudio(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();}catch(e){}}
- function paint(){var left=(endAt-Date.now())/1000;timeEl.textContent=fmt(left>0?left:0);
-   if(left<=0){finish();}}
- function startRest(sec){ensureAudio();endAt=Date.now()+sec*1000;
-   restEl.classList.add("running");restEl.classList.remove("done");timeEl.classList.add("run");
-   clearInterval(tick);tick=setInterval(paint,150);paint();}
+ function paint(){var left=(endAt-Date.now())/1000;timeEl.textContent=fmt(left>0?left:0);if(left<=0)finish();}
+ function startRest(sec){ensureAudio();endAt=Date.now()+sec*1000;restEl.classList.add("running");restEl.classList.remove("done");
+   timeEl.classList.add("run");clearInterval(tick);tick=setInterval(paint,150);paint();}
  function finish(){clearInterval(tick);tick=null;timeEl.textContent="DONE";timeEl.classList.remove("run");
-   restEl.classList.remove("running");restEl.classList.add("done");
-   beep();beep(180);beep(360);
-   if(window.__notify)window.__notify();
-   setTimeout(function(){restEl.classList.remove("done");timeEl.textContent="0:00";},4000);}
- function stopRest(){clearInterval(tick);tick=null;restEl.classList.remove("running","done");
-   timeEl.classList.remove("run");timeEl.textContent="0:00";}
- byId("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
-   ensureAudio();
-   if(b.id==="stopbtn"){stopRest();return;}
-   selDur=parseInt(b.dataset.s,10);
-   document.querySelectorAll("#chips button[data-s]").forEach(function(x){x.classList.toggle("sel",x===b);});
-   startRest(selDur);});
+   restEl.classList.remove("running");restEl.classList.add("done");beep();beep(180);beep(360);
+   if(window.__notify)window.__notify();setTimeout(function(){restEl.classList.remove("done");timeEl.textContent="0:00";},4000);}
+ function stopRest(){clearInterval(tick);tick=null;restEl.classList.remove("running","done");timeEl.classList.remove("run");timeEl.textContent="0:00";}
+ byId("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;ensureAudio();
+   if(b.id==="stopbtn"){stopRest();return;}selDur=parseInt(b.dataset.s,10);
+   document.querySelectorAll("#chips button[data-s]").forEach(function(x){x.classList.toggle("sel",x===b);});startRest(selDur);});
  function beep(delay){delay=delay||0;try{ensureAudio();if(!ac)return;var t=ac.currentTime+delay/1000;
-   var o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);
-   o.type="sine";o.frequency.value=880;g.gain.setValueAtTime(.0001,t);
-   g.gain.exponentialRampToValueAtTime(.5,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.35);
+   var o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.type="sine";o.frequency.value=880;
+   g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.5,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.35);
    o.start(t);o.stop(t+.36);}catch(e){}}
-
- /* ---- foreground notification (works while app is open) ---- */
  var notifBox=byId("notif");
- if("Notification" in window){
-   notifBox.style.display="flex";
-   byId("notif-toggle").addEventListener("change",function(){
-     if(this.checked){Notification.requestPermission().then(function(p){
-       if(p!=="granted"){byId("notif-toggle").checked=false;}});}
-   });
-   window.__notify=function(){try{if(Notification.permission==="granted"){
-     new Notification("Rest complete 💪",{body:"Back to it — next set."});}}catch(e){}};
- }
+ if("Notification" in window){notifBox.style.display="flex";
+   byId("notif-toggle").addEventListener("change",function(){if(this.checked){Notification.requestPermission().then(function(p){if(p!=="granted")byId("notif-toggle").checked=false;});}});
+   window.__notify=function(){try{if(Notification.permission==="granted")new Notification("Rest complete 💪",{body:"Back to it — next set."});}catch(e){}};}
  setMode("train");
+
+ /* ---- service worker (auto-update) ---- */
+ if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}
 })();
 </script>
 </body>
