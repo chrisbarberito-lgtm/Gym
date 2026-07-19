@@ -312,6 +312,9 @@ a{color:var(--accent2)}a:hover{color:var(--accent)}
 .ex.complete .exdone{color:var(--accent);background:var(--accent-soft);border-color:var(--accent-line)}
 .exchev{color:var(--dim);font-size:12px;font-weight:900;transition:transform .2s;padding-left:2px}
 .ex.collapsed .exchev{transform:rotate(-90deg)}
+/* ---- v12: time estimates ---- */
+.extime{font-size:10px;font-weight:800;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:2px 6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.daytime{font-size:11.5px;font-weight:800;color:var(--warn);white-space:nowrap;font-variant-numeric:tabular-nums}
 /* ---- v7: custom exercises + off-plan meals + coach export ---- */
 .addex{width:100%;background:var(--panel);border:1px dashed var(--line2);color:var(--accent);border-radius:14px;padding:13px;font-size:14px;font-weight:800;font-family:inherit;margin:8px 0 4px;box-shadow:var(--shadow)}
 .addex:active{transform:scale(.99)}
@@ -363,7 +366,7 @@ body{padding-bottom:120px}
 </head>
 <body>
 <div class="masthead">
-  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v11</span>
+  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v12</span>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -1185,6 +1188,55 @@ body{padding-bottom:120px}
  try{var mo=new MutationObserver(function(muts){muts.forEach(function(m){[].forEach.call(m.addedNodes,function(n){
    if(n.nodeType===1){if(n.classList&&n.classList.contains('ex'))decorate(n);
      if(n.querySelectorAll)[].forEach.call(n.querySelectorAll('.ex'),decorate);}});});});
+   mo.observe(document.body,{childList:true,subtree:true});}catch(e){}
+})();
+</script>
+<script>
+/* v12 layer: estimated time per exercise (all sets) + per day (incl. cardio).
+   Derived from sets, rep ranges, and Barb's rest periods. Additive. */
+(function(){
+ var WORK=45,SETUP=60; /* seconds: work per set, setup/transition per exercise */
+ function nums(s){var m=(s||'').match(/\d+(\.\d+)?/g);return m?m.map(Number):[];}
+ function estEx(ex,circuit){
+   var e=ex.querySelector('.ext'),ext=e?e.textContent:'';
+   var sets=ex.querySelectorAll('.setrow').length||1;
+   if(/min/i.test(ext)){var n=nums(ext);var d=n.length>=2?(n[0]+n[1])/2:(n[0]||10);return Math.max(1,Math.round(d));}
+   if(/sec/i.test(ext)){var n=nums(ext);var sv=n.length?n[n.length-1]:60;var rest=circuit?25:35;return Math.max(1,Math.round((sets*(sv+rest)-rest)/60));}
+   var rep=ext.indexOf('×')>=0?ext.split('×').pop():ext;
+   var rest;
+   if(circuit)rest=35;
+   else if(/fail/i.test(rep))rest=60;
+   else{var r=nums(rep);var R=r.length?r[0]:12;rest=R<=10?100:(R<=15?75:55);}
+   var work=/\/\s*(side|leg)|step/i.test(rep)?WORK+15:WORK;
+   return Math.max(1,Math.round((sets*(work+rest)-rest+SETUP)/60));
+ }
+ function chipEx(ex,circuit){
+   var right=ex.querySelector('.exright');var m=estEx(ex,circuit);if(!right)return m;
+   var c=ex.querySelector('.extime');
+   if(!c){c=document.createElement('span');c.className='extime';var extEl=right.querySelector('.ext');
+     if(extEl&&extEl.nextSibling)right.insertBefore(c,extEl.nextSibling);else right.appendChild(c);}
+   c.textContent='~'+m+' min';return m;
+ }
+ function recompute(block){
+   if(!block)return;
+   var noteEl=block.querySelector('.note');
+   var circuit=/circuit/i.test((noteEl&&noteEl.textContent)||'');
+   var exs=block.querySelectorAll('.ex'),sum=0,hasW=false;
+   exs.forEach(function(ex){sum+=chipEx(ex,circuit);if(ex.querySelector('input[data-f="w"]'))hasW=true;});
+   var cardio=0,cEl=block.querySelector('.cardio');
+   if(cEl){var mm=cEl.textContent.match(/(\d+)\s*min/);if(mm)cardio=parseInt(mm[1],10);}
+   var total=Math.round((sum+cardio+(hasW?5:0))/5)*5;
+   var prog=block.querySelector('.dprog');
+   if(prog){var d=prog.querySelector('.daytime');
+     if(!d){d=document.createElement('span');d.className='daytime';prog.appendChild(d);}
+     d.textContent='⏱ ~'+total+' min';}
+ }
+ document.querySelectorAll('.day-block').forEach(recompute);
+ try{var mo=new MutationObserver(function(muts){var days=[];
+   muts.forEach(function(m){[].forEach.call(m.addedNodes,function(n){
+     if(n.nodeType===1){var ex=(n.classList&&n.classList.contains('ex'))?n:(n.querySelector&&n.querySelector('.ex'));
+       if(ex){var db=ex.closest('.day-block');if(db&&days.indexOf(db)<0)days.push(db);}}});});
+   days.forEach(recompute);});
    mo.observe(document.body,{childList:true,subtree:true});}catch(e){}
 })();
 </script>
