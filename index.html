@@ -366,7 +366,7 @@ body{padding-bottom:120px}
 </head>
 <body>
 <div class="masthead">
-  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v13</span>
+  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v14</span>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -1252,6 +1252,36 @@ body{padding-bottom:120px}
  document.addEventListener('visibilitychange',check);
  window.addEventListener('pageshow',check);
  window.addEventListener('focus',check);
+})();
+</script>
+<script>
+/* v14 layer: only show inputs for THIS day's date. Earlier layers pre-filled each set with the
+   last value ever entered for that slot (pxb_w / latest history), which made last week's numbers
+   appear in the new week. Override: fill each input from history for the CURRENT date only
+   (so today's in-progress entries persist across reloads), else leave it blank. The "Last: wt×reps"
+   hint still shows the previous session as the target. Runs after all other layers. */
+(function(){
+ var ORDER=["mon","tue","wed","thu","fri","sat","sun"];
+ function isoOf(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+ function isoForDay(day){var i=ORDER.indexOf(day);var t=new Date();var ti=(t.getDay()+6)%7;return isoOf(new Date(t.getFullYear(),t.getMonth(),t.getDate()+(i-ti)));}
+ function g(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):{};}catch(e){return {};}}
+ function apply(){
+   var hist=g("pxb_hist"),chist=g("pxb_chist");
+   document.querySelectorAll('input[data-f]').forEach(function(inp){
+     var day=inp.dataset.day,si=inp.dataset.si,f=inp.dataset.f,name=inp.dataset.ex;
+     if(!day||si==null||!name)return;
+     var custom=(inp.dataset.key||'').indexOf('cust_')===0;
+     var src=custom?chist:hist;var dt=isoForDay(day);
+     var v=(src[name]&&src[name][dt]&&src[name][dt][si])?src[name][dt][si][f]:undefined;
+     inp.value=(v!=null&&v!=='')?v:'';
+   });
+ }
+ apply();
+ /* re-apply for custom cards added after load */
+ try{var mo=new MutationObserver(function(m){var hit=false;m.forEach(function(x){[].forEach.call(x.addedNodes,function(n){
+   if(n.nodeType===1&&((n.classList&&n.classList.contains('ex'))||(n.querySelector&&n.querySelector('.ex'))))hit=true;});});
+   if(hit)apply();});
+  mo.observe(document.body,{childList:true,subtree:true});}catch(e){}
 })();
 </script>
 </body>
