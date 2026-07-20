@@ -366,7 +366,7 @@ body{padding-bottom:120px}
 </head>
 <body>
 <div class="masthead">
-  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v12</span>
+  <span class="mini">Chris <b>Coaching</b></span><span class="ver">v13</span>
 </div>
 <nav class="modes">
   <a href="#mode-train" data-mode="train" class="active">Train</a>
@@ -1238,6 +1238,20 @@ body{padding-bottom:120px}
        if(ex){var db=ex.closest('.day-block');if(db&&days.indexOf(db)<0)days.push(db);}}});});
    days.forEach(recompute);});
    mo.observe(document.body,{childList:true,subtree:true});}catch(e){}
+})();
+</script>
+<script>
+/* v13 layer: refresh on resume across a date rollover. iOS keeps the home-screen web app
+   suspended in the background; on resume it doesn't re-run, so week dates / "today" / the
+   daily checkbox reset can go stale. When the app becomes visible again on a NEW calendar
+   day, reload so everything recomputes fresh. Same-day resumes are left untouched. */
+(function(){
+ function tstr(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+ var loaded=tstr();
+ function check(){ if(document.visibilityState==='visible' && tstr()!==loaded){ loaded=tstr(); try{location.reload();}catch(e){} } }
+ document.addEventListener('visibilitychange',check);
+ window.addEventListener('pageshow',check);
+ window.addEventListener('focus',check);
 })();
 </script>
 </body>
